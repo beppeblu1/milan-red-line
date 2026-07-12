@@ -53,6 +53,7 @@ export default function Home() {
                   title={apt.name}
                   subtitle={apt.description}
                   image={apt.image}
+                  slug={apt.slug}
                 />
               ))}
             </div>
