@@ -5,19 +5,18 @@ type ApartmentCardProps = {
   title: string;
   subtitle: string;
   image: string;
+  slug: string;
 };
 
 export default function ApartmentCard({
   title,
   subtitle,
   image,
+  slug,
 }: ApartmentCardProps) {
-  const slug = title.toLowerCase();
-
   return (
-    <Link href={`/${slug}`}>
-      <div className="overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl cursor-pointer">
-
+    <Link href={`/apartments/${slug}`}>
+      <div className="cursor-pointer overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl">
         <Image
           src={image}
           alt={title}
@@ -27,7 +26,6 @@ export default function ApartmentCard({
         />
 
         <div className="p-8">
-
           <h2 className="text-2xl font-semibold text-zinc-900">
             {title}
           </h2>
@@ -39,9 +37,7 @@ export default function ApartmentCard({
           <div className="mt-8 inline-flex rounded-xl bg-red-600 px-5 py-3 font-semibold text-white transition hover:bg-red-700">
             View Apartment →
           </div>
-
         </div>
-
       </div>
     </Link>
   );
