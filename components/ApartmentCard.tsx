@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 type ApartmentCardProps = {
   title: string;
@@ -11,33 +12,37 @@ export default function ApartmentCard({
   subtitle,
   image,
 }: ApartmentCardProps) {
+  const slug = title.toLowerCase();
+
   return (
-    <div className="overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl">
+    <Link href={`/${slug}`}>
+      <div className="overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl cursor-pointer">
 
-      <Image
-        src={image}
-        alt={title}
-        width={800}
-        height={600}
-        className="h-64 w-full object-cover"
-      />
+        <Image
+          src={image}
+          alt={title}
+          width={800}
+          height={600}
+          className="h-64 w-full object-cover"
+        />
 
-      <div className="p-8">
+        <div className="p-8">
 
-        <h2 className="text-2xl font-semibold text-zinc-900">
-          {title}
-        </h2>
+          <h2 className="text-2xl font-semibold text-zinc-900">
+            {title}
+          </h2>
 
-        <p className="mt-3 text-zinc-600 leading-7">
-          {subtitle}
-        </p>
+          <p className="mt-3 leading-7 text-zinc-600">
+            {subtitle}
+          </p>
 
-        <button className="mt-8 rounded-xl bg-red-600 px-5 py-3 font-semibold text-white transition hover:bg-red-700">
-          View Apartment
-        </button>
+          <div className="mt-8 inline-flex rounded-xl bg-red-600 px-5 py-3 font-semibold text-white transition hover:bg-red-700">
+            View Apartment →
+          </div>
+
+        </div>
 
       </div>
-
-    </div>
+    </Link>
   );
 }
