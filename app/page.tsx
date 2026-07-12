@@ -1,41 +1,63 @@
 import ApartmentCard from "@/components/ApartmentCard";
 import Header from "@/components/Header";
+import { apartments } from "@/data/apartments";
 
 export default function Home() {
   return (
     <>
       <Header />
 
-      <main className="min-h-screen bg-white flex items-center justify-center px-6">
-        <div className="max-w-3xl">
-          <div className="mb-8 h-1 w-24 bg-red-600 rounded-full"></div>
+      <main>
+        {/* Hero */}
+        <section className="bg-white px-6 py-24 md:py-32">
+          <div className="mx-auto max-w-3xl text-center md:text-left">
+            <div className="mx-auto mb-8 h-1 w-16 rounded-full bg-red-600 md:mx-0" />
 
-          <h1 className="text-6xl font-bold tracking-tight text-zinc-900">
-            Milan Red Line
-          </h1>
+            <h1 className="text-4xl font-bold tracking-tight text-zinc-900 sm:text-5xl md:text-6xl">
+              Two apartments. One direct line to Milan.
+            </h1>
 
-          <p className="mt-6 text-xl leading-8 text-zinc-600">
-            Comfortable apartments in Sesto San Giovanni, just a short walk from
-            the M1 Red Line and only minutes from the heart of Milan.
-          </p>
+            <p className="mt-6 text-lg leading-8 text-zinc-600 sm:text-xl">
+              Comfortable stays in Sesto San Giovanni — just a short walk from
+              the M1 Red Line and minutes from the heart of Milan.
+            </p>
 
-          <button className="mt-10 rounded-xl bg-red-600 px-6 py-3 font-semibold text-white transition hover:bg-red-700">
-            Explore Apartments
-          </button>
-          <section className="mx-auto mt-24 grid max-w-6xl gap-8 md:grid-cols-2">
+            <a
+              href="#apartments"
+              className="mt-10 inline-block rounded-xl bg-red-600 px-6 py-3 font-semibold text-white transition hover:bg-red-700"
+            >
+              Explore Apartments
+            </a>
+          </div>
+        </section>
 
-  <ApartmentCard
-    title="Red Line One"
-    subtitle="Bright apartment just 10 minutes from Sesto Rondò."
-  />
+        {/* Apartments */}
+        <section
+          id="apartments"
+          className="border-t border-zinc-100 bg-zinc-50 px-6 py-24"
+        >
+          <div className="mx-auto max-w-6xl">
+            <h2 className="text-3xl font-bold tracking-tight text-zinc-900">
+              Our Apartments
+            </h2>
 
-  <ApartmentCard
-    title="Red Line Two"
-    subtitle="Comfortable stay close to Milan and the M1 Metro."
-  />
+            <p className="mt-3 max-w-2xl text-zinc-600">
+              Two thoughtfully designed spaces, both with easy metro access to
+              Milan city centre.
+            </p>
 
-</section>
-        </div>
+            <div className="mt-12 grid gap-8 md:grid-cols-2">
+              {apartments.map((apt) => (
+                <ApartmentCard
+                  key={apt.id}
+                  title={apt.name}
+                  subtitle={apt.description}
+                  image={apt.image}
+                />
+              ))}
+            </div>
+          </div>
+        </section>
       </main>
     </>
   );
