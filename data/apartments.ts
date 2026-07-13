@@ -11,7 +11,7 @@ export const apartments: Apartment[] = [
     shortDescription:
       "Bright and comfortable apartment just a few minutes from the M1 Red Line.",
     longDescription:
-      "A modern apartment in Sesto San Giovanni, perfect for visiting Milan while enjoying a quiet residential area.",
+      "A modern apartment in Sesto San Giovanni, perfect for visiting Milan while enjoying a quiet residential area. Ideal for couples, families and business travellers looking for comfort and quick access to Milan.",
 
     // Legal
     cin: "TO_BE_ADDED",
@@ -51,6 +51,10 @@ export const apartments: Apartment[] = [
     coverImage: "/images/arco/cover.jpg",
     gallery: [
       "/images/arco/cover.jpg",
+      "/images/arco/living.jpg",
+      "/images/arco/kitchen.jpg",
+      "/images/arco/bedroom.jpg",
+      "/images/arco/bathroom.jpg",
     ],
 
     // Visibility
@@ -67,7 +71,7 @@ export const apartments: Apartment[] = [
     shortDescription:
       "Comfortable apartment with balcony and quick access to Milan city centre.",
     longDescription:
-      "A welcoming apartment located near the M1 Red Line, ideal for business trips and city breaks.",
+      "A welcoming apartment in Sesto San Giovanni, just a short walk from the M1 Red Line. Perfect for city breaks, holidays and business stays thanks to its strategic location.",
 
     // Legal
     cin: "TO_BE_ADDED",
@@ -107,6 +111,10 @@ export const apartments: Apartment[] = [
     coverImage: "/images/gramsci/cover.jpg",
     gallery: [
       "/images/gramsci/cover.jpg",
+      "/images/gramsci/living.jpg",
+      "/images/gramsci/kitchen.jpg",
+      "/images/gramsci/bedroom.jpg",
+      "/images/gramsci/bathroom.jpg",
     ],
 
     // Visibility
