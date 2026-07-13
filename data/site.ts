@@ -1,30 +1,26 @@
 export const site = {
     name: "Milan Red Line",
   
-    shortName: "MRL",
+    slogan: "Feel at home in Milan.",
   
-    tagline: "Comfortable apartments near the M1 Red Line",
+    tagline: "One direct line to the city center.",
   
     description:
-      "Modern apartments in Sesto San Giovanni, just minutes from Milan by metro.",
+      "Comfortable apartments in Sesto San Giovanni, just minutes from Milan city centre and the M1 Red Line.",
   
-    city: "Sesto San Giovanni",
+    url: "https://milanredline.com",
   
-    country: "Italy",
+    locale: "en",
   
     email: "info@milanredline.com",
+
+    whatsapp: "+39 328 4239541",
   
-    phone: "",
+    phone: "+39 328 4239541",
   
-    whatsapp: "",
+    address: "Sesto San Giovanni, Milan, Italy",
   
-    airbnb: "",
-  
-    booking: "",
-  
-    instagram: "",
+    instagram: "milanredline",
   
     facebook: "",
-  
-    copyright: `© ${new Date().getFullYear()} Milan Red Line`,
   };

@@ -11,13 +11,13 @@ export default function LocationSection() {
           </div>
 
           <h2 className="mt-6 text-4xl font-bold text-zinc-900">
-            Stay close to Milan without staying in the city centre.
+            Enjoy Milan. Sleep in peace.
           </h2>
 
           <p className="mt-6 text-lg leading-8 text-zinc-600">
             Both apartments are located in Sesto San Giovanni, just a short walk
-            from the M1 Red Line. Reach Milan quickly while enjoying a quieter
-            neighbourhood.
+            from the M1 Red Line. Enjoy the energy of Milan during the day and
+            relax in a quieter neighbourhood in the evening.
           </p>
 
           <div className="mt-10 space-y-6">
@@ -44,7 +44,7 @@ export default function LocationSection() {
                 </h3>
 
                 <p className="text-zinc-600">
-                  Around 20 minutes by metro.
+                  About 20 minutes by metro.
                 </p>
               </div>
             </div>
@@ -54,29 +54,44 @@ export default function LocationSection() {
 
               <div>
                 <h3 className="font-semibold text-zinc-900">
-                  Privacy first
+                  Quiet residential area
                 </h3>
 
                 <p className="text-zinc-600">
-                  The exact address is shared after booking.
+                  Restaurants, cafés, supermarkets and everyday services are all
+                  within walking distance.
                 </p>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Placeholder mappa */}
-        <div className="flex aspect-square items-center justify-center rounded-3xl border border-zinc-200 bg-white shadow-sm">
-          <div className="text-center">
-            <MapPin className="mx-auto h-12 w-12 text-red-600" />
+        {/* Google Maps */}
+        <div className="overflow-hidden rounded-3xl border border-zinc-200 bg-white shadow-sm">
+          <iframe
+            title="Apartment locations"
+            src="https://www.google.com/maps?q=Via%20Giovanna%20d%27Arco%20200%2C%20Sesto%20San%20Giovanni&z=14&output=embed"
+            width="100%"
+            height="500"
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            className="border-0"
+          />
 
-            <h3 className="mt-4 text-xl font-semibold text-zinc-900">
-              Interactive map coming soon
-            </h3>
+          <div className="border-t border-zinc-200 bg-white p-6">
+            <div className="space-y-2 text-sm text-zinc-600">
+              <p>
+                📍 Arco Apartment — Via Giovanna d'Arco area
+              </p>
 
-            <p className="mt-2 text-zinc-600">
-              This area will display the apartment location.
-            </p>
+              <p>
+                📍 Gramsci Apartment — Viale Gramsci area
+              </p>
+
+              <p>
+                🚇 M1 Red Line – Sesto Rondò
+              </p>
+            </div>
           </div>
         </div>
       </div>

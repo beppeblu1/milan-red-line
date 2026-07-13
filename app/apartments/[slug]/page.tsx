@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 import BackButton from "@/components/BackButton";
@@ -8,12 +9,43 @@ import ApartmentAmenities from "@/components/ApartmentAmenities";
 import LocationHighlight from "@/components/LocationHighlight";
 
 import { apartments } from "@/data/apartments";
+import { site } from "@/data/site";
 
 type PageProps = {
   params: Promise<{
     slug: string;
   }>;
 };
+
+export async function generateMetadata({
+  params,
+}: PageProps): Promise<Metadata> {
+  const { slug } = await params;
+
+  const apartment = apartments.find((apt) => apt.slug === slug);
+
+  if (!apartment) {
+    return {
+      title: "Apartment not found",
+    };
+  }
+
+  return {
+    title: apartment.name,
+    description: apartment.shortDescription,
+
+    openGraph: {
+      title: apartment.name,
+      description: apartment.shortDescription,
+      url: `${site.url}/apartments/${apartment.slug}`,
+      images: [
+        {
+          url: apartment.coverImage,
+        },
+      ],
+    },
+  };
+}
 
 export default async function ApartmentPage({ params }: PageProps) {
   const { slug } = await params;

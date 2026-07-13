@@ -8,27 +8,27 @@ import {
   const features = [
     {
       icon: Train,
-      title: "Close to the M1 Red Line",
+      title: "One direct line to Milan",
       description:
-        "Reach Milan city centre quickly with the nearby metro.",
+        "Just a short walk to the M1 Red Line with direct connections to the city centre.",
     },
     {
       icon: House,
-      title: "Entire apartment",
+      title: "Feel at home",
       description:
-        "Enjoy complete privacy in a fully furnished apartment.",
+        "Bright, fully equipped apartments designed for comfort and privacy.",
     },
     {
       icon: Wifi,
       title: "Fast Wi-Fi",
       description:
-        "Reliable high-speed internet for work and leisure.",
+        "Stay connected whether you're working remotely or planning your next day in Milan.",
     },
     {
       icon: KeyRound,
-      title: "Self check-in",
+      title: "Easy arrival",
       description:
-        "Flexible arrival with independent check-in.",
+        "Flexible self check-in lets you arrive whenever it suits you.",
     },
   ];
   
@@ -36,26 +36,29 @@ import {
     return (
       <section className="bg-white px-6 py-24">
         <div className="mx-auto max-w-6xl">
-          <div className="max-w-2xl">
+          <div className="mx-auto max-w-2xl text-center">
             <h2 className="text-3xl font-bold text-zinc-900">
-              Why choose Milan Red Line?
+              Why guests love Milan Red Line
             </h2>
   
-            <p className="mt-4 text-lg text-zinc-600">
-              Everything you need for a comfortable stay just outside Milan.
+            <p className="mt-4 text-lg leading-8 text-zinc-600">
+              Comfort, convenience and easy access to Milan — everything you need
+              for a relaxing stay.
             </p>
           </div>
   
-          <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-14 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
             {features.map((feature) => {
               const Icon = feature.icon;
   
               return (
                 <div
                   key={feature.title}
-                  className="rounded-2xl border border-zinc-200 bg-white p-8 shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
+                  className="rounded-2xl border border-zinc-200 bg-white p-8 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl"
                 >
-                  <Icon className="h-8 w-8 text-red-600" />
+                  <div className="flex h-14 w-14 items-center justify-center rounded-full bg-red-50">
+                    <Icon className="h-7 w-7 text-red-600" />
+                  </div>
   
                   <h3 className="mt-6 text-xl font-semibold text-zinc-900">
                     {feature.title}

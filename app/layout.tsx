@@ -5,6 +5,7 @@ import "./globals.css";
 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { site } from "@/data/site";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -17,12 +18,57 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(site.url),
+
   title: {
-    default: "Milan Red Line",
-    template: "%s | Milan Red Line",
+    default: site.name,
+    template: `%s | ${site.name}`,
   },
-  description:
-    "Comfortable apartments in Sesto San Giovanni, just minutes from Milan and the M1 Red Line.",
+
+  description: site.description,
+
+  applicationName: site.name,
+
+  keywords: [
+    "Milan apartment",
+    "Apartment Milan",
+    "Sesto San Giovanni",
+    "M1 Red Line",
+    "Holiday apartment Milan",
+    "Vacation rental Milan",
+    "Business travel Milan",
+    "Accommodation Milan",
+  ],
+
+  authors: [
+    {
+      name: site.name,
+    },
+  ],
+
+  creator: site.name,
+
+  publisher: site.name,
+
+  openGraph: {
+    type: "website",
+    locale: "en_GB",
+    url: site.url,
+    title: site.name,
+    description: site.description,
+    siteName: site.name,
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: site.name,
+    description: site.description,
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({
@@ -38,9 +84,7 @@ export default function RootLayout({
       <body className="flex min-h-screen flex-col bg-white text-zinc-900">
         <Header />
 
-        <main className="flex-1">
-          {children}
-        </main>
+        <main className="flex-1">{children}</main>
 
         <Footer />
       </body>

@@ -7,8 +7,12 @@ import Card from "@/components/ui/Card";
 import Container from "@/components/ui/Container";
 import Section from "@/components/ui/Section";
 
-export const metadata = {
-  title: "Contact | Milan Red Line",
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Contact",
+  description:
+    "Get in touch with Milan Red Line for availability, apartment information and booking enquiries.",
 };
 
 export default function ContactPage() {
