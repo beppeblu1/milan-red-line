@@ -21,9 +21,15 @@ export default async function ApartmentPage({ params }: PageProps) {
     <main className="bg-white">
       <ApartmentHero
         title={apartment.name}
-        subtitle={apartment.description}
-        image={apartment.image}
+        subtitle={apartment.tagline}
+        image={apartment.coverImage}
       />
+
+      <section className="mx-auto max-w-6xl px-6 pb-16">
+        <p className="max-w-3xl text-lg leading-8 text-zinc-700">
+          {apartment.longDescription}
+        </p>
+      </section>
     </main>
   );
 }
