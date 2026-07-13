@@ -42,9 +42,12 @@ export default function ContactPage() {
               Email
             </h2>
 
-            <p className="mt-3 text-zinc-600">
-              {site.email}
-            </p>
+            <a
+  href={`mailto:${site.email}`}
+  className="mt-3 inline-flex text-red-600 font-medium hover:underline"
+>
+  Send an email
+</a>
           </Card>
 
           <Card>

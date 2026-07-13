@@ -12,7 +12,7 @@ export const site = {
   
     locale: "en",
   
-    email: "info@milanredline.com",
+    email: "beppeblu@gmail.com",
 
     whatsapp: "+39 328 4239541",
   
