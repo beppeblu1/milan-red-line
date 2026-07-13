@@ -1,5 +1,7 @@
 import { notFound } from "next/navigation";
 import ApartmentHero from "@/components/ApartmentHero";
+import ApartmentInfo from "@/components/ApartmentInfo";
+import LocationHighlight from "@/components/LocationHighlight";
 import { apartments } from "@/data/apartments";
 
 type PageProps = {
@@ -25,10 +27,29 @@ export default async function ApartmentPage({ params }: PageProps) {
         image={apartment.coverImage}
       />
 
-      <section className="mx-auto max-w-6xl px-6 pb-16">
-        <p className="max-w-3xl text-lg leading-8 text-zinc-700">
-          {apartment.longDescription}
-        </p>
+      <ApartmentInfo
+        guests={apartment.guests}
+        beds={apartment.beds}
+        bathrooms={apartment.bathrooms}
+        squareMeters={apartment.squareMeters}
+      />
+
+      <LocationHighlight
+        metroStation={apartment.metroStation}
+        metroMinutes={apartment.metroMinutes}
+        city={apartment.city}
+      />
+
+      <section className="mx-auto max-w-6xl px-6 py-16">
+        <div className="max-w-3xl">
+          <h2 className="text-3xl font-bold text-zinc-900">
+            About this apartment
+          </h2>
+
+          <p className="mt-6 text-lg leading-8 text-zinc-700">
+            {apartment.longDescription}
+          </p>
+        </div>
       </section>
     </main>
   );
