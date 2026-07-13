@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { Mail, MessageCircle } from "lucide-react";
 
+import { site } from "@/data/site";
+
 export default function Footer() {
   return (
     <footer className="mt-24 border-t border-zinc-200 bg-white">
@@ -61,23 +63,27 @@ export default function Footer() {
           </h4>
 
           <div className="mt-4 space-y-3 text-sm text-zinc-600">
-            <a
-              href="mailto:info@milanredline.it"
-              className="flex items-center gap-3 transition hover:text-red-600"
-            >
-              <Mail className="h-4 w-4" />
-              info@milanredline.it
-            </a>
+            {site.email && (
+              <a
+                href={`mailto:${site.email}`}
+                className="flex items-center gap-3 transition hover:text-red-600"
+              >
+                <Mail className="h-4 w-4" />
+                Send an email
+              </a>
+            )}
 
-            <a
-              href="https://wa.me/393284239541"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-3 transition hover:text-red-600"
-            >
-              <MessageCircle className="h-4 w-4" />
-              WhatsApp
-            </a>
+            {site.whatsapp && (
+              <a
+                href={`https://wa.me/${site.whatsapp.replace("+", "")}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-3 transition hover:text-red-600"
+              >
+                <MessageCircle className="h-4 w-4" />
+                Chat on WhatsApp
+              </a>
+            )}
           </div>
         </div>
       </div>
