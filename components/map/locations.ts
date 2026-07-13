@@ -1,33 +1,30 @@
-export type MapLocation = {
-    id: string;
-    name: string;
-    position: [number, number];
-    type: "apartment" | "station";
-  };
-  
-  export const locations: MapLocation[] = [
+export const locations = [
     {
       id: "arco",
       name: "Arco Apartment",
-      position: [45.5408, 9.2327],
       type: "apartment",
+      latitude: 45.53484359188006,
+      longitude: 9.241858656150693,
     },
     {
       id: "gramsci",
       name: "Gramsci Apartment",
-      position: [45.5368, 9.2310],
       type: "apartment",
+      latitude: 45.53803524573547,
+      longitude: 9.234724625743274,
     },
     {
       id: "rondo",
       name: "Sesto Rondò (M1)",
-      position: [45.5345, 9.2308],
-      type: "station",
+      type: "metro",
+      latitude: 45.534159629167405,
+      longitude: 9.231549465978194,
     },
     {
       id: "fs",
       name: "Sesto San Giovanni FS",
-      position: [45.5342, 9.2412],
       type: "station",
+      latitude: 45.541391515885884,
+      longitude: 9.238662019759103,
     },
-  ];
+  ] as const;

@@ -1,23 +1,31 @@
-import { Train, MapPin, Clock } from "lucide-react";
+import { Train, MapPin, Clock, Home } from "lucide-react";
+
+import ApartmentMap from "@/components/map/Map";
+import MarkerIcon from "@/components/ui/MarkerIcon";
 
 export default function LocationSection() {
   return (
     <section className="bg-zinc-50 px-6 py-24">
       <div className="mx-auto grid max-w-6xl gap-16 lg:grid-cols-2 lg:items-center">
-        {/* Testo */}
+        {/* Text */}
         <div>
           <div className="inline-flex items-center rounded-full bg-red-100 px-4 py-2 text-sm font-medium text-red-700">
             Excellent Location
           </div>
 
-          <h2 className="mt-6 text-4xl font-bold text-zinc-900">
-            Enjoy Milan. Sleep in peace.
+          <h2 className="mt-6 text-4xl font-bold leading-tight text-zinc-900">
+            The best of Milan.
+            <br />
+            <span className="text-red-600">
+              The comfort of home.
+            </span>
           </h2>
 
           <p className="mt-6 text-lg leading-8 text-zinc-600">
-            Both apartments are located in Sesto San Giovanni, just a short walk
-            from the M1 Red Line. Enjoy the energy of Milan during the day and
-            relax in a quieter neighbourhood in the evening.
+            Both apartments are located in Sesto San Giovanni, only a short walk
+            from the M1 Red Line. Reach the heart of Milan in minutes while
+            enjoying the comfort of a quiet neighbourhood, with cafés,
+            restaurants and everyday services just around the corner.
           </p>
 
           <div className="mt-10 space-y-6">
@@ -58,39 +66,51 @@ export default function LocationSection() {
                 </h3>
 
                 <p className="text-zinc-600">
-                  Restaurants, cafés, supermarkets and everyday services are all
-                  within walking distance.
+                  Restaurants, cafés, supermarkets and everyday services are
+                  all within walking distance.
                 </p>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Google Maps */}
+        {/* Interactive Map */}
         <div className="overflow-hidden rounded-3xl border border-zinc-200 bg-white shadow-sm">
-          <iframe
-            title="Apartment locations"
-            src="https://www.google.com/maps?q=Via%20Giovanna%20d%27Arco%20200%2C%20Sesto%20San%20Giovanni&z=14&output=embed"
-            width="100%"
-            height="500"
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-            className="border-0"
-          />
+          <ApartmentMap />
 
           <div className="border-t border-zinc-200 bg-white p-6">
-            <div className="space-y-2 text-sm text-zinc-600">
-              <p>
-                📍 Arco Apartment — Via Giovanna d'Arco area
-              </p>
+            <div className="space-y-3 text-sm text-zinc-700">
+              <div className="flex items-center gap-3">
+                <MarkerIcon
+                  type="apartment"
+                  size={24}
+                />
+                <span>Arco Apartment</span>
+              </div>
 
-              <p>
-                📍 Gramsci Apartment — Viale Gramsci area
-              </p>
+              <div className="flex items-center gap-3">
+                <MarkerIcon
+                  type="apartment"
+                  size={24}
+                />
+                <span>Gramsci Apartment</span>
+              </div>
 
-              <p>
-                🚇 M1 Red Line – Sesto Rondò
-              </p>
+              <div className="flex items-center gap-3">
+                <MarkerIcon
+                  type="metro"
+                  size={24}
+                />
+                <span>Sesto Rondò (M1)</span>
+              </div>
+
+              <div className="flex items-center gap-3">
+                <MarkerIcon
+                  type="station"
+                  size={24}
+                />
+                <span>Sesto San Giovanni FS</span>
+              </div>
             </div>
           </div>
         </div>

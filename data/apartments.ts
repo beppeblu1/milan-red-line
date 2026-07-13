@@ -7,14 +7,23 @@ export const apartments: Apartment[] = [
 
     // General
     name: "Arco",
-    tagline: "Bright apartment near the M1 Red Line",
+    tagline: "Quiet apartment near the M1 Red Line",
+
     shortDescription:
-      "Bright and comfortable apartment just a few minutes from the M1 Red Line.",
+      "A peaceful apartment in a private residential area, just a few minutes from the M1 Red Line.",
+
     longDescription:
-      "A modern apartment in Sesto San Giovanni, perfect for visiting Milan while enjoying a quiet residential area. Ideal for couples, families and business travellers looking for comfort and quick access to Milan.",
+      "Located inside a private gated residential area with internal roads and a shared garden, Arco Apartment offers a quiet and relaxing environment while keeping Milan within easy reach. The apartment is ideal for couples, families and travellers looking for comfort, privacy and excellent connections.",
+
+    // Detailed description
+    description:
+      "Both apartments are located in Sesto San Giovanni, only a short walk from the M1 Red Line. Reach the heart of Milan in minutes while enjoying the comfort of a quiet neighbourhood, with cafés, restaurants and everyday services nearby.",
+
+    space:
+      "The apartment features a spacious bedroom with a comfortable double bed and a large wardrobe. The living area includes a sofa bed, creating additional sleeping space for guests. The private residential setting, green areas and quiet surroundings make Arco Apartment ideal for both short stays and longer visits.",
 
     // Legal
-    cin: "TO_BE_ADDED",
+    cin: "IT015209C2IRDP6EAB",
     cir: "",
 
     // Property
@@ -28,7 +37,7 @@ export const apartments: Apartment[] = [
 
     // Location
     city: "Sesto San Giovanni",
-    district: "Via Arco area",
+    district: "Via Giovanna d'Arco area",
     metroStation: "Sesto Rondò",
     metroMinutes: 7,
 
@@ -40,7 +49,7 @@ export const apartments: Apartment[] = [
     washingMachine: true,
     dishwasher: false,
     tv: true,
-    balcony: true,
+    balcony: false,
     selfCheckIn: true,
 
     // Booking
@@ -51,10 +60,18 @@ export const apartments: Apartment[] = [
     coverImage: "/images/arco/cover.jpg",
     gallery: [
       "/images/arco/cover.jpg",
-      "/images/arco/living.jpg",
-      "/images/arco/kitchen.jpg",
-      "/images/arco/bedroom.jpg",
-      "/images/arco/bathroom.jpg",
+      "/images/arco/01_vista_panoramica_totale_01.png",
+      "/images/arco/03_vista_living_02.png",
+      "/images/arco/Cucina_01.jpg",
+      "/images/arco/04_vista_cucina_01.png",
+      "/images/arco/Camera_01.jpg",
+      "/images/arco/08_vista_camera_01.png",
+      "/images/arco/10_vista_camera_03.png",
+      "/images/arco/Bagno_01.jpg",
+      "/images/arco/13_vista_bagno_02.png",
+      "/images/arco/Balcone.jpg",
+      "/images/arco/15_vista_balcone_02.png",
+      "/images/arco/Esterno.jpg",
     ],
 
     // Visibility
@@ -67,14 +84,23 @@ export const apartments: Apartment[] = [
 
     // General
     name: "Gramsci",
-    tagline: "Quiet apartment close to Milan",
+    tagline: "Comfortable apartment with balcony near Milan",
+
     shortDescription:
-      "Comfortable apartment with balcony and quick access to Milan city centre.",
+      "A comfortable apartment with balcony, just five minutes from the M1 Red Line and Sesto San Giovanni station.",
+
     longDescription:
-      "A welcoming apartment in Sesto San Giovanni, just a short walk from the M1 Red Line. Perfect for city breaks, holidays and business stays thanks to its strategic location.",
+      "Gramsci Apartment is a welcoming and well-connected home in Sesto San Giovanni. Its strategic location makes it an ideal base for exploring Milan, Monza and Lake Como, while keeping all everyday services within walking distance.",
+
+    // Detailed description
+    description:
+      "Located just a few minutes from the metro and railway station, Gramsci Apartment offers excellent connections to Milan city centre, Monza and Lake Como. Supermarkets, cafés and restaurants are all nearby.",
+
+    space:
+      "The apartment includes a large bedroom with a comfortable double bed, a private bathroom and a bright living area with sofa, TV, kitchen and dining table. A spacious balcony can be accessed both from the bedroom and the living area, offering an additional outdoor space during your stay.",
 
     // Legal
-    cin: "TO_BE_ADDED",
+    cin: "IT015209C2JEUIKROO",
     cir: "",
 
     // Property
@@ -88,9 +114,9 @@ export const apartments: Apartment[] = [
 
     // Location
     city: "Sesto San Giovanni",
-    district: "Via Gramsci area",
+    district: "Viale Gramsci area",
     metroStation: "Sesto Rondò",
-    metroMinutes: 6,
+    metroMinutes: 5,
 
     // Amenities
     wifi: true,
@@ -111,10 +137,18 @@ export const apartments: Apartment[] = [
     coverImage: "/images/gramsci/cover.jpg",
     gallery: [
       "/images/gramsci/cover.jpg",
-      "/images/gramsci/living.jpg",
-      "/images/gramsci/kitchen.jpg",
-      "/images/gramsci/bedroom.jpg",
-      "/images/gramsci/bathroom.jpg",
+      "/images/gramsci/p1010002_tv.jpg",
+      "/images/gramsci/P1010009.JPG",
+      "/images/gramsci/P1010010.JPG",
+      "/images/gramsci/P1010015.JPG",
+      "/images/gramsci/P1010006.JPG",
+      "/images/gramsci/P1010007.JPG",
+      "/images/gramsci/P1010008.JPG",
+      "/images/gramsci/P1010011.JPG",
+      "/images/gramsci/P1010016.JPG",
+      "/images/gramsci/P1010018.JPG",
+      "/images/gramsci/P1010019.JPG",
+      "/images/gramsci/P1010022.JPG",
     ],
 
     // Visibility

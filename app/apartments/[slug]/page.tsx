@@ -94,6 +94,7 @@ export default async function ApartmentPage({ params }: PageProps) {
         city={apartment.city}
       />
 
+      {/* About */}
       <section className="mx-auto max-w-6xl px-6 py-16">
         <div className="max-w-3xl">
           <h2 className="text-3xl font-bold text-zinc-900">
@@ -101,22 +102,40 @@ export default async function ApartmentPage({ params }: PageProps) {
           </h2>
 
           <p className="mt-6 text-lg leading-8 text-zinc-700">
-            {apartment.longDescription}
+            {apartment.description}
           </p>
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl border-t border-zinc-200 px-6 py-12">
-        <div className="text-sm text-zinc-500">
-          <p>
-            <strong>CIN:</strong> {apartment.cin}
-          </p>
+      {/* The space */}
+      <section className="border-t border-zinc-200">
+        <div className="mx-auto max-w-6xl px-6 py-16">
+          <div className="max-w-3xl">
+            <h2 className="text-3xl font-bold text-zinc-900">
+              The space
+            </h2>
 
-          {apartment.cir && (
-            <p className="mt-2">
-              <strong>CIR:</strong> {apartment.cir}
+            <p className="mt-6 text-lg leading-8 text-zinc-700">
+              {apartment.space}
             </p>
-          )}
+          </div>
+        </div>
+      </section>
+
+      {/* Registration */}
+      <section className="border-t border-zinc-200">
+        <div className="mx-auto max-w-6xl px-6 py-12">
+          <div className="text-sm text-zinc-500">
+            <p>
+              <strong>CIN:</strong> {apartment.cin}
+            </p>
+
+            {apartment.cir && (
+              <p className="mt-2">
+                <strong>CIR:</strong> {apartment.cir}
+              </p>
+            )}
+          </div>
         </div>
       </section>
     </main>

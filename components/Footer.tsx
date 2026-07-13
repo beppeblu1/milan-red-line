@@ -1,65 +1,96 @@
 import Link from "next/link";
+import { Mail, MessageCircle } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="mt-auto border-t border-zinc-200 bg-zinc-50">
-      <div className="mx-auto grid max-w-6xl gap-12 px-6 py-12 md:grid-cols-3">
+    <footer className="mt-24 border-t border-zinc-200 bg-white">
+      <div className="mx-auto grid max-w-6xl gap-12 px-6 py-16 md:grid-cols-3">
         {/* Brand */}
         <div>
-          <h3 className="text-xl font-bold">
+          <h3 className="text-xl font-bold text-zinc-900">
             Milan <span className="text-red-600">Red Line</span>
           </h3>
 
           <p className="mt-4 text-sm leading-7 text-zinc-600">
-            Comfortable apartments in Sesto San Giovanni,
-            just a few minutes from the M1 Red Line and
-            the centre of Milan.
+            Comfortable apartments in Sesto San Giovanni, connected to the
+            heart of Milan by the M1 Red Line.
           </p>
         </div>
 
-        {/* Navigation */}
+        {/* Links */}
         <div>
           <h4 className="font-semibold text-zinc-900">
-            Explore
+            Quick Links
           </h4>
 
-          <ul className="mt-4 space-y-3 text-sm text-zinc-600">
-            <li>
-              <Link href="/">Home</Link>
-            </li>
+          <nav className="mt-4 flex flex-col gap-3 text-sm text-zinc-600">
+            <Link
+              href="/"
+              className="transition hover:text-red-600"
+            >
+              Home
+            </Link>
 
-            <li>
-              <Link href="/apartments/arco">Arco</Link>
-            </li>
+            <Link
+              href="/#apartments"
+              className="transition hover:text-red-600"
+            >
+              Apartments
+            </Link>
 
-            <li>
-              <Link href="/apartments/gramsci">Gramsci</Link>
-            </li>
-          </ul>
+            <Link
+              href="/contact"
+              className="transition hover:text-red-600"
+            >
+              Contact
+            </Link>
+
+            <Link
+              href="/privacy"
+              className="transition hover:text-red-600"
+            >
+              Privacy Policy
+            </Link>
+          </nav>
         </div>
 
-        {/* Legal */}
+        {/* Contact */}
         <div>
           <h4 className="font-semibold text-zinc-900">
-            Information
+            Get in touch
           </h4>
 
-          <p className="mt-4 text-sm leading-7 text-zinc-600">
-            CIN and CIR are displayed on each apartment page,
-            in accordance with Italian regulations.
-          </p>
+          <div className="mt-4 space-y-3 text-sm text-zinc-600">
+            <a
+              href="mailto:info@milanredline.it"
+              className="flex items-center gap-3 transition hover:text-red-600"
+            >
+              <Mail className="h-4 w-4" />
+              info@milanredline.it
+            </a>
+
+            <a
+              href="https://wa.me/393284239541"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-3 transition hover:text-red-600"
+            >
+              <MessageCircle className="h-4 w-4" />
+              WhatsApp
+            </a>
+          </div>
         </div>
       </div>
 
+      {/* Bottom bar */}
       <div className="border-t border-zinc-200">
-        <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-6 py-6 text-sm text-zinc-500 md:flex-row">
+        <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-3 px-6 py-6 text-sm text-zinc-500 md:flex-row">
           <p>
-            © {new Date().getFullYear()} Milan Red Line.
-            All rights reserved.
+            © 2026 Milan Red Line. All rights reserved.
           </p>
 
           <p>
-            Made with ❤️ in Italy
+            Designed for travellers ❤️
           </p>
         </div>
       </div>

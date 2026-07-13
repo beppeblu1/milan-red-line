@@ -1,1 +1,0 @@
-import Map from "@/components/map/Map";
