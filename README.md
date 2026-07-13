@@ -1,36 +1,151 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🚇 Milan Red Line
 
-## Getting Started
+A premium website for short-term rental apartments located along the Milan M1 Red Line.
 
-First, run the development server:
+The project is built with modern web technologies and is designed to evolve into a reusable platform for managing holiday apartments.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+---
+
+## ✨ Features
+
+- Responsive design
+
+- Dynamic apartment pages
+
+- Reusable React components
+
+- TypeScript
+
+- Next.js App Router
+
+- Tailwind CSS
+
+---
+
+## 🚀 Technology Stack
+
+- Next.js
+
+- React
+
+- TypeScript
+
+- Tailwind CSS
+
+- Git
+
+- GitHub
+
+Planned:
+
+- Supabase
+
+- Admin Dashboard
+
+- Vercel Deployment
+
+---
+
+## 📁 Project Structure
+
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+app/
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+components/
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+data/
 
-## Learn More
+docs/
 
-To learn more about Next.js, take a look at the following resources:
+public/
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## 📚 Documentation
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The project documentation is available in the `docs` folder.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- [architecture.md](http://architecture.md)
+
+- [project-philosophy.md](http://project-philosophy.md)
+
+- [todo.md](http://todo.md)
+
+---
+
+## 💻 Development
+
+Install dependencies
+
+```bash
+
+npm install
+
+```
+
+Start the development server
+
+```bash
+
+npm run dev
+
+```
+
+Open:
+
+```
+
+[http://localhost:3000](http://localhost:3000)
+
+```
+
+---
+
+## 🗺️ Roadmap
+
+### Completed
+
+- Next.js setup
+
+- Homepage
+
+- Apartment cards
+
+- Dynamic routing
+
+- GitHub integration
+
+### In Progress
+
+- Apartment details
+
+- Gallery
+
+- Amenities
+
+### Planned
+
+- Supabase database
+
+- Administration panel
+
+- SEO
+
+- Privacy & Cookie management
+
+---
+
+## ⚖️ Legal
+
+Each apartment page will include the required legal information, including the CIN and, where applicable, the CIR.
+
+---
+
+## 👤 Author
+
+Created by Giuseppe Pino.
+
+This project is the foundation of a reusable platform for managing premium short-term rental properties.

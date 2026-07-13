@@ -51,8 +51,8 @@ export default function Home() {
                 <ApartmentCard
                   key={apt.id}
                   title={apt.name}
-                  subtitle={apt.description}
-                  image={apt.image}
+                  subtitle={apt.shortDescription}
+                  image={apt.coverImage}
                   slug={apt.slug}
                 />
               ))}
