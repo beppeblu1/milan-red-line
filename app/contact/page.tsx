@@ -42,12 +42,18 @@ export default function ContactPage() {
               Email
             </h2>
 
-            <a
-  href={`mailto:${site.email}`}
-  className="mt-3 inline-flex text-red-600 font-medium hover:underline"
->
-  Send an email
-</a>
+            {site.email ? (
+              <a
+                href={`mailto:${site.email}`}
+                className="mt-3 inline-flex text-red-600 font-medium hover:underline"
+              >
+                Send an email
+              </a>
+            ) : (
+              <p className="mt-3 text-zinc-600">
+                Coming soon
+              </p>
+            )}
           </Card>
 
           <Card>
@@ -57,9 +63,20 @@ export default function ContactPage() {
               WhatsApp
             </h2>
 
-            <p className="mt-3 text-zinc-600">
-              {site.whatsapp || "Coming soon"}
-            </p>
+            {site.whatsapp ? (
+              <a
+                href={`https://wa.me/${site.whatsapp.replace("+", "")}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-3 inline-flex text-red-600 font-medium hover:underline"
+              >
+                Chat on WhatsApp
+              </a>
+            ) : (
+              <p className="mt-3 text-zinc-600">
+                Coming soon
+              </p>
+            )}
           </Card>
 
           <Card className="md:col-span-2">
