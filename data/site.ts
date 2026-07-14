@@ -8,7 +8,7 @@ export const site = {
     description:
       "Comfortable apartments in Sesto San Giovanni, just minutes from Milan city centre and the M1 Red Line.",
   
-    url: "https://milanredline.com",
+    url: "https://milanredline.it",
   
     locale: "en",
   
