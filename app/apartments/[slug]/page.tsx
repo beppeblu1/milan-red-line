@@ -7,6 +7,7 @@ import ApartmentGallery from "@/components/ApartmentGallery";
 import ApartmentInfo from "@/components/ApartmentInfo";
 import ApartmentAmenities from "@/components/ApartmentAmenities";
 import LocationHighlight from "@/components/LocationHighlight";
+import DirectBookingCard from "@/components/DirectBookingCard";
 
 import { apartments } from "@/data/apartments";
 import { site } from "@/data/site";
@@ -138,6 +139,12 @@ export default async function ApartmentPage({ params }: PageProps) {
           </div>
         </div>
       </section>
+
+      <div className="mx-auto max-w-6xl px-6 pb-20">
+        <DirectBookingCard
+          airbnbUrl={apartment.airbnbUrl}
+        />
+      </div>
     </main>
   );
 }

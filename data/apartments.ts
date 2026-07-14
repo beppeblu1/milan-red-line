@@ -31,7 +31,7 @@ export const apartments: Apartment[] = [
     bedrooms: 1,
     beds: 2,
     bathrooms: 1,
-    squareMeters: 55,
+    squareMeters: 58,
     floor: 2,
     elevator: true,
 
@@ -53,7 +53,7 @@ export const apartments: Apartment[] = [
     selfCheckIn: true,
 
     // Booking
-    airbnbUrl: "",
+    airbnbUrl: "https://www.airbnb.it/rooms/23072204",
     bookingUrl: "",
 
     // Media
@@ -104,12 +104,12 @@ export const apartments: Apartment[] = [
     cir: "",
 
     // Property
-    guests: 4,
+    guests: 2,
     bedrooms: 1,
-    beds: 2,
+    beds: 1,
     bathrooms: 1,
     squareMeters: 60,
-    floor: 3,
+    floor: 1,
     elevator: true,
 
     // Location
@@ -130,7 +130,7 @@ export const apartments: Apartment[] = [
     selfCheckIn: true,
 
     // Booking
-    airbnbUrl: "",
+    airbnbUrl: "www.airbnb.it/rooms/1004153206964898199",
     bookingUrl: "",
 
     // Media
