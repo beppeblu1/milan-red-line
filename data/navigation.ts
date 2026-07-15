@@ -1,14 +1,10 @@
 export const navigation = [
-    {
-      label: "Apartments",
-      href: "/#apartments",
-    },
-    {
-      label: "Location",
-      href: "/#location",
-    },
-    {
-      label: "Contact",
-      href: "/contact",
-    },
-  ];
+  {
+    label: "Apartments",
+    href: "/#apartments",
+  },
+  {
+    label: "Contact",
+    href: "/contact",
+  },
+];

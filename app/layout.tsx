@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 import "./globals.css";
 import "maplibre-gl/dist/maplibre-gl.css";
 
-import "maplibre-gl/dist/maplibre-gl.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { site } from "@/data/site";
@@ -90,6 +90,8 @@ export default function RootLayout({
 
         <Footer />
       </body>
+
+      <GoogleAnalytics gaId="G-YJLF13YVCM" />
     </html>
   );
 }
