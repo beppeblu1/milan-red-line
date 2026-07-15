@@ -178,4 +178,107 @@ export const guides: Guide[] = [
       },
     ],
   },
+
+  {
+    slug: "best-area-to-stay-in-milan-for-families",
+
+    title: "Best Area to Stay in Milan for Families",
+
+    description:
+      "Discover the best family-friendly areas in Milan and learn how to choose accommodation that makes travelling with children easier.",
+
+    readingTime: "10 min read",
+
+    heroTitle: "Best Area to Stay in Milan for Families",
+
+    heroSubtitle:
+      "Practical advice on transport, space and choosing a comfortable base for exploring Milan with children.",
+
+    sections: [
+      {
+        title: "Is Milan a good destination for families?",
+        content: [
+          "Absolutely. Although Milan is famous for fashion and business, it is also a surprisingly family-friendly city.",
+          "Visitors can enjoy public parks, museums suitable for children, pedestrian areas and an efficient public transport network.",
+          "Families staying close to a metro station can explore the city comfortably without needing a car.",
+        ],
+      },
+
+      {
+        title: "What families should really look for",
+        content: [
+          "Travelling with children changes the way you choose accommodation.",
+          "Instead of focusing only on famous landmarks, families often benefit more from having a metro station, supermarket, pharmacy and suitable restaurants within walking distance.",
+          "A fully equipped kitchen, enough space for everyone and quieter surroundings can have a greater impact on the stay than being a few minutes closer to the Duomo.",
+        ],
+      },
+
+      {
+        title: "Choosing the right area",
+        content: [
+          "Families who want to walk to Milan's main landmarks may prefer the historic centre, although accommodation there is often more expensive, busier and less spacious.",
+          "Areas such as Brera and Porta Nuova provide good transport and attractive surroundings, but prices can still be high.",
+          "Well-connected residential areas can offer a better balance of space, quiet, public transport and value.",
+        ],
+      },
+
+      {
+        title: "Why many families choose Sesto San Giovanni",
+        content: [
+          "Sesto San Giovanni offers larger apartments, direct access to the M1 Red Line and a quieter residential atmosphere.",
+          "Supermarkets, pharmacies, cafés and local restaurants are generally easy to reach.",
+          "Many families appreciate being able to return to calmer surroundings after spending the day exploring central Milan.",
+          "The journey to the Duomo takes around 20 minutes, depending on the departure station and waiting time.",
+        ],
+      },
+
+      {
+        title: "Things to do with children",
+        content: [
+          "Milan offers many family-friendly attractions, including the Duomo, Castello Sforzesco, Parco Sempione, MUBA Children's Museum and CityLife Park.",
+          "Monza Park is another good option for families and can be reached from the northern Milan area using public transport.",
+          "Choosing accommodation with straightforward metro and railway connections makes these outings easier to organise.",
+        ],
+      },
+
+      {
+        title: "Travelling with a stroller",
+        content: [
+          "Many metro stations offer lifts or step-free access, but facilities are not identical at every station.",
+          "Before travelling, it is worth checking accessibility information for the stations you plan to use most often.",
+          "Avoiding peak commuting times can also make metro journeys more comfortable when travelling with young children.",
+        ],
+      },
+
+      {
+        title: "Why an apartment can work well for families",
+        content: [
+          "An apartment gives families more flexibility than a traditional hotel room.",
+          "A kitchen makes it easier to prepare breakfast, snacks or simple meals.",
+          "A washing machine can be particularly useful during longer stays.",
+          "Separate sleeping and living spaces can also make evenings more comfortable after children have gone to bed.",
+        ],
+      },
+
+      {
+        title: "Local tip",
+        content: [
+          "Families often enjoy staying slightly outside the historic centre.",
+          "More space, quieter evenings and nearby supermarkets can make travelling with children more relaxing than staying in the busiest tourist areas.",
+          "Choose accommodation based on everyday convenience and transport connections, not only on distance from a single landmark.",
+        ],
+      },
+
+      {
+        title: "Frequently asked questions",
+        content: [
+          "Is Milan suitable for children? Yes. Milan offers parks, museums, pedestrian areas and an extensive public transport network.",
+          "Is the metro easy to use with a stroller? Many stations provide lifts or step-free access, but it is advisable to check the specific stations before travelling.",
+          "Is Sesto San Giovanni family friendly? Its residential atmosphere, larger apartments and direct metro connection make it a practical choice for many families.",
+          "How long does it take to reach the Duomo? The journey usually takes around 20 minutes on the M1 Red Line, depending on the departure station and waiting time.",
+          "Do families need a car in Milan? For most visitors, no. Public transport is generally more convenient than driving and parking in the city.",
+        ],
+      },
+    ],
+  },
 ];
