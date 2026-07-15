@@ -39,7 +39,6 @@ export const guides: Guide[] = [
           "Thanks to the M1 Red Line, you can reach the heart of Milan in around 20 minutes while enjoying quieter surroundings, larger apartments and better value.",
         ],
       },
-
       {
         title: "Why travellers choose Sesto San Giovanni",
         content: [
@@ -49,7 +48,6 @@ export const guides: Guide[] = [
           "Restaurants, supermarkets and cafés within walking distance.",
         ],
       },
-
       {
         title: "Is Sesto San Giovanni safe?",
         content: [
@@ -58,7 +56,6 @@ export const guides: Guide[] = [
           "Most visitors are pleasantly surprised by how calm and practical the area feels.",
         ],
       },
-
       {
         title: "More than Milan",
         content: [
@@ -66,7 +63,6 @@ export const guides: Guide[] = [
           "The nearby railway station offers convenient connections to Monza, Lecco, Lake Como and many other destinations across Lombardy.",
         ],
       },
-
       {
         title: "Local advice",
         content: [
@@ -100,7 +96,6 @@ export const guides: Guide[] = [
           "Driving often means dealing with traffic, restricted traffic zones and expensive parking, while public transport connects most of the places visitors want to reach.",
         ],
       },
-
       {
         title: "The biggest mistake first-time visitors make",
         content: [
@@ -109,7 +104,6 @@ export const guides: Guide[] = [
           "Accommodation close to a direct metro line can provide easier journeys, quieter evenings, more space and better value than many central alternatives.",
         ],
       },
-
       {
         title: "What really matters when choosing accommodation",
         content: [
@@ -119,7 +113,6 @@ export const guides: Guide[] = [
           "The quality of the transport connection is often more important than the postcode itself.",
         ],
       },
-
       {
         title: "Why the M1 Red Line is a smart choice",
         content: [
@@ -128,7 +121,6 @@ export const guides: Guide[] = [
           "From Sesto San Giovanni, the heart of Milan can be reached in around 20 minutes.",
         ],
       },
-
       {
         title: "Why Sesto San Giovanni works well without a car",
         content: [
@@ -137,7 +129,6 @@ export const guides: Guide[] = [
           "Visitors can enjoy more space and calmer evenings while remaining closely connected to Milan city centre.",
         ],
       },
-
       {
         title: "More than Milan: easy day trips by train",
         content: [
@@ -147,7 +138,6 @@ export const guides: Guide[] = [
           "This makes the area a useful base for exploring both Milan and other parts of Lombardy.",
         ],
       },
-
       {
         title: "Who is this area ideal for?",
         content: [
@@ -157,7 +147,6 @@ export const guides: Guide[] = [
           "The area is also practical for people attending events at Carroponte or visiting friends and relatives in Sesto San Giovanni.",
         ],
       },
-
       {
         title: "Local tip",
         content: [
@@ -165,7 +154,6 @@ export const guides: Guide[] = [
           "A 24-hour or 72-hour ATM travel pass can provide unlimited travel on Milan's metro, buses and trams and is usually far cheaper than driving and parking in the city.",
         ],
       },
-
       {
         title: "Frequently asked questions",
         content: [
@@ -203,7 +191,6 @@ export const guides: Guide[] = [
           "Families staying close to a metro station can explore the city comfortably without needing a car.",
         ],
       },
-
       {
         title: "What families should really look for",
         content: [
@@ -212,7 +199,6 @@ export const guides: Guide[] = [
           "A fully equipped kitchen, enough space for everyone and quieter surroundings can have a greater impact on the stay than being a few minutes closer to the Duomo.",
         ],
       },
-
       {
         title: "Choosing the right area",
         content: [
@@ -221,7 +207,6 @@ export const guides: Guide[] = [
           "Well-connected residential areas can offer a better balance of space, quiet, public transport and value.",
         ],
       },
-
       {
         title: "Why many families choose Sesto San Giovanni",
         content: [
@@ -231,7 +216,6 @@ export const guides: Guide[] = [
           "The journey to the Duomo takes around 20 minutes, depending on the departure station and waiting time.",
         ],
       },
-
       {
         title: "Things to do with children",
         content: [
@@ -240,7 +224,6 @@ export const guides: Guide[] = [
           "Choosing accommodation with straightforward metro and railway connections makes these outings easier to organise.",
         ],
       },
-
       {
         title: "Travelling with a stroller",
         content: [
@@ -249,7 +232,6 @@ export const guides: Guide[] = [
           "Avoiding peak commuting times can also make metro journeys more comfortable when travelling with young children.",
         ],
       },
-
       {
         title: "Why an apartment can work well for families",
         content: [
@@ -259,7 +241,6 @@ export const guides: Guide[] = [
           "Separate sleeping and living spaces can also make evenings more comfortable after children have gone to bed.",
         ],
       },
-
       {
         title: "Local tip",
         content: [
@@ -268,7 +249,6 @@ export const guides: Guide[] = [
           "Choose accommodation based on everyday convenience and transport connections, not only on distance from a single landmark.",
         ],
       },
-
       {
         title: "Frequently asked questions",
         content: [
@@ -277,6 +257,111 @@ export const guides: Guide[] = [
           "Is Sesto San Giovanni family friendly? Its residential atmosphere, larger apartments and direct metro connection make it a practical choice for many families.",
           "How long does it take to reach the Duomo? The journey usually takes around 20 minutes on the M1 Red Line, depending on the departure station and waiting time.",
           "Do families need a car in Milan? For most visitors, no. Public transport is generally more convenient than driving and parking in the city.",
+        ],
+      },
+    ],
+  },
+
+  {
+    slug: "where-to-stay-near-carroponte",
+
+    title: "Where to Stay Near Carroponte in Milan",
+
+    description:
+      "A practical guide to choosing accommodation near Carroponte in Sesto San Giovanni, with advice on transport, late-night travel and where to stay after a concert.",
+
+    readingTime: "8 min read",
+
+    heroTitle: "Where to Stay Near Carroponte in Milan",
+
+    heroSubtitle:
+      "Practical advice on transport, late-night travel and choosing a convenient place to stay after a concert.",
+
+    sections: [
+      {
+        title: "Where is Carroponte?",
+        content: [
+          "Carroponte is located in Sesto San Giovanni, north of central Milan.",
+          "The venue occupies part of the former Breda industrial area and is known for its distinctive open-air structure, concerts, festivals and cultural events.",
+          "Its address is Via Luigi Granelli 1, Sesto San Giovanni.",
+        ],
+      },
+      {
+        title: "Why stay near Carroponte?",
+        content: [
+          "Staying close to the venue can make the evening much easier, particularly when a concert finishes late.",
+          "You can reduce the time needed to return to your accommodation, rely less on taxis and avoid crossing the entire city after the event.",
+          "During the rest of your stay, you can still reach central Milan using the metro and other public transport.",
+        ],
+      },
+      {
+        title: "Is it better to stay in central Milan or near the venue?",
+        content: [
+          "The best choice depends on the purpose of your trip.",
+          "If the concert is only a small part of a longer sightseeing holiday, accommodation near a direct metro line can provide a useful balance between access to Milan and proximity to Carroponte.",
+          "Staying near the Duomo can be attractive for sightseeing, but it may mean a longer and more complicated return journey after the concert.",
+          "For many concert visitors, staying in Sesto San Giovanni is the more practical option.",
+        ],
+      },
+      {
+        title: "Getting to Carroponte by public transport",
+        content: [
+          "Carroponte can be reached using Milan's public transport network.",
+          "Depending on your starting point, possible routes may include the M1 Red Line, the M5 metro line, local buses and a final walk to the venue.",
+          "Always check the route for the exact date of the event because evening schedules, maintenance work and temporary service changes can affect the best option.",
+        ],
+      },
+      {
+        title: "Getting back after a concert",
+        content: [
+          "Late-night transport is one of the most important things to consider before booking.",
+          "After the regular metro service ends, replacement night buses operate on some routes.",
+          "The NM1 night service reaches Sesto Rondò and Sesto 1 Maggio, which can be useful for guests staying in Sesto San Giovanni.",
+          "Night buses run less frequently than daytime metro trains, so it is sensible to check the last metro, save the night route and keep a taxi option as a backup.",
+        ],
+      },
+      {
+        title: "Why Sesto San Giovanni is a practical base",
+        content: [
+          "Sesto San Giovanni combines proximity to Carroponte with direct transport connections towards central Milan.",
+          "Visitors can benefit from the M1 Red Line, local railway services, supermarkets, restaurants and residential surroundings.",
+          "Accommodation in the area may also provide more space and flexibility than a central hotel room.",
+        ],
+      },
+      {
+        title: "What to look for in accommodation",
+        content: [
+          "Check the distance from both Carroponte and the nearest metro or night-bus stop.",
+          "Self check-in can be particularly useful when an event finishes late because it avoids the need to arrange a fixed meeting time with the host.",
+          "Also consider nearby supermarkets, cafés, flexible arrival arrangements and whether the apartment is suitable for the number of people travelling.",
+        ],
+      },
+      {
+        title: "Who is this area ideal for?",
+        content: [
+          "Concert visitors benefit from a simpler return journey after the event.",
+          "Groups of friends may prefer the space and flexibility of an apartment instead of booking separate hotel rooms.",
+          "Couples can combine a concert evening with a weekend exploring Milan.",
+          "Travellers without a car can use metro, buses and local rail services instead of driving.",
+        ],
+      },
+      {
+        title: "Local tip",
+        content: [
+          "Check the expected end time of the concert before leaving your accommodation.",
+          "Compare it with the last regular metro and the available night services, then save the return route on your phone.",
+          "Planning the journey in advance is much easier than trying to organise it in a crowd after the event.",
+        ],
+      },
+      {
+        title: "Frequently asked questions",
+        content: [
+          "Is Carroponte in central Milan? No. Carroponte is located in Sesto San Giovanni, immediately north of Milan.",
+          "Can I reach Carroponte by metro? Yes. The venue can be reached using Milan's metro network combined with walking or local transport, depending on the route.",
+          "Does public transport run after concerts? Night services operate on some routes, but they are less frequent than daytime metro trains.",
+          "Should I book accommodation near Carroponte? It is a practical choice if the concert is an important part of your trip, particularly when it finishes late.",
+          "Can I still visit central Milan easily? Yes. Sesto San Giovanni is connected to central Milan by the M1 Red Line and other public transport services.",
+          "Is an apartment useful for a concert weekend? Yes. It can offer couples and groups more space, a kitchen and flexible self check-in.",
         ],
       },
     ],
