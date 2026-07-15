@@ -4,6 +4,10 @@ export const navigation = [
     href: "/#apartments",
   },
   {
+    label: "Guides",
+    href: "/guides",
+  },
+  {
     label: "Contact",
     href: "/contact",
   },

@@ -1,9 +1,10 @@
+import type { Metadata } from "next";
+
 import ApartmentCard from "@/components/ApartmentCard";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import LocationSection from "@/components/LocationSection";
-import { apartments } from "@/data/apartments";
 
-import type { Metadata } from "next";
+import { apartments } from "@/data/apartments";
 
 export const metadata: Metadata = {
   title: "Apartments near Milan",
@@ -75,6 +76,50 @@ export default function Home() {
               />
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Local Guides */}
+      <section className="border-t border-zinc-100 bg-white px-6 py-24">
+        <div className="mx-auto max-w-4xl text-center">
+          <h2 className="text-3xl font-bold tracking-tight text-zinc-900">
+            Planning your stay?
+          </h2>
+
+          <p className="mx-auto mt-4 max-w-2xl leading-8 text-zinc-600">
+            Discover practical local advice about Sesto San Giovanni, Milan and
+            the surrounding area before booking your stay.
+          </p>
+
+          <div className="mt-12 rounded-2xl border border-zinc-200 bg-zinc-50 p-8 text-left transition hover:border-red-500 hover:shadow-lg">
+            <p className="text-sm font-medium text-zinc-500">
+              📍 Local Guide · 6 min read
+            </p>
+
+            <h3 className="mt-3 text-2xl font-semibold tracking-tight text-zinc-900">
+              Is Sesto San Giovanni a Good Place to Stay When Visiting Milan?
+            </h3>
+
+            <p className="mt-4 leading-7 text-zinc-600">
+              Discover why thousands of travellers choose Sesto San Giovanni as
+              their base for visiting Milan, thanks to fast metro connections,
+              quieter surroundings and excellent value.
+            </p>
+
+            <a
+              href="/guides/is-sesto-san-giovanni-a-good-place-to-stay"
+              className="mt-8 inline-flex items-center font-semibold text-red-600 transition hover:text-red-700"
+            >
+              Read the guide →
+            </a>
+          </div>
+
+          <a
+            href="/guides"
+            className="mt-10 inline-block rounded-xl border border-zinc-300 px-6 py-3 font-medium transition hover:bg-zinc-100"
+          >
+            Explore all guides
+          </a>
         </div>
       </section>
 
