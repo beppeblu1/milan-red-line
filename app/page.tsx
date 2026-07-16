@@ -2,11 +2,12 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 import ApartmentCard from "@/components/ApartmentCard";
-import WhyChooseUs from "@/components/WhyChooseUs";
+import GuideCarousel from "@/components/GuideCarousel";
 import LocationSection from "@/components/LocationSection";
+import WhyChooseUs from "@/components/WhyChooseUs";
 
 import { apartments } from "@/data/apartments";
-import { getLatestGuide } from "@/lib/guides";
+import { getAllGuides } from "@/lib/guides";
 
 export const metadata: Metadata = {
   title: "Apartments near Milan",
@@ -15,7 +16,7 @@ export const metadata: Metadata = {
 };
 
 export default function Home() {
-  const latestGuide = getLatestGuide();
+  const guides = getAllGuides();
 
   return (
     <>
@@ -83,57 +84,39 @@ export default function Home() {
         </div>
       </section>
 
+      <WhyChooseUs />
+
       {/* Local Guides */}
       <section className="border-t border-zinc-100 bg-white px-6 py-24">
-        <div className="mx-auto max-w-4xl text-center">
-          <h2 className="text-3xl font-bold tracking-tight text-zinc-900">
-            Planning your stay?
-          </h2>
+        <div className="mx-auto max-w-6xl">
+          <div className="text-center">
+            <span className="inline-flex rounded-full bg-red-50 px-4 py-1 text-sm font-semibold uppercase tracking-wider text-red-700">
+              Local Travel Guides
+            </span>
 
-          <p className="mx-auto mt-4 max-w-2xl leading-8 text-zinc-600">
-            Discover practical local advice about Sesto San Giovanni, Milan and
-            the surrounding area before booking your stay.
-          </p>
+            <h2 className="mt-6 text-4xl font-bold tracking-tight text-zinc-900">
+              Plan your stay with local advice.
+            </h2>
 
-          {latestGuide ? (
+            <p className="mx-auto mt-5 max-w-3xl text-lg leading-8 text-zinc-600">
+              Independent travel guides written to help you choose where to
+              stay, move around Milan easily and discover the surrounding area
+              before your trip.
+            </p>
+          </div>
+
+          <GuideCarousel guides={guides} />
+
+          <div className="mt-8 text-center">
             <Link
-              href={`/guides/${latestGuide.slug}`}
-              className="mt-12 block rounded-2xl border border-zinc-200 bg-zinc-50 p-8 text-left transition hover:border-red-500 hover:shadow-lg"
+              href="/guides"
+              className="inline-block rounded-xl border border-zinc-300 px-6 py-3 font-medium text-zinc-900 transition hover:bg-zinc-100"
             >
-              <p className="text-sm font-medium text-zinc-500">
-                📍 Local Guide · {latestGuide.readingTime}
-              </p>
-
-              <h3 className="mt-3 text-2xl font-semibold tracking-tight text-zinc-900">
-                {latestGuide.title}
-              </h3>
-
-              <p className="mt-4 leading-7 text-zinc-600">
-                {latestGuide.description}
-              </p>
-
-              <span className="mt-8 inline-flex items-center font-semibold text-red-600 transition group-hover:text-red-700">
-                Read the guide →
-              </span>
+              Explore all guides
             </Link>
-          ) : (
-            <div className="mt-12 rounded-2xl border border-zinc-200 bg-zinc-50 p-8">
-              <p className="text-zinc-600">
-                Our local guides will be available soon.
-              </p>
-            </div>
-          )}
-
-          <Link
-            href="/guides"
-            className="mt-10 inline-block rounded-xl border border-zinc-300 px-6 py-3 font-medium text-zinc-900 transition hover:bg-zinc-100"
-          >
-            Explore all guides
-          </Link>
+          </div>
         </div>
       </section>
-
-      <WhyChooseUs />
 
       <LocationSection />
     </>
