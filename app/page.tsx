@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 
 import ApartmentCard from "@/components/ApartmentCard";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import LocationSection from "@/components/LocationSection";
 
 import { apartments } from "@/data/apartments";
+import { getLatestGuide } from "@/lib/guides";
 
 export const metadata: Metadata = {
   title: "Apartments near Milan",
@@ -13,6 +15,8 @@ export const metadata: Metadata = {
 };
 
 export default function Home() {
+  const latestGuide = getLatestGuide();
+
   return (
     <>
       {/* Hero */}
@@ -34,12 +38,12 @@ export default function Home() {
             longer stays.
           </p>
 
-          <a
+          <Link
             href="#apartments"
             className="mt-10 inline-block rounded-xl bg-red-600 px-6 py-3 font-semibold text-white transition hover:bg-red-700"
           >
             Explore Apartments
-          </a>
+          </Link>
 
           <div className="mt-12 flex flex-wrap justify-center gap-6 text-sm font-medium text-zinc-600 md:justify-start">
             <span>🏡 Self Check-in</span>
@@ -66,13 +70,13 @@ export default function Home() {
           </p>
 
           <div className="mt-12 grid gap-8 md:grid-cols-2">
-            {apartments.map((apt) => (
+            {apartments.map((apartment) => (
               <ApartmentCard
-                key={apt.id}
-                title={apt.name}
-                subtitle={apt.shortDescription}
-                image={apt.coverImage}
-                slug={apt.slug}
+                key={apartment.id}
+                title={apartment.name}
+                subtitle={apartment.shortDescription}
+                image={apartment.coverImage}
+                slug={apartment.slug}
               />
             ))}
           </div>
@@ -91,35 +95,41 @@ export default function Home() {
             the surrounding area before booking your stay.
           </p>
 
-          <div className="mt-12 rounded-2xl border border-zinc-200 bg-zinc-50 p-8 text-left transition hover:border-red-500 hover:shadow-lg">
-            <p className="text-sm font-medium text-zinc-500">
-              📍 Local Guide · 6 min read
-            </p>
-
-            <h3 className="mt-3 text-2xl font-semibold tracking-tight text-zinc-900">
-              Is Sesto San Giovanni a Good Place to Stay When Visiting Milan?
-            </h3>
-
-            <p className="mt-4 leading-7 text-zinc-600">
-              Discover why thousands of travellers choose Sesto San Giovanni as
-              their base for visiting Milan, thanks to fast metro connections,
-              quieter surroundings and excellent value.
-            </p>
-
-            <a
-              href="/guides/is-sesto-san-giovanni-a-good-place-to-stay"
-              className="mt-8 inline-flex items-center font-semibold text-red-600 transition hover:text-red-700"
+          {latestGuide ? (
+            <Link
+              href={`/guides/${latestGuide.slug}`}
+              className="mt-12 block rounded-2xl border border-zinc-200 bg-zinc-50 p-8 text-left transition hover:border-red-500 hover:shadow-lg"
             >
-              Read the guide →
-            </a>
-          </div>
+              <p className="text-sm font-medium text-zinc-500">
+                📍 Local Guide · {latestGuide.readingTime}
+              </p>
 
-          <a
+              <h3 className="mt-3 text-2xl font-semibold tracking-tight text-zinc-900">
+                {latestGuide.title}
+              </h3>
+
+              <p className="mt-4 leading-7 text-zinc-600">
+                {latestGuide.description}
+              </p>
+
+              <span className="mt-8 inline-flex items-center font-semibold text-red-600 transition group-hover:text-red-700">
+                Read the guide →
+              </span>
+            </Link>
+          ) : (
+            <div className="mt-12 rounded-2xl border border-zinc-200 bg-zinc-50 p-8">
+              <p className="text-zinc-600">
+                Our local guides will be available soon.
+              </p>
+            </div>
+          )}
+
+          <Link
             href="/guides"
-            className="mt-10 inline-block rounded-xl border border-zinc-300 px-6 py-3 font-medium transition hover:bg-zinc-100"
+            className="mt-10 inline-block rounded-xl border border-zinc-300 px-6 py-3 font-medium text-zinc-900 transition hover:bg-zinc-100"
           >
             Explore all guides
-          </a>
+          </Link>
         </div>
       </section>
 
