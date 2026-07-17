@@ -21,16 +21,32 @@ type FaqItem = {
   answer: string;
 };
 
+type ContentSection = {
+  id: string;
+  title: string;
+  source: string;
+};
+
+type TableOfContentsItem = {
+  label: string;
+  href: `#${string}`;
+};
+
 type ReadingExperienceSections = {
   introduction: string;
-  audience: string;
-  keyPoints: string;
-  areaSelection: string;
-  transport: string;
-  localArea: string;
-  dayTrips: string;
-  localTip: string;
-  faq: FaqItem[];
+  audience: ContentSection;
+  keyPoints: ContentSection;
+  areaSelection: ContentSection;
+  transport: ContentSection;
+  localArea: ContentSection;
+  dayTrips: ContentSection;
+  localTip: ContentSection;
+  faq: {
+    id: string;
+    title: string;
+    items: FaqItem[];
+  };
+  planning: ContentSection;
   goodToKnow: string;
 };
 
@@ -55,103 +71,69 @@ export default function PilotGuideLayout({
 }: PilotGuideLayoutProps) {
   const sections = parseReadingExperienceSections(source);
 
+  const tableOfContentsItems: TableOfContentsItem[] = [
+    sections.audience,
+    sections.keyPoints,
+    sections.areaSelection,
+    sections.transport,
+    sections.localArea,
+    sections.dayTrips,
+    {
+      id: sections.faq.id,
+      title: sections.faq.title,
+      source: "",
+    },
+  ].map((section) => ({
+    label: section.title,
+    href: `#${section.id}` as `#${string}`,
+  }));
+
   return (
     <>
       <GuideContentRenderer source={sections.introduction} />
 
-      <GuideTableOfContents
-        items={[
-          {
-            label: "Who this guide is for",
-            href: "#who-is-this-guide-for",
-          },
-          {
-            label: "Which areas to consider",
-            href: "#which-areas-to-consider",
-          },
-          {
-            label: "Why transport connections matter",
-            href: "#why-transport-connections-matter",
-          },
-          {
-            label: "Why consider Sesto San Giovanni",
-            href: "#why-sesto-san-giovanni",
-          },
-          {
-            label: "Frequently asked questions",
-            href: "#frequently-asked-questions",
-          },
-        ]}
-      />
+      <GuideTableOfContents items={tableOfContentsItems} />
 
       {heroImage && heroImageAlt && (
-        <GuidePanoramicImage
-          src={heroImage}
-          alt={heroImageAlt}
-        />
+        <GuidePanoramicImage src={heroImage} alt={heroImageAlt} />
       )}
 
-      <GuideSection
-        id="who-is-this-guide-for"
-        title="Who is this guide for?"
-        source={sections.audience}
-      />
+      <GuideSection section={sections.audience} />
 
-      <GuideSection
-        id="what-first-time-visitors-want"
-        title="What first-time visitors usually want"
-        source={sections.keyPoints}
-      />
+      <GuideSection section={sections.keyPoints} />
 
-      <GuideSection
-        id="which-areas-to-consider"
-        title="Which areas should you consider?"
-        source={sections.areaSelection}
-      />
+      <GuideSection section={sections.areaSelection} />
 
-      <GuideSection
-        id="why-transport-connections-matter"
-        title="Why transport connections matter"
-        source={sections.transport}
-      />
+      <GuideSection section={sections.transport} />
 
-      <GuideSection
-        id="why-sesto-san-giovanni"
-        title="Why Sesto San Giovanni is worth considering"
-        source={sections.localArea}
-      />
+      <GuideSection section={sections.localArea} />
 
       <ApartmentContextCard
         slugs={["arco", "gramsci"]}
-        title="A practical base near the M1 Red Line"
+        title="A practical base in Sesto San Giovanni"
       >
         Both Milan Red Line apartments are located in Sesto San Giovanni, with
-        convenient access to the M1 Red Line and everyday local services.
+        convenient access to the M1 Red Line, local railway connections and
+        everyday services.
       </ApartmentContextCard>
 
-      <GuideSection
-        id="beyond-the-city-centre"
-        title="Beyond the city centre"
-        source={sections.dayTrips}
-      />
+      <GuideSection section={sections.dayTrips} />
 
-      <GuideSection
-        id="local-tip"
-        title="Local tip"
-        source={sections.localTip}
-      />
+      <GuideSection section={sections.localTip} />
 
-      <GuideSectionHeading id="frequently-asked-questions">
-        Frequently asked questions
+      <GuideSectionHeading id={sections.faq.id}>
+        {sections.faq.title}
       </GuideSectionHeading>
 
       <GuideFaq>
-        {sections.faq.map((item) => (
+        {sections.faq.items.map((item) => (
           <GuideFaqItem key={item.question} question={item.question}>
             <GuideContentRenderer source={item.answer} />
           </GuideFaqItem>
         ))}
       </GuideFaq>
+
+      <GuideSection section={sections.planning} />
 
       <GoodToKnow>
         <GuideContentRenderer source={sections.goodToKnow} />
@@ -169,16 +151,17 @@ export default function PilotGuideLayout({
 }
 
 type GuideSectionProps = {
-  id: string;
-  title: string;
-  source: string;
+  section: ContentSection;
 };
 
-function GuideSection({ id, title, source }: GuideSectionProps) {
+function GuideSection({ section }: GuideSectionProps) {
   return (
     <>
-      <GuideSectionHeading id={id}>{title}</GuideSectionHeading>
-      <GuideContentRenderer source={source} />
+      <GuideSectionHeading id={section.id}>
+        {section.title}
+      </GuideSectionHeading>
+
+      <GuideContentRenderer source={section.source} />
     </>
   );
 }
@@ -196,46 +179,58 @@ function parseReadingExperienceSections(
     }
   }
 
+  const faqSection = parseContentSection(
+    getRequiredSection(markedSections, "faq"),
+    "Frequently asked questions",
+  );
+
   return {
     introduction: getRequiredSection(markedSections, "introduction"),
 
-    audience: stripLeadingHeading(
+    audience: parseContentSection(
       getRequiredSection(markedSections, "audience"),
-      2,
+      "Who is this guide for?",
     ),
 
-    keyPoints: stripLeadingHeading(
+    keyPoints: parseContentSection(
       getRequiredSection(markedSections, "key-points"),
-      2,
+      "Key points",
     ),
 
-    areaSelection: stripLeadingHeading(
+    areaSelection: parseContentSection(
       getRequiredSection(markedSections, "area-selection"),
-      2,
+      "Choosing the right option",
     ),
 
-    transport: stripLeadingHeading(
+    transport: parseContentSection(
       getRequiredSection(markedSections, "transport"),
-      2,
+      "Getting around",
     ),
 
-    localArea: stripLeadingHeading(
+    localArea: parseContentSection(
       getRequiredSection(markedSections, "local-area"),
-      2,
+      "Why consider Sesto San Giovanni",
     ),
 
-    dayTrips: stripLeadingHeading(
+    dayTrips: parseContentSection(
       getRequiredSection(markedSections, "day-trips"),
-      2,
+      "Planning your day",
     ),
 
-    localTip: stripLeadingHeading(
+    localTip: parseContentSection(
       getRequiredSection(markedSections, "local-tip"),
-      2,
+      "Local tip",
     ),
 
-    faq: parseFaqItems(
-      stripLeadingHeading(getRequiredSection(markedSections, "faq"), 2),
+    faq: {
+      id: faqSection.id,
+      title: faqSection.title,
+      items: parseFaqItems(faqSection.source),
+    },
+
+    planning: parseContentSection(
+      getRequiredSection(markedSections, "planning"),
+      "Planning your stay?",
     ),
 
     goodToKnow: cleanGoodToKnowSection(
@@ -292,13 +287,36 @@ function getRequiredSection(
   return section;
 }
 
-function stripLeadingHeading(source: string, level: 2 | 3): string {
-  const headingPrefix = "#".repeat(level);
-  const headingPattern = new RegExp(
-    `^${headingPrefix}\\s+.+?(?:\\n+|$)`,
-  );
+function parseContentSection(
+  source: string,
+  fallbackTitle: string,
+): ContentSection {
+  const normalizedSource = source.trim();
+  const headingMatch = normalizedSource.match(/^##\s+(.+?)(?:\n+|$)/);
 
-  return source.replace(headingPattern, "").trim();
+  const title = headingMatch?.[1]?.trim() || fallbackTitle;
+
+  const content = headingMatch
+    ? normalizedSource.slice(headingMatch[0].length).trim()
+    : normalizedSource;
+
+  return {
+    id: createHeadingId(title),
+    title,
+    source: content,
+  };
+}
+
+function createHeadingId(title: string): string {
+  const normalizedId = title
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/['’]/g, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+
+  return normalizedId || "guide-section";
 }
 
 function parseFaqItems(source: string): FaqItem[] {
