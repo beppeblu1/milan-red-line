@@ -12,6 +12,8 @@ import RelatedGuidesBox from "@/components/guides/RelatedGuidesBox";
 
 type PilotGuideLayoutProps = {
   source: string;
+  heroImage?: string;
+  heroImageAlt?: string;
 };
 
 type FaqItem = {
@@ -48,6 +50,8 @@ const requiredSectionNames = [
 
 export default function PilotGuideLayout({
   source,
+  heroImage,
+  heroImageAlt,
 }: PilotGuideLayoutProps) {
   const sections = parseReadingExperienceSections(source);
 
@@ -80,10 +84,12 @@ export default function PilotGuideLayout({
         ]}
       />
 
-      <GuidePanoramicImage
-        src="/images/guides/best-area-to-stay-in-milan-for-first-time-visitors/hero.webp"
-        alt="Panoramic view of Milan and its urban skyline"
-      />
+      {heroImage && heroImageAlt && (
+        <GuidePanoramicImage
+          src={heroImage}
+          alt={heroImageAlt}
+        />
+      )}
 
       <GuideSection
         id="who-is-this-guide-for"

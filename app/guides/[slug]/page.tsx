@@ -71,7 +71,11 @@ export default async function GuidePage({ params }: PageProps) {
       </header>
 
       {usesReadingExperiencePilot ? (
-        <PilotGuideLayout source={guide.content} />
+        <PilotGuideLayout
+          source={guide.content}
+          heroImage={guide.metadata.heroImage}
+          heroImageAlt={guide.metadata.heroImageAlt}
+        />
       ) : (
         <GuideContentRenderer source={guide.content} />
       )}

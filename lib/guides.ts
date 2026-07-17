@@ -13,6 +13,8 @@ export type GuideMetadata = {
   publishedAt: string;
   author: string;
   layout: GuideLayout;
+  heroImage?: string;
+  heroImageAlt?: string;
 };
 
 export type Guide = {
@@ -34,6 +36,16 @@ function parseGuideLayout(value: unknown): GuideLayout {
   return "standard";
 }
 
+function parseOptionalString(value: unknown): string | undefined {
+  if (typeof value !== "string") {
+    return undefined;
+  }
+
+  const normalizedValue = value.trim();
+
+  return normalizedValue.length > 0 ? normalizedValue : undefined;
+}
+
 function parseGuideFile(fileName: string): Guide {
   const slug = fileName.replace(/\.mdx$/, "");
   const filePath = path.join(guidesDirectory, fileName);
@@ -49,11 +61,19 @@ function parseGuideFile(fileName: string): Guide {
     publishedAt: String(data.publishedAt ?? ""),
     author: String(data.author ?? "Milan Red Line"),
     layout: parseGuideLayout(data.layout),
+    heroImage: parseOptionalString(data.heroImage),
+    heroImageAlt: parseOptionalString(data.heroImageAlt),
   };
 
   if (!metadata.title || !metadata.description) {
     throw new Error(
       `The guide "${fileName}" must contain title and description in its frontmatter.`,
+    );
+  }
+
+  if (metadata.heroImage && !metadata.heroImageAlt) {
+    throw new Error(
+      `The guide "${fileName}" must include heroImageAlt when heroImage is defined.`,
     );
   }
 
