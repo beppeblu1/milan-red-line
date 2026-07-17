@@ -3,6 +3,8 @@ import path from "node:path";
 
 import matter from "gray-matter";
 
+export type GuideLayout = "standard" | "reading-experience-pilot";
+
 export type GuideMetadata = {
   slug: string;
   title: string;
@@ -10,6 +12,7 @@ export type GuideMetadata = {
   readingTime: string;
   publishedAt: string;
   author: string;
+  layout: GuideLayout;
 };
 
 export type Guide = {
@@ -21,6 +24,14 @@ const guidesDirectory = path.join(process.cwd(), "content", "guides");
 
 function getGuideFilePath(slug: string): string {
   return path.join(guidesDirectory, `${slug}.mdx`);
+}
+
+function parseGuideLayout(value: unknown): GuideLayout {
+  if (value === "reading-experience-pilot") {
+    return value;
+  }
+
+  return "standard";
 }
 
 function parseGuideFile(fileName: string): Guide {
@@ -37,6 +48,7 @@ function parseGuideFile(fileName: string): Guide {
     readingTime: String(data.readingTime ?? ""),
     publishedAt: String(data.publishedAt ?? ""),
     author: String(data.author ?? "Milan Red Line"),
+    layout: parseGuideLayout(data.layout),
   };
 
   if (!metadata.title || !metadata.description) {
@@ -88,8 +100,9 @@ export function getGuideBySlug(slug: string): Guide | null {
 
   return parseGuideFile(`${slug}.mdx`);
 }
-export function getLatestGuide() {
-    const guides = getAllGuides();
-  
-    return guides.length > 0 ? guides[0] : null;
-  }
+
+export function getLatestGuide(): GuideMetadata | null {
+  const guides = getAllGuides();
+
+  return guides.length > 0 ? guides[0] : null;
+}
