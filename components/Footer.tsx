@@ -41,6 +41,13 @@ export default function Footer() {
             </Link>
 
             <Link
+              href="/guides"
+              className="transition hover:text-red-600"
+            >
+              Guides
+            </Link>
+
+            <Link
               href="/contact"
               className="transition hover:text-red-600"
             >
