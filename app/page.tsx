@@ -45,13 +45,6 @@ export default function Home() {
           >
             Explore Apartments
           </Link>
-
-          <div className="mt-12 flex flex-wrap justify-center gap-6 text-sm font-medium text-zinc-600 md:justify-start">
-            <span>🏡 Self Check-in</span>
-            <span>📶 Free Wi-Fi</span>
-            <span>🚇 M1 Red Line</span>
-            <span>👥 Up to 4 Guests</span>
-          </div>
         </div>
       </section>
 
