@@ -88,7 +88,7 @@ export default function Home() {
             </span>
 
             <h2 className="mt-6 text-4xl font-bold tracking-tight text-zinc-900">
-              Plan your stay with local advice.
+              Explore Milan and Beyond.
             </h2>
 
             <p className="mx-auto mt-5 max-w-3xl text-lg leading-8 text-zinc-600">

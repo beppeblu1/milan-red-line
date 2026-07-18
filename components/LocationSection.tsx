@@ -1,4 +1,4 @@
-import { Train, MapPin, Clock, Home } from "lucide-react";
+import { Train, MapPin, Clock } from "lucide-react";
 
 import ApartmentMap from "@/components/map/Map";
 import MarkerIcon from "@/components/ui/MarkerIcon";
@@ -14,11 +14,7 @@ export default function LocationSection() {
           </div>
 
           <h2 className="mt-6 text-4xl font-bold leading-tight text-zinc-900">
-            The best of Milan.
-            <br />
-            <span className="text-red-600">
-              The comfort of home.
-            </span>
+            Perfectly Connected
           </h2>
 
           <p className="mt-6 text-lg leading-8 text-zinc-600">

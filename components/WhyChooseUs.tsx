@@ -38,7 +38,7 @@ import {
         <div className="mx-auto max-w-6xl">
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="text-3xl font-bold text-zinc-900">
-              Why guests love Milan Red Line
+              Why guests choose us
             </h2>
   
             <p className="mt-4 text-lg leading-8 text-zinc-600">
