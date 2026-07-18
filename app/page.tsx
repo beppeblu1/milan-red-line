@@ -84,7 +84,7 @@ export default function Home() {
         <div className="mx-auto max-w-6xl">
           <div className="text-center">
             <span className="inline-flex rounded-full bg-red-50 px-4 py-1 text-sm font-semibold uppercase tracking-wider text-red-700">
-              Local Travel Guides
+              Local Knowledge
             </span>
 
             <h2 className="mt-6 text-4xl font-bold tracking-tight text-zinc-900">
@@ -92,22 +92,11 @@ export default function Home() {
             </h2>
 
             <p className="mx-auto mt-5 max-w-3xl text-lg leading-8 text-zinc-600">
-              Independent travel guides written to help you choose where to
-              stay, move around Milan easily and discover the surrounding area
-              before your trip.
+              Our practical advice to help you plan your trip.
             </p>
           </div>
 
           <GuideCarousel guides={guides} />
-
-          <div className="mt-8 text-center">
-            <Link
-              href="/guides"
-              className="inline-block rounded-xl border border-zinc-300 px-6 py-3 font-medium text-zinc-900 transition hover:bg-zinc-100"
-            >
-              Explore all guides
-            </Link>
-          </div>
         </div>
       </section>
 
