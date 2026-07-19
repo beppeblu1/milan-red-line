@@ -21,7 +21,7 @@ export default function Home() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-white px-6 py-20 md:py-28">
+      <section className="bg-white px-6 py-20 md:py-20">
         <div className="mx-auto max-w-3xl text-center md:text-left">
           <div className="mx-auto mb-8 h-1 w-16 rounded-full bg-red-600 md:mx-0" />
 
@@ -41,7 +41,7 @@ export default function Home() {
       {/* Apartments */}
       <section
         id="apartments"
-        className="border-t border-zinc-100 bg-zinc-50 px-6 py-24"
+        className="border-t border-zinc-100 bg-zinc-50 px-6 py-20"
       >
         <div className="mx-auto max-w-6xl">
           <h2 className="text-3xl font-bold tracking-tight text-zinc-900">
@@ -70,7 +70,7 @@ export default function Home() {
       <WhyChooseUs />
 
       {/* Local Guides */}
-      <section className="border-t border-zinc-100 bg-white px-6 py-24">
+      <section className="border-t border-zinc-100 bg-white px-6 pt-20 pb-12">
         <div className="mx-auto max-w-6xl">
           <div className="text-center">
             <span className="inline-flex rounded-full bg-red-50 px-4 py-1 text-sm font-semibold uppercase tracking-wider text-red-700">
@@ -93,19 +93,19 @@ export default function Home() {
       <LocationSection />
 
       {/* Final CTA */}
-      <section className="border-t border-zinc-100 bg-white px-6 py-24">
+      <section className="border-t border-zinc-100 bg-white px-6 pt-20 pb-8">
         <div className="mx-auto max-w-3xl text-center">
           <h2 className="text-4xl font-bold tracking-tight text-zinc-900">
             Ready to plan your stay?
           </h2>
 
           <p className="mx-auto mt-5 max-w-2xl text-lg leading-8 text-zinc-600">
-          Choose the apartment that best fits your trip<br />
-          <br />
-          Get in touch if you have any questions
+            Choose the apartment that best fits your trip.
+            <br />
+            Get in touch if you have any questions.
           </p>
 
-          <div className="mt-8 flex flex-wrap justify-center gap-4">
+          <div className="mt-5 flex flex-wrap justify-center gap-4">
             <Link
               href="/#apartments"
               className="rounded-xl bg-red-600 px-6 py-3 font-semibold text-white transition hover:bg-red-700 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-red-600"

@@ -5,7 +5,7 @@ import MarkerIcon from "@/components/ui/MarkerIcon";
 
 export default function LocationSection() {
   return (
-    <section className="bg-zinc-50 px-6 py-24">
+    <section className="bg-zinc-50 px-6 py-20">
       <div className="mx-auto grid max-w-6xl gap-16 lg:grid-cols-2 lg:items-center">
         {/* Text */}
         <div>
@@ -18,9 +18,12 @@ export default function LocationSection() {
           </h2>
 
           <p className="mt-6 text-lg leading-8 text-zinc-600">
-          Our apartments are just a short walk from Milan&apos;s M1 Red Line, making it easy to explore Milan, Monza and many destinations across Northern Italy.
-          <br />
-          Enjoy the comfort of a quiet neighbourhood, with cafés, restaurants and everyday services close by.
+            Our apartments are just a short walk from Milan&apos;s M1 Red Line,
+            making it easy to explore Milan, Monza and many destinations across
+            Northern Italy.
+            <br />
+            Enjoy the comfort of a quiet neighbourhood, with cafés,
+            restaurants and everyday services close by.
           </p>
 
           <div className="mt-10 space-y-6">
@@ -76,34 +79,22 @@ export default function LocationSection() {
           <div className="border-t border-zinc-200 bg-white p-6">
             <div className="space-y-3 text-sm text-zinc-700">
               <div className="flex items-center gap-3">
-                <MarkerIcon
-                  type="apartment"
-                  size={24}
-                />
+                <MarkerIcon type="apartment" size={24} />
                 <span>Arco Apartment</span>
               </div>
 
               <div className="flex items-center gap-3">
-                <MarkerIcon
-                  type="apartment"
-                  size={24}
-                />
+                <MarkerIcon type="apartment" size={24} />
                 <span>Gramsci Apartment</span>
               </div>
 
               <div className="flex items-center gap-3">
-                <MarkerIcon
-                  type="metro"
-                  size={24}
-                />
+                <MarkerIcon type="metro" size={24} />
                 <span>Sesto Rondò (M1)</span>
               </div>
 
               <div className="flex items-center gap-3">
-                <MarkerIcon
-                  type="station"
-                  size={24}
-                />
+                <MarkerIcon type="station" size={24} />
                 <span>Sesto San Giovanni FS</span>
               </div>
             </div>
