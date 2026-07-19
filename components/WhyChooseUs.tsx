@@ -42,8 +42,7 @@ import {
             </h2>
   
             <p className="mt-4 text-lg leading-8 text-zinc-600">
-              Comfort, convenience and easy access to Milan — everything you need
-              for a relaxing stay.
+              Comfort, convenience and easy access to Milan.
             </p>
           </div>
   

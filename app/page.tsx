@@ -21,30 +21,20 @@ export default function Home() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-white px-6 py-24 md:py-32">
+      <section className="bg-white px-6 py-20 md:py-28">
         <div className="mx-auto max-w-3xl text-center md:text-left">
           <div className="mx-auto mb-8 h-1 w-16 rounded-full bg-red-600 md:mx-0" />
 
           <h1 className="text-5xl font-bold tracking-tight text-zinc-900 md:text-6xl">
-            Feel at home in Milan.
+            Your base for Milan.
             <br />
-            <span className="text-red-600">One direct line.</span>
-            <br />
-            To the city center.
+            <span className="text-red-600">And beyond.</span>
           </h1>
 
           <p className="mt-8 text-xl leading-8 text-zinc-600">
-            Comfortable apartments in Sesto San Giovanni, just a short walk
-            from the M1 Red Line. Perfect for city breaks, business trips and
-            longer stays.
+            Comfortable apartments on Milan&apos;s Red Line, with Northern
+            Italy within easy reach.
           </p>
-
-          <Link
-            href="#apartments"
-            className="mt-10 inline-block rounded-xl bg-red-600 px-6 py-3 font-semibold text-white transition hover:bg-red-700"
-          >
-            Explore Apartments
-          </Link>
         </div>
       </section>
 
@@ -92,7 +82,7 @@ export default function Home() {
             </h2>
 
             <p className="mx-auto mt-5 max-w-3xl text-lg leading-8 text-zinc-600">
-              Our practical advice to help you plan your trip.
+              Practical advice to help you plan your trip.
             </p>
           </div>
 
@@ -101,6 +91,37 @@ export default function Home() {
       </section>
 
       <LocationSection />
+
+      {/* Final CTA */}
+      <section className="border-t border-zinc-100 bg-white px-6 py-24">
+        <div className="mx-auto max-w-3xl text-center">
+          <h2 className="text-4xl font-bold tracking-tight text-zinc-900">
+            Ready to plan your stay?
+          </h2>
+
+          <p className="mx-auto mt-5 max-w-2xl text-lg leading-8 text-zinc-600">
+          Choose the apartment that best fits your trip<br />
+          <br />
+          Get in touch if you have any questions
+          </p>
+
+          <div className="mt-8 flex flex-wrap justify-center gap-4">
+            <Link
+              href="/#apartments"
+              className="rounded-xl bg-red-600 px-6 py-3 font-semibold text-white transition hover:bg-red-700 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-red-600"
+            >
+              View Apartments
+            </Link>
+
+            <Link
+              href="/contact"
+              className="rounded-xl border border-zinc-300 bg-white px-6 py-3 font-semibold text-zinc-900 transition hover:bg-zinc-100 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-red-600"
+            >
+              Contact us
+            </Link>
+          </div>
+        </div>
+      </section>
     </>
   );
 }

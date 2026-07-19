@@ -14,14 +14,13 @@ export default function LocationSection() {
           </div>
 
           <h2 className="mt-6 text-4xl font-bold leading-tight text-zinc-900">
-            Perfectly Connected
+            Everything within easy reach.
           </h2>
 
           <p className="mt-6 text-lg leading-8 text-zinc-600">
-            Both apartments are located in Sesto San Giovanni, only a short walk
-            from the M1 Red Line. Reach the heart of Milan in minutes while
-            enjoying the comfort of a quiet neighbourhood, with cafés,
-            restaurants and everyday services just around the corner.
+          Our apartments are just a short walk from Milan&apos;s M1 Red Line, making it easy to explore Milan, Monza and many destinations across Northern Italy.
+          <br />
+          Enjoy the comfort of a quiet neighbourhood, with cafés, restaurants and everyday services close by.
           </p>
 
           <div className="mt-10 space-y-6">
