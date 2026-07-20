@@ -1,7 +1,8 @@
-import type { ComponentPropsWithoutRef } from "react";
+import type { ComponentPropsWithoutRef, ReactNode } from "react";
 import { MDXRemote } from "next-mdx-remote/rsc";
 
 import ApartmentContextCard from "@/components/guides/ApartmentContextCard";
+import EditorialLeadConnector from "@/components/guides/EditorialLeadConnector";
 import GoodToKnow from "@/components/guides/GoodToKnow";
 import {
   GuideFaq,
@@ -15,6 +16,7 @@ import RelatedGuidesBox from "@/components/guides/RelatedGuidesBox";
 
 type GuideContentRendererProps = {
   source: string;
+  showEditorialLeadConnector?: boolean;
 };
 
 const mdxComponents = {
@@ -102,6 +104,7 @@ const mdxComponents = {
   ),
 
   ApartmentContextCard,
+  EditorialLeadConnector,
   GoodToKnow,
   GuideFaq,
   GuideFaqItem,
@@ -112,8 +115,110 @@ const mdxComponents = {
   RelatedGuidesBox,
 };
 
+function LeadParagraph({ children }: { children?: ReactNode }) {
+  return (
+    <p className="mt-5 text-lg leading-8 text-zinc-700">
+      <EditorialLeadConnector />
+      {children}
+    </p>
+  );
+}
+
 export default function GuideContentRenderer({
   source,
+  showEditorialLeadConnector = false,
 }: GuideContentRendererProps) {
-  return <MDXRemote source={source} components={mdxComponents} />;
+  if (!showEditorialLeadConnector) {
+    return <MDXRemote source={source} components={mdxComponents} />;
+  }
+
+  const {
+    contentBeforeParagraph,
+    firstParagraph,
+    contentAfterParagraph,
+  } = splitFirstParagraph(source);
+
+  if (!firstParagraph) {
+    return <MDXRemote source={source} components={mdxComponents} />;
+  }
+
+  return (
+    <>
+      {contentBeforeParagraph && (
+        <MDXRemote
+          source={contentBeforeParagraph}
+          components={mdxComponents}
+        />
+      )}
+
+      <MDXRemote
+        source={firstParagraph}
+        components={{
+          ...mdxComponents,
+          p: LeadParagraph,
+        }}
+      />
+
+      {contentAfterParagraph && (
+        <MDXRemote
+          source={contentAfterParagraph}
+          components={mdxComponents}
+        />
+      )}
+    </>
+  );
+}
+
+function splitFirstParagraph(source: string): {
+  contentBeforeParagraph: string;
+  firstParagraph: string;
+  contentAfterParagraph: string;
+} {
+  const normalizedSource = source.replace(/\r\n/g, "\n").trim();
+  const blocks = normalizedSource.split(/\n\s*\n/);
+
+  const firstParagraphIndex = blocks.findIndex((block) =>
+    isParagraphBlock(block.trim()),
+  );
+
+  if (firstParagraphIndex === -1) {
+    return {
+      contentBeforeParagraph: "",
+      firstParagraph: "",
+      contentAfterParagraph: normalizedSource,
+    };
+  }
+
+  return {
+    contentBeforeParagraph: blocks
+      .slice(0, firstParagraphIndex)
+      .join("\n\n")
+      .trim(),
+
+    firstParagraph: blocks[firstParagraphIndex].trim(),
+
+    contentAfterParagraph: blocks
+      .slice(firstParagraphIndex + 1)
+      .join("\n\n")
+      .trim(),
+  };
+}
+
+function isParagraphBlock(block: string): boolean {
+  if (!block) {
+    return false;
+  }
+
+  return !(
+    block.startsWith("#") ||
+    block.startsWith("- ") ||
+    block.startsWith("* ") ||
+    block.startsWith("+ ") ||
+    /^\d+\.\s/.test(block) ||
+    block.startsWith(">") ||
+    block.startsWith("<") ||
+    block.startsWith("{/*") ||
+    block.startsWith("---") ||
+    block.startsWith("```")
+  );
 }

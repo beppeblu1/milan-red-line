@@ -99,7 +99,10 @@ export default function PilotGuideLayout({
 
   return (
     <>
-      <GuideContentRenderer source={sections.introduction} />
+      <GuideContentRenderer
+        source={sections.introduction}
+        showEditorialLeadConnector
+      />
 
       <GuideTableOfContents items={tableOfContentsItems} />
 
