@@ -7,6 +7,7 @@ import {
   GuideFaq,
   GuideFaqItem,
 } from "@/components/guides/GuideFaq";
+import GuideHighlightCard from "@/components/guides/GuideHighlightCard";
 import GuidePanoramicImage from "@/components/guides/GuidePanoramicImage";
 import GuideSectionHeading from "@/components/guides/GuideSectionHeading";
 import GuideTableOfContents from "@/components/guides/GuideTableOfContents";
@@ -104,6 +105,7 @@ const mdxComponents = {
   GoodToKnow,
   GuideFaq,
   GuideFaqItem,
+  GuideHighlightCard,
   GuidePanoramicImage,
   GuideSectionHeading,
   GuideTableOfContents,

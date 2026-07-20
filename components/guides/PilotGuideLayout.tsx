@@ -16,6 +16,13 @@ type PilotGuideLayoutProps = {
   heroImageAlt?: string;
 };
 
+type GuideSectionIcon =
+  | "calendar"
+  | "help"
+  | "lightbulb"
+  | "train"
+  | "users";
+
 type FaqItem = {
   question: string;
   answer: string;
@@ -25,6 +32,7 @@ type ContentSection = {
   id: string;
   title: string;
   source: string;
+  icon?: GuideSectionIcon;
 };
 
 type TableOfContentsItem = {
@@ -45,6 +53,7 @@ type ReadingExperienceSections = {
     id: string;
     title: string;
     items: FaqItem[];
+    icon?: GuideSectionIcon;
   };
   planning: ContentSection;
   goodToKnow: string;
@@ -121,7 +130,10 @@ export default function PilotGuideLayout({
 
       <GuideSection section={sections.localTip} />
 
-      <GuideSectionHeading id={sections.faq.id}>
+      <GuideSectionHeading
+        id={sections.faq.id}
+        icon={sections.faq.icon}
+      >
         {sections.faq.title}
       </GuideSectionHeading>
 
@@ -157,7 +169,10 @@ type GuideSectionProps = {
 function GuideSection({ section }: GuideSectionProps) {
   return (
     <>
-      <GuideSectionHeading id={section.id}>
+      <GuideSectionHeading
+        id={section.id}
+        icon={section.icon}
+      >
         {section.title}
       </GuideSectionHeading>
 
@@ -187,10 +202,13 @@ function parseReadingExperienceSections(
   return {
     introduction: getRequiredSection(markedSections, "introduction"),
 
-    audience: parseContentSection(
-      getRequiredSection(markedSections, "audience"),
-      "Who is this guide for?",
-    ),
+    audience: {
+      ...parseContentSection(
+        getRequiredSection(markedSections, "audience"),
+        "Who is this guide for?",
+      ),
+      icon: "users",
+    },
 
     keyPoints: parseContentSection(
       getRequiredSection(markedSections, "key-points"),
@@ -202,10 +220,13 @@ function parseReadingExperienceSections(
       "Choosing the right option",
     ),
 
-    transport: parseContentSection(
-      getRequiredSection(markedSections, "transport"),
-      "Getting around",
-    ),
+    transport: {
+      ...parseContentSection(
+        getRequiredSection(markedSections, "transport"),
+        "Getting around",
+      ),
+      icon: "train",
+    },
 
     localArea: parseContentSection(
       getRequiredSection(markedSections, "local-area"),
@@ -217,21 +238,28 @@ function parseReadingExperienceSections(
       "Planning your day",
     ),
 
-    localTip: parseContentSection(
-      getRequiredSection(markedSections, "local-tip"),
-      "Local tip",
-    ),
+    localTip: {
+      ...parseContentSection(
+        getRequiredSection(markedSections, "local-tip"),
+        "Local tip",
+      ),
+      icon: "lightbulb",
+    },
 
     faq: {
       id: faqSection.id,
       title: faqSection.title,
       items: parseFaqItems(faqSection.source),
+      icon: "help",
     },
 
-    planning: parseContentSection(
-      getRequiredSection(markedSections, "planning"),
-      "Planning your stay?",
-    ),
+    planning: {
+      ...parseContentSection(
+        getRequiredSection(markedSections, "planning"),
+        "Planning your stay?",
+      ),
+      icon: "calendar",
+    },
 
     goodToKnow: cleanGoodToKnowSection(
       getRequiredSection(markedSections, "good-to-know"),
