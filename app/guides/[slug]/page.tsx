@@ -1,4 +1,7 @@
-﻿import type { Metadata } from "next";
+﻿import { existsSync } from "node:fs";
+import path from "node:path";
+
+import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
@@ -47,6 +50,17 @@ export default async function GuidePage({ params }: PageProps) {
   const usesReadingExperiencePilot =
     guide.metadata.layout === "reading-experience-pilot";
 
+  const hasHeroImage = publicFileExists(guide.metadata.heroImage);
+
+  const heroImage = hasHeroImage
+    ? guide.metadata.heroImage
+    : undefined;
+
+  const heroImageAlt =
+    hasHeroImage && guide.metadata.heroImageAlt
+      ? guide.metadata.heroImageAlt
+      : undefined;
+
   return (
     <article className="mx-auto max-w-3xl px-6 py-16 md:py-20">
       <div className="mb-10">
@@ -73,8 +87,9 @@ export default async function GuidePage({ params }: PageProps) {
       {usesReadingExperiencePilot ? (
         <PilotGuideLayout
           source={guide.content}
-          heroImage={guide.metadata.heroImage}
-          heroImageAlt={guide.metadata.heroImageAlt}
+          currentSlug={slug}
+          heroImage={heroImage}
+          heroImageAlt={heroImageAlt}
         />
       ) : (
         <GuideContentRenderer
@@ -86,6 +101,34 @@ export default async function GuidePage({ params }: PageProps) {
       <BookingCallToAction />
     </article>
   );
+}
+
+function publicFileExists(
+  publicPath: string | undefined,
+): boolean {
+  if (!publicPath) {
+    return false;
+  }
+
+  const normalizedPublicPath = publicPath
+    .split("?")[0]
+    .split("#")[0]
+    .replace(/^\/+/, "");
+
+  if (
+    !normalizedPublicPath ||
+    normalizedPublicPath.includes("..")
+  ) {
+    return false;
+  }
+
+  const absolutePath = path.join(
+    process.cwd(),
+    "public",
+    normalizedPublicPath,
+  );
+
+  return existsSync(absolutePath);
 }
 
 function BookingCallToAction() {

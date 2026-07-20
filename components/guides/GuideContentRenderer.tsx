@@ -4,6 +4,9 @@ import { MDXRemote } from "next-mdx-remote/rsc";
 import ApartmentContextCard from "@/components/guides/ApartmentContextCard";
 import EditorialLeadConnector from "@/components/guides/EditorialLeadConnector";
 import GoodToKnow from "@/components/guides/GoodToKnow";
+import GuideDestinationTable, {
+  GuideDestinationRow,
+} from "@/components/guides/GuideDestinationTable";
 import {
   GuideFaq,
   GuideFaqItem,
@@ -106,6 +109,8 @@ const mdxComponents = {
   ApartmentContextCard,
   EditorialLeadConnector,
   GoodToKnow,
+  GuideDestinationRow,
+  GuideDestinationTable,
   GuideFaq,
   GuideFaqItem,
   GuideHighlightCard,

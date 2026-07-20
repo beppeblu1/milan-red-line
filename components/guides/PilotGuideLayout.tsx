@@ -12,6 +12,7 @@ import RelatedGuidesBox from "@/components/guides/RelatedGuidesBox";
 
 type PilotGuideLayoutProps = {
   source: string;
+  currentSlug: string;
   heroImage?: string;
   heroImageAlt?: string;
 };
@@ -73,8 +74,15 @@ const requiredSectionNames = [
   "good-to-know",
 ] as const;
 
+const defaultRelatedGuideSlugs = [
+  "where-to-stay-in-milan-without-a-car",
+  "where-to-stay-near-the-m1-red-line",
+  "is-sesto-san-giovanni-a-good-place-to-stay",
+];
+
 export default function PilotGuideLayout({
   source,
+  currentSlug,
   heroImage,
   heroImageAlt,
 }: PilotGuideLayoutProps) {
@@ -107,7 +115,10 @@ export default function PilotGuideLayout({
       <GuideTableOfContents items={tableOfContentsItems} />
 
       {heroImage && heroImageAlt && (
-        <GuidePanoramicImage src={heroImage} alt={heroImageAlt} />
+        <GuidePanoramicImage
+          src={heroImage}
+          alt={heroImageAlt}
+        />
       )}
 
       <GuideSection section={sections.audience} />
@@ -142,7 +153,10 @@ export default function PilotGuideLayout({
 
       <GuideFaq>
         {sections.faq.items.map((item) => (
-          <GuideFaqItem key={item.question} question={item.question}>
+          <GuideFaqItem
+            key={item.question}
+            question={item.question}
+          >
             <GuideContentRenderer source={item.answer} />
           </GuideFaqItem>
         ))}
@@ -155,11 +169,8 @@ export default function PilotGuideLayout({
       </GoodToKnow>
 
       <RelatedGuidesBox
-        slugs={[
-          "where-to-stay-in-milan-without-a-car",
-          "where-to-stay-near-the-m1-red-line",
-          "is-sesto-san-giovanni-a-good-place-to-stay",
-        ]}
+        slugs={defaultRelatedGuideSlugs}
+        currentSlug={currentSlug}
       />
     </>
   );

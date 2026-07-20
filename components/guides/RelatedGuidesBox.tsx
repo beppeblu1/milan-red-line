@@ -4,20 +4,28 @@ import { getAllGuides } from "@/lib/guides";
 
 type RelatedGuidesBoxProps = {
   slugs: string[];
+  currentSlug?: string;
   title?: string;
 };
 
 export default function RelatedGuidesBox({
   slugs,
+  currentSlug,
   title = "You may also find these guides useful",
 }: RelatedGuidesBoxProps) {
   const guidesBySlug = new Map(
     getAllGuides().map((guide) => [guide.slug, guide]),
   );
 
-  const selectedGuides = slugs
-    .map((slug) => guidesBySlug.get(slug))
-    .filter((guide) => guide !== undefined);
+  const uniqueSlugs = Array.from(new Set(slugs)).filter(
+    (slug) => slug !== currentSlug,
+  );
+
+  const selectedGuides = uniqueSlugs.flatMap((slug) => {
+    const guide = guidesBySlug.get(slug);
+
+    return guide ? [guide] : [];
+  });
 
   if (selectedGuides.length === 0) {
     return null;
