@@ -92,7 +92,7 @@ export default function DirectBookingCard({
             </a>
 
             <a
-              href={`https://wa.me/${site.whatsapp}`}
+              href={`https://wa.me/${site.whatsapp.replace(/\D/g, "")}`}
               target="_blank"
               rel="noopener noreferrer"
               className="flex w-full items-center justify-center gap-2 rounded-xl border border-zinc-300 bg-white px-6 py-4 font-semibold text-zinc-800 transition hover:bg-zinc-100"
