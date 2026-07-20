@@ -1,184 +1,129 @@
-# Milan Red Line — Strategy
+# # Milan Red Line — Project Strategy
 
-## Mission
+*Last updated: July 2026*
 
-Help travellers discover comfortable apartments connected to the heart of Milan while encouraging direct bookings through trust, transparency and an outstanding guest experience.
+---
 
-The website is not just a showcase.
+# Mission
 
-It is the primary sales channel for Milan Red Line.
+Help travellers plan a better stay in Milan by combining trustworthy travel guides with comfortable apartments in a well-connected location.
 
 ---
 
 # Vision
 
-Become the reference website for travellers looking for high-quality apartments near Milan's Red Line.
+Become one of the most useful independent resources for visitors looking for a practical base to explore Milan and Northern Italy.
 
-Rather than competing on price, Milan Red Line competes on trust, quality and local expertise.
+The website should be known not only for its apartments, but also for the quality and usefulness of its content.
 
 ---
 
 # Business Goals
 
-## Short Term (0–12 months)
+## Primary Goal
 
-- Increase direct bookings.
-- Reduce dependency on booking platforms.
-- Build visibility on Google.
-- Create a recognisable brand.
+Increase direct bookings for the two Milan Red Line apartments.
 
----
+## Secondary Goals
 
+- Build long-term organic traffic through evergreen content.
 
+- Reduce dependence on booking platforms.
 
-## Medium Term (1–3 years)
+- Increase trust before the first contact.
 
-- Become a recognised local reference for accommodation near Milan's Red Line.
-- Increase repeat guests.
-- Expand the number of apartments without sacrificing quality.
+- Encourage visitors to return when planning future trips.
 
 ---
-
-
-
-## Long Term
-
-Build a hospitality brand known for simplicity, reliability and exceptional guest experience.
-
----
-
-
-
-# Ideal Guests
-
-Our apartments are designed for travellers who value comfort, convenience and independence.
-
-Typical guests include:
-
-- Couples visiting Milan.
-- Families.
-- Business travellers.
-- People visiting San Raffaele Hospital.
-- Visitors to Bicocca University.
-- Guests attending concerts or events.
-- Travellers looking for a quieter alternative to Milan city centre.
-
----
-
-
 
 # Positioning
 
-We are not a hotel.
+Milan is the destination.
 
-We are not a generic holiday rental.
+Our apartments are the base.
 
-We offer carefully managed apartments in a strategic location, with direct access to Milan through the M1 Red Line.
+Located on Milan's M1 Red Line, they offer easy access not only to the city, but also to Monza, Lake Como and many destinations across Northern Italy.
 
----
+This positioning is summarised by the brand message:
 
-
-
-# Direct Booking Strategy
-
-The website exists to generate direct bookings.
-
-Every page should increase trust and make contacting us easy.
-
-Airbnb and [Booking.com](http://Booking.com) are valuable channels for visibility, but they are not our primary business.
-
-Guests should feel confident enough to contact us directly.
+> **Your base for Milan. And beyond.**
 
 ---
 
+# The Two Visitor Journeys
 
+The website serves two different types of visitors.
 
-# SEO Strategy
+## Accommodation-first
 
-Our objective is not to rank for generic keywords like:
+The visitor is already looking for a place to stay.
 
-- apartment Milan
-- holiday rental Milan
+Typical journey:
 
-Instead, we aim to become the reference website for searches related to:
+Home → Apartments → Contact
 
-- apartments near Milan Red Line
-- Sesto San Giovanni accommodation
-- apartments near Sesto Rondò
-- accommodation near San Raffaele
-- apartments near Bicocca
-- apartments connected to Duomo by metro
-
-Content should answer real questions from travellers.
-
-Every page should solve a problem.
+The website should quickly communicate comfort, location and trust.
 
 ---
 
+## Information-first
 
+The visitor arrives through Google looking for travel advice.
 
-# Content Strategy
+Typical journey:
 
-We publish fewer pages, but every page must provide real value.
+Guide → Related Guides → Apartments → Contact
 
-Future content may include:
-
-- neighbourhood guides
-- transport guides
-- local recommendations
-- FAQ
-- practical information for guests
-
-No content exists purely for SEO.
-
-Every article should genuinely help visitors.
+The website should answer the visitor's question first, build trust naturally and only then introduce the apartments.
 
 ---
-
-
 
 # Brand Principles
 
-The website should always communicate:
+Everything published on Milan Red Line should be:
 
-- Trust
-- Simplicity
-- Quality
-- Transparency
-- Local knowledge
+- Helpful before promotional.
 
-The design should feel calm, elegant and timeless.
+- Honest and transparent.
 
----
+- Calm and professional.
 
+- Easy to understand.
 
+- Written from local knowledge.
 
-# Growth Strategy
+- Focused on real traveller needs.
 
-Growth comes from:
+The website should never feel like an advertisement.
 
-1. Organic search (SEO)
-2. Google Business Profile
-3. Guest reviews
-4. Word of mouth
-5. Repeat guests
-6. Direct bookings
-
-Paid advertising is not a priority during the initial stages.
+It should feel like advice from someone who knows the area well.
 
 ---
-
-
 
 # Decision Filter
 
-Before implementing any new feature, ask:
+Before adding any new feature or content, ask:
 
-- Does this improve the guest experience?
-- Does this increase trust?
-- Does this help direct bookings?
-- Does this support our long-term vision?
+- Does it genuinely help travellers?
 
-If the answer is "no", the feature can wait.  
-  
-Every improvement should make Milan Red Line easier to find, easier to trust and easier to book.
+- Does it build trust?
+
+- Does it support direct bookings?
+
+- Does it keep the experience simple?
+
+- Can it scale as the project grows?
+
+If the answer is "no" to several of these questions, the feature should probably not be implemented.
+
+---
+
+# Long-Term Direction
+
+Milan Red Line is not simply a website presenting two apartments.
+
+It is a growing travel resource where high-quality local information naturally leads visitors towards a trusted place to stay.
+
+The apartments remain the product.
+
+Useful information is how visitors discover them.

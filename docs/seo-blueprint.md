@@ -1,253 +1,219 @@
-# Milan Red Line
+# # Milan Red Line — SEO Blueprint
 
-# SEO Blueprint
-
-## Mission
-
-The goal of Milan Red Line is not to compete with Airbnb or Booking.
-
-The goal is to become the best independent website for travellers looking for a smart place to stay near Milan.
-
-Every page should answer a real question and naturally lead visitors towards a direct booking.
+*Last updated: July 2026*
 
 ---
 
-# SEO Principles
+# Mission
 
-## Solve problems before selling
+Build long-term organic visibility by publishing genuinely useful travel content that naturally leads visitors towards direct bookings.
 
-Visitors are looking for information.
+SEO is not the goal.
 
-The apartment is the solution.
+Helping travellers is the goal.
+
+SEO is the consequence.
+
+---
+
+# Core Principles
+
+## Help before selling
+
+Answer the visitor's question first.
+
+Only introduce the apartments when they are genuinely relevant.
+
+Trust comes before conversion.
 
 ---
 
 ## Local expertise
 
-Only create content based on real local knowledge.
+Write from direct experience.
 
-No generic travel articles.
+Prefer practical advice over generic travel information.
 
----
-
-## Evergreen content
-
-Prefer pages that will remain useful for years.
-
-Avoid news or temporary events.
+Whenever possible, explain how local transport makes travelling easier.
 
 ---
 
+## Evergreen first
 
+Prioritise content that remains useful over time.
+
+Avoid creating articles that become obsolete after a few weeks.
+
+---
 
 ## Quality over quantity
 
-Ten excellent pages are worth more than one hundred average pages.
+One excellent guide is worth more than ten average ones.
+
+Every article should deserve its place.
 
 ---
 
+## Build topical authority
 
+The objective is not to rank a single page.
 
-## Build authority
+The objective is to become a trusted resource about:
 
-The website should become a trusted guide for staying near Milan.
+- staying near Milan
 
-Apartments are only one part of the experience.
+- moving around Milan
 
----
+- exploring Northern Italy by train
 
-
-
-# Primary Audience
-
-
-
-## Business travellers
-
-People working in Milan looking for:
-
-- easy metro access
-- quiet area
-- direct booking
-- apartment instead of hotel
+Every new guide should strengthen the entire Knowledge Network.
 
 ---
 
+# Content Pillars
 
+## Accommodation
 
-## Leisure travellers
-
-Visitors exploring Milan who prefer:
-
-- larger apartments
-- lower prices than city centre
-- fast metro connection
-
----
-
-
-
-## Visiting friends and relatives
-
-Guests staying near family or friends in Sesto San Giovanni.
-
----
-
-
-
-## Families
-
-Travellers needing:
-
-- kitchen
-- washing machine
-- larger spaces
-- flexibility
-
----
-
-
-
-# Secondary Audience
-
-- University visitors
-- Concert visitors
-- Hospital visitors
-
----
-
-
-
-# Geographic Markets
-
-Primary
-
-- Italy
-
-Secondary
-
-- Europe
-
-Growth
-
-- North America
-- South America
-
----
-
-
-
-# Core Value Proposition
-
-Stay near Milan.
-
-Reach Duomo in around 20 minutes.
-
-Enjoy a larger apartment, quieter surroundings and better value than staying in the city centre.
-
-Book directly with the owner.
-
----
-
-
-
-# Content Strategy
-
-The website will grow around four content pillars.
-
-## Apartments
-
-The properties themselves.
-
----
-
-
-
-## Area Guides
-
-Help visitors understand the neighbourhood.
+Help travellers choose where to stay.
 
 Examples:
 
-- Why stay in Sesto San Giovanni
-- Is Sesto San Giovanni safe?
-- Staying near Milan
+- Best areas
+
+- Sesto San Giovanni
+
+- Families
+
+- Business travellers
+
+- Rho Fiera
 
 ---
 
+## Transport
 
-
-## Transport Guides
-
-Explain how easy it is to reach Milan.
+Explain how to move efficiently.
 
 Examples:
 
-- Milan Red Line Guide
-- How to reach Duomo
-- How to reach Central Station
-- How to reach San Siro
+- Metro
+
+- Airports
+
+- Railway stations
+
+- Public transport
 
 ---
 
+## Day Trips
 
-
-## Local Guides
-
-Useful local knowledge.
+Show how Milan can become the starting point for exploring Northern Italy.
 
 Examples:
+
+- Lake Como
+
+- Monza
+
+- Lecco
+
+- Venice
+
+- Florence
+
+- Rome
+
+- Cinque Terre
+
+---
+
+## Local Knowledge
+
+Answer practical questions visitors often have.
+
+Examples:
+
+- Parking
+
+- Restaurants
 
 - Supermarkets
-- Parking
-- Restaurants
-- Things to do nearby
+
+- Safety
+
+- Everyday tips
 
 ---
 
+# Internal Linking Strategy
 
+Every guide should:
 
-# Priority Keywords
+- answer one specific question;
 
-High Priority
+- link naturally to related guides;
 
-- apartment near Milan
-- apartment near M1
-- apartment Sesto San Giovanni
-- holiday apartment Sesto San Giovanni
-- accommodation near Milan
+- strengthen the Knowledge Network;
 
-Medium Priority
+- introduce apartment pages only when relevant.
 
-- apartment near Duomo
-- apartment near Bicocca
-- apartment near Carroponte
-- apartment near San Raffaele
+Internal links exist to help readers, not search engines.
 
 ---
 
+# Technical SEO
 
+Maintain:
+
+- clean URLs;
+
+- dynamic sitemap;
+
+- canonical URLs;
+
+- structured data;
+
+- fast loading;
+
+- responsive design;
+
+- accessibility;
+
+- image optimisation.
+
+Future multilingual versions must include proper hreflang annotations.
+
+---
 
 # Success Metrics
 
-Measure success by:
+Measure success using:
 
-- organic traffic
-- direct bookings
-- contact requests
-- average time on page
-- returning visitors
+- organic traffic;
 
-Not by page count.
+- Search Console impressions;
+
+- ranking growth;
+
+- average engagement time;
+
+- guide-to-guide navigation;
+
+- clicks towards apartment pages;
+
+- direct contact requests.
+
+Avoid measuring success by page count alone.
 
 ---
 
-
-
 # Long-Term Vision
 
-Within the next few years Milan Red Line should become one of the most useful independent resources for people looking for accommodation near Milan.
+Milan Red Line should become one of the most trusted independent travel resources for visitors planning a stay in the Milan area.
 
-The apartments are the destination.
+The website should help travellers answer their questions before they even think about accommodation.
 
-The guides are how visitors discover them.
+Useful information creates trust.
+
+Trust creates direct bookings.

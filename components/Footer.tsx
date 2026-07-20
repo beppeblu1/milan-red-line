@@ -82,7 +82,7 @@ export default function Footer() {
 
             {site.whatsapp && (
               <a
-                href={`https://wa.me/${site.whatsapp.replace("+", "")}`}
+              href={`https://wa.me/${site.whatsapp.replace(/\D/g, "")}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-3 transition hover:text-red-600"

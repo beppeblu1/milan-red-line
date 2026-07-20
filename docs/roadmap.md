@@ -1,138 +1,193 @@
 # # Milan Red Line — Roadmap
 
-## Phase 1 — Foundation ✅ Completed
+*Last updated: July 2026*
 
-Build a solid technical and design foundation.
+---
+
+# Phase 1 — Foundation ✅ Completed
+
+Build a solid technical, editorial and design foundation.
 
 ### Completed
 
 - Next.js architecture
-- Tailwind CSS
-- Reusable component system
-- Apartment data model
+
 - Responsive design
-- SEO technical foundation
-- Search Console
-- Sitemap
-- Contact page
+
+- Reusable component system
+
 - Apartment pages
-- Direct booking CTA
-- Documentation
+
+- Contact page
+
+- SEO technical foundation
+
+- Dynamic sitemap
+
+- Search Console
+
+- Reading Experience Framework
+
+- Knowledge Network
+
+- Mobile navigation
+
+- Home UX Review v2
+
+- Day Trips content cluster
+
+- Project documentation
 
 ---
 
-# Phase 2 — Website Optimisation 🚧 In Progress
+# Phase 2 — SEO & Measurement 🚧 In Progress
 
-Goal:
+## Goal
 
-Transform the website into the best possible tool for converting visitors into direct bookings.
+Measure user behaviour and improve visibility through data rather than assumptions.
 
 ### Current priorities
 
-- Refine typography and spacing
-- Improve apartment pages
-- Apartment-specific FAQ
-- Improve trust elements
-- Final design polish
-- Performance optimisation
-- Accessibility improvements
+- Google Analytics
 
----
-
-
-
-# Phase 3 — SEO & Visibility
-
-Goal:
-
-Become highly visible for travellers searching accommodation near Milan's Red Line.
-
-### Priorities
+- Microsoft Clarity
 
 - Google Business Profile
+
 - Bing Places
-- Google Analytics
-- Microsoft Clarity
-- Structured data ([Schema.org](http://Schema.org))
+
+- Canonical URLs
+
+- Structured data
+
 - Image optimisation
-- Local SEO
-- Internal linking
+
 - Search Console monitoring
 
----
+- Core Web Vitals
 
-
-
-# Phase 4 — Content Strategy
-
-Goal:
-
-Publish useful content that answers travellers' questions.
-
-### Planned content
-
-- Staying near San Raffaele Hospital
-- Staying near Bicocca University
-- Staying near Carroponte
-- Getting to Duomo from Sesto Rondò
-- Milan Red Line Guide
-- Local recommendations
-- Apartment FAQs
+- Conversion tracking
 
 ---
 
+# Phase 3 — Knowledge Expansion 🚧 In Progress
 
+## Goal
 
-# Phase 5 — Direct Booking Optimisation
+Increase qualified organic traffic by publishing genuinely useful travel content.
 
-Goal:
+### Current content pillars
 
-Increase the percentage of direct bookings.
+- Where to Stay
+
+- Transport
+
+- Day Trips
+
+- Practical Travel Advice
+
+### High-priority guides
+
+- Where to Stay Near Rho Fiera Milano
+
+- How to Use Milan Metro
+
+- ATM Tickets Explained
+
+- Malpensa to Milan
+
+- Linate to Milan
+
+- Best Area to Stay in Milan on a Budget
+
+### Explore Italy from Milan
+
+- Venice
+
+- Florence
+
+- Rome
+
+- Cinque Terre
+
+- Bergamo
+
+- Verona
+
+- Turin
+
+- Pavia
+
+- Brescia
+
+---
+
+# Phase 4 — Visitor Experience
+
+## Goal
+
+Help visitors find information more quickly while increasing trust and conversions.
 
 ### Planned improvements
 
-- Better booking flow
-- Availability request optimisation
-- Trust signals
-- Guest reviews
-- Pricing communication
-- Repeat guest strategy
+- Guide search
+
+- Topic filters
+
+- "No results" contact card
+
+- Logging of unanswered searches
+
+- Custom illustrated map
+
+- Additional trust elements
+
+- Continuous UX improvements based on analytics
 
 ---
 
+# Phase 5 — Multilingual Platform
 
+## Goal
+
+Reach international travellers without compromising content quality.
+
+### Planned approach
+
+- next-intl infrastructure
+
+- English as default language
+
+- Italian pilot
+
+- Additional languages introduced progressively
+
+- AI-assisted translation workflow with human review
+
+---
 
 # Phase 6 — Guest Experience
 
-Goal:
+## Goal
 
-Deliver an outstanding experience before, during and after the stay.
+Improve the experience before, during and after each stay.
 
 ### Future ideas
 
 - Digital house manual
+
 - Online check-in
-- Welcome guide
+
 - Local recommendations
+
 - Guest area
+
+- Repeat guest experience
 
 ---
 
+# Long-Term Vision
 
+Milan Red Line should evolve into a trusted travel platform that naturally connects useful local knowledge with direct bookings.
 
-# Phase 7 — Growth
-
-Goal:
-
-Expand Milan Red Line while maintaining quality.
-
-Possible future developments:
-
-- More apartments
-- CMS
-- CRM
-- Guest database
-- Newsletter
-- Multi-language content
-- Multi-property management
-
+Traffic, trust and direct relationships with guests should grow together.
