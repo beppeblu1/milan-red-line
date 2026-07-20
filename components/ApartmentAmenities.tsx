@@ -76,7 +76,7 @@ import {
     return (
       <section className="mx-auto max-w-6xl px-6 py-16">
         <h2 className="text-3xl font-bold text-zinc-900">
-          What you'll find
+        What you&apos;ll find
         </h2>
   
         <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">

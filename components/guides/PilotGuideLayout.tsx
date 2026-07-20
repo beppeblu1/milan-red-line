@@ -9,6 +9,7 @@ import GuidePanoramicImage from "@/components/guides/GuidePanoramicImage";
 import GuideSectionHeading from "@/components/guides/GuideSectionHeading";
 import GuideTableOfContents from "@/components/guides/GuideTableOfContents";
 import RelatedGuidesBox from "@/components/guides/RelatedGuidesBox";
+import { getRelatedGuideSlugs } from "@/lib/related-guides";
 
 type PilotGuideLayoutProps = {
   source: string;
@@ -74,12 +75,6 @@ const requiredSectionNames = [
   "good-to-know",
 ] as const;
 
-const defaultRelatedGuideSlugs = [
-  "where-to-stay-in-milan-without-a-car",
-  "where-to-stay-near-the-m1-red-line",
-  "is-sesto-san-giovanni-a-good-place-to-stay",
-];
-
 export default function PilotGuideLayout({
   source,
   currentSlug,
@@ -87,6 +82,7 @@ export default function PilotGuideLayout({
   heroImageAlt,
 }: PilotGuideLayoutProps) {
   const sections = parseReadingExperienceSections(source);
+  const relatedGuideSlugs = getRelatedGuideSlugs(currentSlug);
 
   const tableOfContentsItems: TableOfContentsItem[] = [
     sections.audience,
@@ -169,7 +165,7 @@ export default function PilotGuideLayout({
       </GoodToKnow>
 
       <RelatedGuidesBox
-        slugs={defaultRelatedGuideSlugs}
+        slugs={relatedGuideSlugs}
         currentSlug={currentSlug}
       />
     </>

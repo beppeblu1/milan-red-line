@@ -14,7 +14,7 @@ export default function Footer() {
           </h3>
 
           <p className="mt-4 text-sm leading-7 text-zinc-600">
-            Comfortable apartments on Milan's M1 Red Line, making it easy to explore Milan and Northern Italy.
+            Comfortable apartments on Milan&apos;s M1 Red Line, making it easy to explore Milan and Northern Italy.
           </p>
         </div>
 

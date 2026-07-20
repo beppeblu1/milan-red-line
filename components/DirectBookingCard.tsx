@@ -79,7 +79,7 @@ export default function DirectBookingCard({
           </div>
 
           <p className="mt-8 text-base leading-8 text-zinc-600">
-            We'll confirm availability and answer any questions you may have.
+          We&apos;ll confirm availability and answer any questions you may have.
           </p>
 
           <div className="mt-10 space-y-4">
@@ -126,7 +126,7 @@ export default function DirectBookingCard({
             </>
           )}
         </div>
-      </div>
-      </section>
+        </div>
+    </section>
   );
 }

@@ -4,6 +4,8 @@ export default function EditorialLeadConnector() {
       className="mr-4 inline-flex align-middle md:mr-5"
       aria-hidden="true"
     >
+      {/* Small decorative SVG. Using <img> intentionally instead of next/image. */}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src="/images/ui/editorial-lead-connector.svg"
         alt=""
