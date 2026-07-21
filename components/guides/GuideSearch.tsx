@@ -20,7 +20,6 @@ export default function GuideSearch({
 }: GuideSearchProps) {
   const [query, setQuery] = useState("");
   const inputId = useId();
-  const statusId = useId();
 
   const results = useMemo(
     () => searchGuides(guides, query, locale),
@@ -28,33 +27,31 @@ export default function GuideSearch({
   );
 
   const hasQuery = query.trim().length > 0;
-  const resultLabel =
-    results.length === 1
-      ? "1 guide found"
-      : `${results.length} guides found`;
+  const hasResults = results.length > 0;
+
+  const resultsHeading = !hasQuery
+    ? "All guides"
+    : hasResults
+      ? "Search results"
+      : "No guides found";
+
+  const countLabel = !hasQuery
+    ? `${results.length} available`
+    : results.length === 1
+      ? "1 guide"
+      : `${results.length} guides`;
 
   return (
-    <section aria-labelledby={`${inputId}-heading`}>
-      <div className="mx-auto max-w-2xl">
-        <h2
-          id={`${inputId}-heading`}
-          className="text-center text-2xl font-semibold tracking-tight text-zinc-900"
-        >
-          Find the right guide
-        </h2>
-
-        <p className="mt-3 text-center leading-7 text-zinc-600">
-          Search by destination, transport option, event or travel need.
-        </p>
-
-        <div className="relative mt-7">
+    <section aria-label="Guide search">
+      <div className="mx-auto mt-7 max-w-[720px]">
+        <div className="relative">
           <label htmlFor={inputId} className="sr-only">
             Search local guides
           </label>
 
           <Search
             aria-hidden="true"
-            className="pointer-events-none absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-zinc-400"
+            className="pointer-events-none absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-zinc-500"
           />
 
           <input
@@ -62,10 +59,9 @@ export default function GuideSearch({
             type="search"
             value={query}
             onChange={(event) => setQuery(event.target.value)}
-            placeholder='Try "Rho Fiera", "Monza" or "without a car"'
-            aria-describedby={statusId}
+            placeholder="Search by destination, topic or travel need..."
             autoComplete="off"
-            className="w-full rounded-2xl border border-zinc-300 bg-white py-4 pl-12 pr-12 text-base text-zinc-900 shadow-sm outline-none transition placeholder:text-zinc-400 hover:border-zinc-400 focus:border-red-500 focus:ring-4 focus:ring-red-100"
+            className="h-14 w-full rounded-2xl border border-zinc-300 bg-white pl-12 pr-12 text-base text-zinc-900 outline-none transition placeholder:text-zinc-400 hover:border-zinc-400 focus:border-red-600 focus:ring-4 focus:ring-red-100 [&::-webkit-search-cancel-button]:appearance-none"
           />
 
           {hasQuery && (
@@ -73,40 +69,42 @@ export default function GuideSearch({
               type="button"
               onClick={() => setQuery("")}
               aria-label="Clear search"
-              className="absolute right-3 top-1/2 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full text-zinc-500 transition hover:bg-zinc-100 hover:text-zinc-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-600"
+              className="absolute right-3 top-1/2 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full text-zinc-500 transition hover:bg-zinc-100 hover:text-zinc-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-600 focus-visible:ring-offset-2"
             >
               <X aria-hidden="true" className="h-5 w-5" />
             </button>
           )}
         </div>
-
-        <p
-          id={statusId}
-          aria-live="polite"
-          className="mt-4 text-center text-sm text-zinc-500"
-        >
-          {hasQuery ? resultLabel : `${results.length} local guides available`}
-        </p>
       </div>
 
-      {results.length > 0 ? (
-        <div className="mt-10 space-y-6">
-          {results.map((guide) => (
-            <GuideSearchCard key={guide.slug} guide={guide} />
-          ))}
-        </div>
-      ) : (
-        <div className="mt-10 rounded-2xl border border-zinc-200 bg-zinc-50 p-8 text-center">
-          <h3 className="text-lg font-semibold text-zinc-900">
-            No matching guides
-          </h3>
+      <div className="mx-auto mt-10 max-w-4xl sm:mt-14">
+        <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1">
+          <h2 className="text-2xl font-semibold tracking-tight text-zinc-900">
+            {resultsHeading}
+          </h2>
 
-          <p className="mx-auto mt-3 max-w-xl leading-7 text-zinc-600">
-            Try a destination such as Monza or Rho Fiera, or a travel need such
-            as public transport, business travel or staying without a car.
+          <p
+            aria-live="polite"
+            className="text-sm font-medium text-zinc-500"
+          >
+            {countLabel}
           </p>
         </div>
-      )}
+
+        {hasResults ? (
+          <div className="mt-6 space-y-4">
+            {results.map((guide) => (
+              <GuideSearchCard key={guide.slug} guide={guide} />
+            ))}
+          </div>
+        ) : (
+          <div className="mt-6 rounded-2xl border border-zinc-200 bg-zinc-50 p-6 sm:p-7">
+            <p className="leading-7 text-zinc-600">
+              Try a different destination, topic or travel need.
+            </p>
+          </div>
+        )}
+      </div>
     </section>
   );
 }
