@@ -10,9 +10,23 @@ export const metadata: Metadata = {
     "Practical guides to help you choose where to stay, move around Milan and explore beyond the city.",
 };
 
-export default function GuidesPage() {
+type GuidesPageProps = {
+  searchParams: Promise<{
+    q?: string | string[];
+  }>;
+};
+
+export default async function GuidesPage({
+  searchParams,
+}: GuidesPageProps) {
   const guides = getAllGuides();
   const searchIndex = createGuideSearchIndex(guides);
+
+  const resolvedSearchParams = await searchParams;
+  const rawQuery = resolvedSearchParams.q;
+
+  const initialQuery =
+    typeof rawQuery === "string" ? rawQuery : "";
 
   return (
     <div className="mx-auto max-w-5xl px-6 py-12 sm:py-16">
@@ -28,7 +42,12 @@ export default function GuidesPage() {
       </header>
 
       {searchIndex.length > 0 ? (
-        <GuideSearch guides={searchIndex} locale="en" />
+        <GuideSearch
+          key={initialQuery}
+          guides={searchIndex}
+          locale="en"
+          initialQuery={initialQuery}
+        />
       ) : (
         <div className="mx-auto mt-10 max-w-4xl rounded-2xl border border-zinc-200 bg-zinc-50 p-8 text-center">
           <p className="text-zinc-600">No guides are available yet.</p>

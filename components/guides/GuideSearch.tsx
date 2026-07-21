@@ -1,33 +1,36 @@
 ﻿"use client";
 
 import { Search, X } from "lucide-react";
-import { useId, useMemo, useState } from "react";
+import { useId } from "react";
 
 import GuideSearchCard from "@/components/guides/GuideSearchCard";
-import {
-  searchGuides,
-  type GuideSearchEntry,
-} from "@/lib/guide-search";
+import { useGuideSearch } from "@/hooks/use-guide-search";
+import type { GuideSearchEntry } from "@/lib/guide-search";
 
 type GuideSearchProps = {
   guides: GuideSearchEntry[];
   locale: string;
+  initialQuery?: string;
 };
 
 export default function GuideSearch({
   guides,
   locale,
+  initialQuery = "",
 }: GuideSearchProps) {
-  const [query, setQuery] = useState("");
   const inputId = useId();
 
-  const results = useMemo(
-    () => searchGuides(guides, query, locale),
-    [guides, locale, query],
-  );
-
-  const hasQuery = query.trim().length > 0;
-  const hasResults = results.length > 0;
+  const {
+    query,
+    setQuery,
+    results,
+    hasQuery,
+    hasResults,
+  } = useGuideSearch({
+    guides,
+    locale,
+    initialQuery,
+  });
 
   const resultsHeading = !hasQuery
     ? "All guides"

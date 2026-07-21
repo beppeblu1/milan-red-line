@@ -6,8 +6,14 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import GuideContentRenderer from "@/components/guides/GuideContentRenderer";
+import GuideSearchShortcut from "@/components/guides/GuideSearchShortcut";
 import PilotGuideLayout from "@/components/guides/PilotGuideLayout";
-import { getGuideBySlug, getGuideSlugs } from "@/lib/guides";
+import { createGuideSearchIndex } from "@/lib/guide-search";
+import {
+  getAllGuides,
+  getGuideBySlug,
+  getGuideSlugs,
+} from "@/lib/guides";
 
 type PageProps = {
   params: Promise<{
@@ -47,6 +53,8 @@ export default async function GuidePage({ params }: PageProps) {
     notFound();
   }
 
+  const searchIndex = createGuideSearchIndex(getAllGuides());
+
   const usesReadingExperiencePilot =
     guide.metadata.layout === "reading-experience-pilot";
 
@@ -63,13 +71,18 @@ export default async function GuidePage({ params }: PageProps) {
 
   return (
     <article className="mx-auto max-w-3xl px-6 py-16 md:py-20">
-      <div className="mb-10">
+      <div className="mb-10 flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
         <Link
           href="/guides"
-          className="text-sm font-medium text-zinc-500 transition hover:text-red-600 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-red-600"
+          className="mt-3 text-sm font-medium text-zinc-500 transition hover:text-red-600 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-red-600"
         >
           ← All guides
         </Link>
+
+        <GuideSearchShortcut
+          guides={searchIndex}
+          locale="en"
+        />
       </div>
 
       <header className="mb-14 border-b border-zinc-200 pb-10">
