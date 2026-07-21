@@ -2,6 +2,10 @@
 
 import { Search, X } from "lucide-react";
 import { useId } from "react";
+import {
+  usePathname,
+  useSearchParams,
+} from "next/navigation";
 
 import GuideSearchCard from "@/components/guides/GuideSearchCard";
 import { useGuideSearch } from "@/hooks/use-guide-search";
@@ -10,15 +14,17 @@ import type { GuideSearchEntry } from "@/lib/guide-search";
 type GuideSearchProps = {
   guides: GuideSearchEntry[];
   locale: string;
-  initialQuery?: string;
 };
 
 export default function GuideSearch({
   guides,
   locale,
-  initialQuery = "",
 }: GuideSearchProps) {
   const inputId = useId();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+
+  const initialQuery = searchParams.get("q") ?? "";
 
   const {
     query,
@@ -44,6 +50,29 @@ export default function GuideSearch({
       ? "1 guide"
       : `${results.length} guides`;
 
+  function updateSearch(nextQuery: string) {
+    setQuery(nextQuery);
+
+    const normalizedQuery = nextQuery.trim();
+    const nextSearchParams = new URLSearchParams(
+      searchParams.toString(),
+    );
+
+    if (normalizedQuery) {
+      nextSearchParams.set("q", normalizedQuery);
+    } else {
+      nextSearchParams.delete("q");
+    }
+
+    const queryString = nextSearchParams.toString();
+
+    const nextUrl = queryString
+      ? `${pathname}?${queryString}`
+      : pathname;
+
+    window.history.replaceState(null, "", nextUrl);
+  }
+
   return (
     <section aria-label="Guide search">
       <div className="mx-auto mt-7 max-w-[720px]">
@@ -61,7 +90,7 @@ export default function GuideSearch({
             id={inputId}
             type="search"
             value={query}
-            onChange={(event) => setQuery(event.target.value)}
+            onChange={(event) => updateSearch(event.target.value)}
             placeholder="Search by destination, topic or travel need..."
             autoComplete="off"
             className="h-14 w-full rounded-2xl border border-zinc-300 bg-white pl-12 pr-12 text-base text-zinc-900 outline-none transition placeholder:text-zinc-400 hover:border-zinc-400 focus:border-red-600 focus:ring-4 focus:ring-red-100 [&::-webkit-search-cancel-button]:appearance-none"
@@ -70,7 +99,7 @@ export default function GuideSearch({
           {hasQuery && (
             <button
               type="button"
-              onClick={() => setQuery("")}
+              onClick={() => updateSearch("")}
               aria-label="Clear search"
               className="absolute right-3 top-1/2 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full text-zinc-500 transition hover:bg-zinc-100 hover:text-zinc-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-600 focus-visible:ring-offset-2"
             >
@@ -97,7 +126,10 @@ export default function GuideSearch({
         {hasResults ? (
           <div className="mt-6 space-y-4">
             {results.map((guide) => (
-              <GuideSearchCard key={guide.slug} guide={guide} />
+              <GuideSearchCard
+                key={guide.slug}
+                guide={guide}
+              />
             ))}
           </div>
         ) : (

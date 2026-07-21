@@ -1,4 +1,6 @@
-﻿import type { Metadata } from "next";
+﻿import { Suspense } from "react";
+
+import type { Metadata } from "next";
 
 import GuideSearch from "@/components/guides/GuideSearch";
 import { createGuideSearchIndex } from "@/lib/guide-search";
@@ -10,23 +12,9 @@ export const metadata: Metadata = {
     "Practical guides to help you choose where to stay, move around Milan and explore beyond the city.",
 };
 
-type GuidesPageProps = {
-  searchParams: Promise<{
-    q?: string | string[];
-  }>;
-};
-
-export default async function GuidesPage({
-  searchParams,
-}: GuidesPageProps) {
+export default function GuidesPage() {
   const guides = getAllGuides();
   const searchIndex = createGuideSearchIndex(guides);
-
-  const resolvedSearchParams = await searchParams;
-  const rawQuery = resolvedSearchParams.q;
-
-  const initialQuery =
-    typeof rawQuery === "string" ? rawQuery : "";
 
   return (
     <div className="mx-auto max-w-5xl px-6 py-12 sm:py-16">
@@ -42,17 +30,28 @@ export default async function GuidesPage({
       </header>
 
       {searchIndex.length > 0 ? (
-        <GuideSearch
-          key={initialQuery}
-          guides={searchIndex}
-          locale="en"
-          initialQuery={initialQuery}
-        />
+        <Suspense fallback={<GuideSearchFallback />}>
+          <GuideSearch
+            guides={searchIndex}
+            locale="en"
+          />
+        </Suspense>
       ) : (
         <div className="mx-auto mt-10 max-w-4xl rounded-2xl border border-zinc-200 bg-zinc-50 p-8 text-center">
           <p className="text-zinc-600">No guides are available yet.</p>
         </div>
       )}
+    </div>
+  );
+}
+
+function GuideSearchFallback() {
+  return (
+    <div
+      aria-hidden="true"
+      className="mx-auto mt-7 max-w-[720px]"
+    >
+      <div className="h-14 rounded-2xl border border-zinc-200 bg-zinc-50" />
     </div>
   );
 }
