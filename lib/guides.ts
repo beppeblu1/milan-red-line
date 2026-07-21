@@ -7,12 +7,16 @@ export type GuideLayout = "standard" | "reading-experience-pilot";
 
 export type GuideMetadata = {
   slug: string;
+  locale: string;
   title: string;
   description: string;
   readingTime: string;
   publishedAt: string;
   author: string;
   layout: GuideLayout;
+  keywords: string[];
+  destinations: string[];
+  searchAliases: string[];
   heroImage?: string;
   heroImageAlt?: string;
 };
@@ -46,6 +50,17 @@ function parseOptionalString(value: unknown): string | undefined {
   return normalizedValue.length > 0 ? normalizedValue : undefined;
 }
 
+function parseStringArray(value: unknown): string[] {
+  if (!Array.isArray(value)) {
+    return [];
+  }
+
+  return value
+    .filter((item): item is string => typeof item === "string")
+    .map((item) => item.trim())
+    .filter((item) => item.length > 0);
+}
+
 function parseGuideFile(fileName: string): Guide {
   const slug = fileName.replace(/\.mdx$/, "");
   const filePath = path.join(guidesDirectory, fileName);
@@ -55,12 +70,16 @@ function parseGuideFile(fileName: string): Guide {
 
   const metadata: GuideMetadata = {
     slug,
+    locale: String(data.locale ?? "en"),
     title: String(data.title ?? ""),
     description: String(data.description ?? ""),
     readingTime: String(data.readingTime ?? ""),
     publishedAt: String(data.publishedAt ?? ""),
     author: String(data.author ?? "Milan Red Line"),
     layout: parseGuideLayout(data.layout),
+    keywords: parseStringArray(data.keywords),
+    destinations: parseStringArray(data.destinations),
+    searchAliases: parseStringArray(data.searchAliases),
     heroImage: parseOptionalString(data.heroImage),
     heroImageAlt: parseOptionalString(data.heroImageAlt),
   };

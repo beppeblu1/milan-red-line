@@ -1,6 +1,7 @@
-import type { Metadata } from "next";
-import Link from "next/link";
+﻿import type { Metadata } from "next";
 
+import GuideSearch from "@/components/guides/GuideSearch";
+import { createGuideSearchIndex } from "@/lib/guide-search";
 import { getAllGuides } from "@/lib/guides";
 
 export const metadata: Metadata = {
@@ -11,6 +12,7 @@ export const metadata: Metadata = {
 
 export default function GuidesPage() {
   const guides = getAllGuides();
+  const searchIndex = createGuideSearchIndex(guides);
 
   return (
     <div className="mx-auto max-w-5xl px-6 py-16">
@@ -25,39 +27,8 @@ export default function GuidesPage() {
         </p>
       </header>
 
-      {guides.length > 0 ? (
-        <div className="space-y-8">
-          {guides.map((guide) => (
-            <Link
-              key={guide.slug}
-              href={`/guides/${guide.slug}`}
-              className="block rounded-2xl border border-zinc-200 bg-white p-8 transition-all hover:border-red-500 hover:shadow-lg"
-            >
-              <div className="mb-3 flex items-center gap-3 text-sm text-zinc-500">
-                <span>{guide.readingTime}</span>
-
-                {guide.publishedAt && (
-                  <>
-                    <span aria-hidden="true">·</span>
-                    <span>{guide.publishedAt}</span>
-                  </>
-                )}
-              </div>
-
-              <h2 className="text-2xl font-semibold tracking-tight text-zinc-900">
-                {guide.title}
-              </h2>
-
-              <p className="mt-4 leading-7 text-zinc-600">
-                {guide.description}
-              </p>
-
-              <div className="mt-6 inline-flex items-center font-medium text-red-600">
-                Read guide →
-              </div>
-            </Link>
-          ))}
-        </div>
+      {searchIndex.length > 0 ? (
+        <GuideSearch guides={searchIndex} locale="en" />
       ) : (
         <div className="rounded-2xl border border-zinc-200 bg-zinc-50 p-8 text-center">
           <p className="text-zinc-600">
