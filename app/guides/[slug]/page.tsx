@@ -105,13 +105,15 @@ export default async function GuidePage({ params }: PageProps) {
           heroImageAlt={heroImageAlt}
         />
       ) : (
-        <GuideContentRenderer
-          source={guide.content}
-          showEditorialLeadConnector
-        />
-      )}
+        <>
+          <GuideContentRenderer
+            source={guide.content}
+            showEditorialLeadConnector
+          />
 
-      <BookingCallToAction />
+          <BookingCallToAction />
+        </>
+      )}
     </article>
   );
 }
