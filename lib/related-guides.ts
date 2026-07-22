@@ -1,24 +1,30 @@
-const relatedGuidesBySlug: Record<string, string[]> = {
+﻿const relatedGuidesBySlug: Record<string, string[]> = {
   "arriving-in-milan-how-to-get-around": [
+    "how-to-use-milan-public-transport",
     "where-to-stay-in-milan-without-a-car",
     "where-to-stay-near-the-m1-red-line",
-    "best-area-to-stay-in-milan-for-first-time-visitors",
+  ],
+
+  "how-to-use-milan-public-transport": [
+    "arriving-in-milan-how-to-get-around",
+    "where-to-stay-in-milan-without-a-car",
+    "where-to-stay-near-the-m1-red-line",
   ],
 
   "where-to-stay-near-rho-fiera-milano": [
-    "arriving-in-milan-how-to-get-around",
+    "how-to-use-milan-public-transport",
     "where-to-stay-near-the-m1-red-line",
     "best-area-to-stay-in-milan-for-business-travellers",
   ],
 
   "where-to-stay-near-the-m1-red-line": [
-    "arriving-in-milan-how-to-get-around",
+    "how-to-use-milan-public-transport",
     "where-to-stay-in-milan-without-a-car",
-    "best-area-to-stay-in-milan-for-business-travellers",
+    "arriving-in-milan-how-to-get-around",
   ],
 
   "where-to-stay-in-milan-without-a-car": [
-    "arriving-in-milan-how-to-get-around",
+    "how-to-use-milan-public-transport",
     "where-to-stay-near-the-m1-red-line",
     "is-sesto-san-giovanni-a-good-place-to-stay",
   ],
@@ -29,17 +35,23 @@ const relatedGuidesBySlug: Record<string, string[]> = {
     "where-to-stay-near-the-m1-red-line",
   ],
 
-  "best-area-to-stay-in-milan-for-business-travellers": [
+  "best-area-to-stay-in-milan-for-first-time-visitors": [
+    "how-to-use-milan-public-transport",
     "arriving-in-milan-how-to-get-around",
+    "where-to-stay-in-milan-without-a-car",
+  ],
+
+  "best-area-to-stay-in-milan-for-business-travellers": [
+    "how-to-use-milan-public-transport",
     "where-to-stay-near-rho-fiera-milano",
     "where-to-stay-near-the-m1-red-line",
   ],
 };
 
 const fallbackRelatedGuideSlugs = [
+  "how-to-use-milan-public-transport",
   "where-to-stay-near-the-m1-red-line",
   "where-to-stay-in-milan-without-a-car",
-  "is-sesto-san-giovanni-a-good-place-to-stay",
 ];
 
 export function getRelatedGuideSlugs(currentSlug: string): string[] {
