@@ -1,57 +1,45 @@
 ﻿const relatedGuidesBySlug: Record<string, string[]> = {
-  "arriving-in-milan-how-to-get-around": [
-    "how-to-use-milan-public-transport",
-    "where-to-stay-in-milan-without-a-car",
+  "practical-guide-to-sesto-san-giovanni": [
+    "is-sesto-san-giovanni-a-good-place-to-stay",
     "where-to-stay-near-the-m1-red-line",
-  ],
-
-  "how-to-use-milan-public-transport": [
-    "arriving-in-milan-how-to-get-around",
     "where-to-stay-in-milan-without-a-car",
-    "where-to-stay-near-the-m1-red-line",
   ],
 
   "where-to-stay-near-rho-fiera-milano": [
-    "how-to-use-milan-public-transport",
     "where-to-stay-near-the-m1-red-line",
     "best-area-to-stay-in-milan-for-business-travellers",
+    "where-to-stay-in-milan-without-a-car",
   ],
 
   "where-to-stay-near-the-m1-red-line": [
-    "how-to-use-milan-public-transport",
+    "practical-guide-to-sesto-san-giovanni",
     "where-to-stay-in-milan-without-a-car",
-    "arriving-in-milan-how-to-get-around",
+    "best-area-to-stay-in-milan-for-business-travellers",
   ],
 
   "where-to-stay-in-milan-without-a-car": [
-    "how-to-use-milan-public-transport",
+    "practical-guide-to-sesto-san-giovanni",
     "where-to-stay-near-the-m1-red-line",
     "is-sesto-san-giovanni-a-good-place-to-stay",
   ],
 
   "is-sesto-san-giovanni-a-good-place-to-stay": [
-    "arriving-in-milan-how-to-get-around",
-    "where-to-stay-in-milan-without-a-car",
+    "practical-guide-to-sesto-san-giovanni",
     "where-to-stay-near-the-m1-red-line",
-  ],
-
-  "best-area-to-stay-in-milan-for-first-time-visitors": [
-    "how-to-use-milan-public-transport",
-    "arriving-in-milan-how-to-get-around",
     "where-to-stay-in-milan-without-a-car",
   ],
 
   "best-area-to-stay-in-milan-for-business-travellers": [
-    "how-to-use-milan-public-transport",
     "where-to-stay-near-rho-fiera-milano",
     "where-to-stay-near-the-m1-red-line",
+    "where-to-stay-in-milan-without-a-car",
   ],
 };
 
 const fallbackRelatedGuideSlugs = [
-  "how-to-use-milan-public-transport",
   "where-to-stay-near-the-m1-red-line",
   "where-to-stay-in-milan-without-a-car",
+  "is-sesto-san-giovanni-a-good-place-to-stay",
 ];
 
 export function getRelatedGuideSlugs(currentSlug: string): string[] {
