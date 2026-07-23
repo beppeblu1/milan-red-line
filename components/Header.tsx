@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 
 import { navigation } from "@/data/navigation";
@@ -14,10 +15,22 @@ export default function Header() {
         <div className="flex h-16 items-center justify-between">
           <Link
             href="/"
-            className="text-xl font-bold tracking-tight"
+            aria-label="Milan Red Line — Home"
+            className="flex items-center gap-3 rounded-sm focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-red-600"
             onClick={() => setIsMenuOpen(false)}
           >
-            Milan <span className="text-red-600">Red Line</span>
+            <Image
+              src="/brand/mrl-mark-version-b.svg"
+              alt=""
+              width={32}
+              height={32}
+              priority
+              className="h-8 w-8 shrink-0"
+            />
+
+            <span className="whitespace-nowrap text-xl font-bold tracking-tight">
+              Milan <span className="text-red-600">Red Line</span>
+            </span>
           </Link>
 
           {/* Desktop navigation */}

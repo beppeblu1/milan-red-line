@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 150">
+  <defs>
+    <linearGradient id="mrlRed" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FF1A28"/>
+      <stop offset="100%" stop-color="#E30613"/>
+    </linearGradient>
+  </defs>
+  <title>Milan Red Line horizontal logo — Version B, dark background</title>
+  <g transform="translate(10 25)">
+    <path fill="url(#mrlRed)" d="
+      M10 10 H28
+      C41 10 49 15 59 23
+      L89 46
+      Q93 50 89 54
+      L59 77
+      C49 85 41 90 28 90
+      H10
+      L22 72
+      C30 77 38 78 45 75
+      C57 70 64 61 64 50
+      C64 39 57 30 45 25
+      C38 22 30 23 22 28
+      Z"/>
+  </g>
+  <g font-family="Arial, Helvetica, sans-serif" font-size="64" font-weight="500" letter-spacing="8">
+    <text x="145" y="95" fill="#FFFFFF">MILAN</text>
+    <text x="450" y="95" fill="#E30613">RED</text>
+    <text x="670" y="95" fill="#FFFFFF">LINE</text>
+  </g>
+</svg>

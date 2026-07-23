@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  
+  <title>Milan Red Line symbol — white</title>
+  <path fill="#FFFFFF" d="
+    M10 10
+    H28
+    C41 10 49 15 59 23
+    L89 46
+    Q93 50 89 54
+    L59 77
+    C49 85 41 90 28 90
+    H10
+    L22 72
+    C30 77 38 78 45 75
+    C57 70 64 61 64 50
+    C64 39 57 30 45 25
+    C38 22 30 23 22 28
+    Z"/>
+</svg>

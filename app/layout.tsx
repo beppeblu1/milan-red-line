@@ -52,6 +52,31 @@ export const metadata: Metadata = {
 
   publisher: site.name,
 
+  icons: {
+    icon: [
+      {
+        url: "/brand/mrl-favicon.ico",
+      },
+      {
+        url: "/brand/mrl-favicon-32x32.png",
+        sizes: "32x32",
+        type: "image/png",
+      },
+      {
+        url: "/brand/mrl-favicon-48x48.png",
+        sizes: "48x48",
+        type: "image/png",
+      },
+    ],
+    apple: [
+      {
+        url: "/brand/mrl-apple-touch-icon.png",
+        sizes: "180x180",
+        type: "image/png",
+      },
+    ],
+  },
+
   openGraph: {
     type: "website",
     locale: "en_GB",
