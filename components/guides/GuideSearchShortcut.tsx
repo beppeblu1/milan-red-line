@@ -111,7 +111,7 @@ export default function GuideSearchShortcut({
             }
           }}
           onKeyDown={handleKeyDown}
-          placeholder="Search guides..."
+          placeholder="Search destinations or topics…"
           autoComplete="off"
           className="h-11 w-full rounded-xl border border-zinc-300 bg-white pl-10 pr-10 text-sm text-zinc-900 outline-none transition placeholder:text-zinc-400 hover:border-zinc-400 focus:border-red-600 focus:ring-4 focus:ring-red-100 [&::-webkit-search-cancel-button]:appearance-none"
         />
