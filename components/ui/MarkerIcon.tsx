@@ -1,130 +1,248 @@
+import { useId } from "react";
+
+import {
+  House,
+  TrainFront,
+} from "lucide-react";
+
 type MarkerType = "apartment" | "metro" | "station";
 
-type Props = {
+type MarkerIconProps = {
   type: MarkerType;
   size?: number;
 };
 
+const MARKER_RED = "#dc2626";
+
+const MARKER_PATH =
+  "M24 2.5C13.5 2.5 5 11 5 21.5C5 36.5 24 61 24 61C24 61 43 36.5 43 21.5C43 11 34.5 2.5 24 2.5Z";
+
 export default function MarkerIcon({
   type,
-  size = 42,
-}: Props) {
-  const colors = {
-    apartment: "#2563eb", // blu
-    metro: "#dc2626", // rosso M1
-    station: "#52525b", // grigio
-  };
+  size = 44,
+}: MarkerIconProps) {
+  const generatedId = useId().replace(/:/g, "");
 
-  const color = colors[type];
+  /*
+   * `size` rappresenta la larghezza del marker.
+   * L'altezza maggiore mantiene il pin slanciato.
+   */
+  const markerWidth = size;
+  const markerHeight = size * 1.34;
+
+  /*
+   * Cerchio interno.
+   * Leggermente rialzato per un migliore bilanciamento ottico.
+   */
+  const circleSize = size * 0.57;
+  const circleTop = size * 0.22;
+
+  /*
+   * Dimensioni delle icone interne.
+   */
+  const symbolSize =
+    type === "metro"
+      ? size * 0.37
+      : size * 0.41;
+
+  /*
+   * ID SVG univoci per evitare conflitti quando più marker
+   * dello stesso tipo sono presenti nella stessa pagina.
+   */
+  const maskId = `marker-outline-mask-${generatedId}`;
+  const fillGradientId = `marker-fill-gradient-${generatedId}`;
+  const highlightGradientId = `marker-highlight-gradient-${generatedId}`;
 
   return (
-    <svg
-      width={size}
-      height={(size * 56) / 40}
-      viewBox="0 0 40 56"
-      xmlns="http://www.w3.org/2000/svg"
+    <span
+      aria-hidden="true"
+      className="relative inline-flex shrink-0"
       style={{
-        filter: "drop-shadow(0 2px 4px rgba(0,0,0,.25))",
+        width: markerWidth,
+        height: markerHeight,
       }}
     >
-      {/* Marker */}
-      <path
-        d="M20 2
-           C10 2 2 10 2 20
-           C2 33 20 54 20 54
-           C20 54 38 33 38 20
-           C38 10 30 2 20 2Z"
-        fill={color}
-        stroke="white"
-        strokeWidth="2"
-      />
+      <svg
+        viewBox="0 0 48 64"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        className="absolute inset-0 overflow-visible"
+        style={{
+          width: markerWidth,
+          height: markerHeight,
+          filter: "drop-shadow(0 1px 2px rgba(0, 0, 0, 0.22))",
+        }}
+      >
+        <defs>
+          {/*
+           * Gradiente principale del riempimento:
+           * bianco nella parte superiore e grigio chiarissimo
+           * verso la punta del marker.
+           */}
+          <linearGradient
+            id={fillGradientId}
+            x1="24"
+            y1="2.5"
+            x2="24"
+            y2="61"
+            gradientUnits="userSpaceOnUse"
+          >
+            <stop
+              offset="0%"
+              stopColor="#ffffff"
+            />
+            <stop
+              offset="45%"
+              stopColor="#fbfbfb"
+            />
+            <stop
+              offset="100%"
+              stopColor="#eceff3"
+            />
+          </linearGradient>
 
-      {/* Cerchio bianco */}
-      <circle
-        cx="20"
-        cy="20"
-        r="10"
-        fill="white"
-      />
+          {/*
+           * Luce superiore molto delicata.
+           */}
+          <linearGradient
+            id={highlightGradientId}
+            x1="24"
+            y1="2.5"
+            x2="24"
+            y2="30"
+            gradientUnits="userSpaceOnUse"
+          >
+            <stop
+              offset="0%"
+              stopColor="#ffffff"
+              stopOpacity="0.75"
+            />
+            <stop
+              offset="100%"
+              stopColor="#ffffff"
+              stopOpacity="0"
+            />
+          </linearGradient>
 
-      {/* Apartment */}
-      {type === "apartment" && (
-        <>
-          <path
-            d="M14 21 L20 15 L26 21"
-            stroke={color}
-            strokeWidth="2.2"
+          {/*
+           * La maschera rimuove dal tratto bianco:
+           * - l'intera area interna del marker;
+           * - lo spazio occupato dal contorno rosso.
+           *
+           * Il bianco rimane quindi visibile esclusivamente
+           * all'esterno del profilo rosso.
+           */}
+          <mask
+            id={maskId}
+            maskUnits="userSpaceOnUse"
+            x="-10"
+            y="-10"
+            width="68"
+            height="84"
+          >
+            <rect
+              x="-10"
+              y="-10"
+              width="68"
+              height="84"
+              fill="white"
+            />
+
+            <path
+              d={MARKER_PATH}
+              fill="black"
+              stroke="black"
+              strokeWidth="2.25"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </mask>
+        </defs>
+
+        {/* Riempimento bianco sfumato */}
+        <path
+          d={MARKER_PATH}
+          fill={`url(#${fillGradientId})`}
+        />
+
+        {/* Highlight superiore leggerissimo */}
+        <path
+          d={MARKER_PATH}
+          fill={`url(#${highlightGradientId})`}
+          opacity="0.08"
+        />
+
+        {/* Contorno bianco esclusivamente esterno */}
+        <path
+          d={MARKER_PATH}
+          stroke="white"
+          strokeWidth="12"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          mask={`url(#${maskId})`}
+        />
+
+        {/* Contorno rosso invariato */}
+        <path
+          d={MARKER_PATH}
+          stroke={MARKER_RED}
+          strokeWidth="2.25"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+
+      <span
+        className="absolute flex items-center justify-center rounded-full"
+        style={{
+          top: circleTop,
+          left: "50%",
+          width: circleSize,
+          height: circleSize,
+          backgroundColor: MARKER_RED,
+          transform: "translateX(-50%)",
+        }}
+      >
+        {type === "apartment" && (
+          <House
+            color="white"
+            strokeWidth={2.8}
             strokeLinecap="round"
             strokeLinejoin="round"
-            fill="none"
+            style={{
+              width: symbolSize,
+              height: symbolSize,
+            }}
           />
-          <rect
-            x="15.5"
-            y="21"
-            width="9"
-            height="7"
-            rx="1"
-            fill={color}
-          />
-          <rect
-            x="19"
-            y="23"
-            width="2"
-            height="5"
-            fill="white"
-          />
-        </>
-      )}
+        )}
 
-      {/* Metro */}
-      {type === "metro" && (
-        <text
-          x="20"
-          y="25"
-          textAnchor="middle"
-          fontSize="12"
-          fontWeight="700"
-          fill={color}
-          fontFamily="Arial, sans-serif"
-        >
-          M
-        </text>
-      )}
+        {type === "metro" && (
+          <span
+            className="flex items-center justify-center font-bold leading-none text-white"
+            style={{
+              width: symbolSize,
+              height: symbolSize,
+              fontSize: size * 0.38,
+              transform: "translateY(-0.02em)",
+            }}
+          >
+            M
+          </span>
+        )}
 
-      {/* Station */}
-      {type === "station" && (
-        <>
-          <rect
-            x="15"
-            y="18"
-            width="10"
-            height="7"
-            rx="2"
-            fill={color}
+        {type === "station" && (
+          <TrainFront
+            color="white"
+            strokeWidth={2.8}
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            style={{
+              width: symbolSize,
+              height: symbolSize,
+            }}
           />
-          <rect
-            x="17"
-            y="20"
-            width="2"
-            height="2"
-            fill="white"
-          />
-          <rect
-            x="21"
-            y="20"
-            width="2"
-            height="2"
-            fill="white"
-          />
-          <rect
-            x="17"
-            y="26"
-            width="6"
-            height="1.8"
-            fill={color}
-          />
-        </>
-      )}
-    </svg>
+        )}
+      </span>
+    </span>
   );
 }

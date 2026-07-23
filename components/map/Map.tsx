@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useMemo, useRef, useState } from "react";
 
 import Map, {
@@ -13,29 +14,36 @@ import maplibregl, { LngLatBounds } from "maplibre-gl";
 
 import MarkerIcon from "@/components/ui/MarkerIcon";
 
-import { locations } from "./locations";
+import {
+  locations,
+  type MapLocation,
+} from "./locations";
 
 import "maplibre-gl/dist/maplibre-gl.css";
-
-type Location = (typeof locations)[number];
 
 export default function ApartmentMap() {
   const mapRef = useRef<MapRef>(null);
 
-  const [selected, setSelected] = useState<Location | null>(null);
+  const [selected, setSelected] =
+    useState<MapLocation | null>(null);
 
   const bounds = useMemo(() => {
-    const b = new LngLatBounds();
+    const nextBounds = new LngLatBounds();
 
     locations.forEach((location) => {
-      b.extend([location.longitude, location.latitude]);
+      nextBounds.extend([
+        location.longitude,
+        location.latitude,
+      ]);
     });
 
-    return b;
+    return nextBounds;
   }, []);
 
   useEffect(() => {
-    if (!mapRef.current) return;
+    if (!mapRef.current) {
+      return;
+    }
 
     mapRef.current.fitBounds(bounds, {
       padding: 70,
@@ -87,24 +95,38 @@ export default function ApartmentMap() {
             longitude={selected.longitude}
             latitude={selected.latitude}
             anchor="top"
-            offset={20}
+            offset={5}
             closeButton
             closeOnClick={false}
             onClose={() => setSelected(null)}
           >
-            <div className="min-w-[180px]">
-              <h3 className="font-semibold text-zinc-900">
-                {selected.name}
-              </h3>
+            {selected.type === "apartment" ? (
+              <Link
+                href={`/apartments/${selected.slug}`}
+                className="block min-w-[180px] outline-none"
+                aria-label={`View ${selected.name}`}
+              >
+                <h3 className="font-semibold text-zinc-900">
+                  {selected.name}
+                </h3>
 
-              <p className="mt-1 text-sm text-zinc-600">
-                {selected.type === "apartment"
-                  ? "Apartment"
-                  : selected.type === "metro"
-                  ? "M1 Red Line"
-                  : "Railway Station"}
-              </p>
-            </div>
+                <p className="mt-1 text-sm text-zinc-600 transition-colors hover:text-red-600">
+                  View apartment →
+                </p>
+              </Link>
+            ) : (
+              <div className="min-w-[180px]">
+                <h3 className="font-semibold text-zinc-900">
+                  {selected.name}
+                </h3>
+
+                <p className="mt-1 text-sm text-zinc-600">
+                  {selected.type === "metro"
+                    ? "M1 Red Line"
+                    : "Railway Station"}
+                </p>
+              </div>
+            )}
           </Popup>
         )}
       </Map>

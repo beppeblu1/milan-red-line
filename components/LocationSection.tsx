@@ -79,22 +79,22 @@ export default function LocationSection() {
           <div className="border-t border-zinc-200 bg-white p-6">
             <div className="space-y-3 text-sm text-zinc-700">
               <div className="flex items-center gap-3">
-                <MarkerIcon type="apartment" size={24} />
+                <MarkerIcon type="apartment" size={32} />
                 <span>Arco Apartment</span>
               </div>
 
               <div className="flex items-center gap-3">
-                <MarkerIcon type="apartment" size={24} />
+                <MarkerIcon type="apartment" size={32} />
                 <span>Gramsci Apartment</span>
               </div>
 
               <div className="flex items-center gap-3">
-                <MarkerIcon type="metro" size={24} />
+                <MarkerIcon type="metro" size={32} />
                 <span>Sesto Rondò (M1)</span>
               </div>
 
               <div className="flex items-center gap-3">
-                <MarkerIcon type="station" size={24} />
+                <MarkerIcon type="station" size={32} />
                 <span>Sesto San Giovanni FS</span>
               </div>
             </div>
