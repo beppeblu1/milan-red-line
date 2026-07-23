@@ -137,7 +137,7 @@ export const apartments: Apartment[] = [
     coverImage: "/images/gramsci/cover.jpg",
     gallery: [
       "/images/gramsci/cover.jpg",
-      "/images/gramsci/p1010002_tv.jpg",
+      "/images/gramsci/P1010002_tv.jpg",
       "/images/gramsci/P1010009.JPG",
       "/images/gramsci/P1010010.JPG",
       "/images/gramsci/P1010015.JPG",
