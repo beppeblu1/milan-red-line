@@ -300,6 +300,61 @@ Completed
 
 ---
 
+# Project Evolution
+
+The project has evolved through three major phases.
+
+## Phase 1 — Foundation
+
+Objective:
+
+Build a technically solid and maintainable website.
+
+Major outcomes:
+
+- project architecture;
+- apartment pages;
+- reusable component system;
+- documentation structure.
+
+---
+
+## Phase 2 — Editorial Platform
+
+Objective:
+
+Transform the website into a travel knowledge platform.
+
+Major outcomes:
+
+- Reading Experience Framework;
+- Knowledge Network;
+- reusable editorial components;
+- Hero Standard;
+- Brand Identity;
+- Guide Search.
+
+---
+
+## Phase 3 — Authority (Current)
+
+Current objective:
+
+Strengthen topical authority and improve discoverability through complete editorial clusters rather than isolated pages.
+
+Future work should increasingly be driven by:
+
+- Search Console;
+- Analytics;
+- user behaviour;
+- editorial gaps.
+
+The project is now considered architecturally mature.
+
+Growth should focus on content quality, authority and direct booking conversion rather than major structural redesign.
+
+---
+
 # Current Roadmap
 
 Immediate priorities
@@ -509,3 +564,4 @@ This document should be updated:
 - whenever the project strategy changes.
 
 It is intended to provide a complete snapshot of the project at any given time and should always reflect the current state of Milan Red Line.
+

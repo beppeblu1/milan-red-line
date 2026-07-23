@@ -36,6 +36,10 @@ Every sprint follows the same lifecycle:
     Documentation
        ↓
     Handover
+       ↓
+    valutachat
+       ↓
+    Successor Chat (if required)
 
 Skipping a phase is discouraged unless explicitly justified.
 

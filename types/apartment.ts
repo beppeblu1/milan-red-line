@@ -1,3 +1,11 @@
+﻿export type ApartmentRecommendationContext =
+  | "malpensa-airport"
+  | "linate-airport"
+  | "orio-al-serio-airport"
+  | "milano-centrale"
+  | "m1-red-line"
+  | "public-transport";
+
 export type Apartment = {
   id: string;
   slug: string;
@@ -47,6 +55,10 @@ export type Apartment = {
   // Media
   coverImage: string;
   gallery: string[];
+
+  // Recommendations
+  priority: number;
+  relevance: Record<ApartmentRecommendationContext, number>;
 
   // Visibility
   published: boolean;

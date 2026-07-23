@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+﻿import type { ReactNode } from "react";
 import {
   Briefcase,
   Building2,
@@ -8,6 +8,7 @@ import {
   Info,
   Lightbulb,
   MapPinned,
+  Ticket,
   Train,
   Users,
 } from "lucide-react";
@@ -21,6 +22,7 @@ type GuideHighlightIcon =
   | "info"
   | "lightbulb"
   | "map"
+  | "ticket"
   | "train"
   | "users";
 
@@ -39,6 +41,7 @@ const icons = {
   info: Info,
   lightbulb: Lightbulb,
   map: MapPinned,
+  ticket: Ticket,
   train: Train,
   users: Users,
 } satisfies Record<GuideHighlightIcon, typeof Train>;
@@ -61,9 +64,7 @@ export default function GuideHighlightCard({
         </div>
 
         <div>
-          <h3 className="font-semibold text-zinc-900">
-            {title}
-          </h3>
+          <h3 className="font-semibold text-zinc-900">{title}</h3>
 
           <div className="mt-2 leading-7 text-zinc-600">
             {children}

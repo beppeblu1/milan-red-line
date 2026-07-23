@@ -1,4 +1,7 @@
-﻿---
+﻿==================================================
+FILE: content/guides/arriving-in-milan-how-to-get-around.mdx
+==================================================
+---
 title: "Arriving in Milan: How to Get Around and Where to Stay"
 description: "Learn how to get around Milan after arriving by plane or train, understand why the metro matters and choose the right area to stay for your trip."
 readingTime: "6 min read"
@@ -144,8 +147,6 @@ Take a few minutes to:
 - confirm the final walking section;
 - compare public transport with a taxi before choosing automatically.
 
-If you're unsure which ticket to buy or whether you can simply use your bank card, our guide to [Milan Public Transport Tickets](/guides/milan-public-transport-tickets) explains the different ticket options, fares and contactless payments.
-
 Once you understand the nearest metro station to your accommodation, the rest of the journey becomes much easier.
 
 ## Why the metro matters
@@ -264,3 +265,307 @@ Explore [Apartment Arco](/apartments/arco) and [Apartment Gramsci](/apartments/g
 Airport connections, public transport routes, service frequencies and travel times may change because of maintenance work, temporary timetable updates or major events.
 
 Before travelling, we recommend checking the latest information from **ATM Milano**, the relevant airport operators and railway providers, particularly if you are travelling on a fixed schedule or arriving late in the evening.
+
+==================================================
+FILE: content/guides/how-to-use-milan-public-transport.mdx
+==================================================
+---
+title: "How to Use Milan Public Transport"
+description: "Learn how to use Milan public transport, including the metro, trams, buses, contactless payments and practical tips for getting around without a car."
+readingTime: "6 min read"
+publishedAt: "2026-07-22"
+author: "Milan Red Line"
+layout: "reading-experience-pilot"
+heroImage: "/images/guides/how-to-use-milan-public-transport/hero.webp"
+heroImageAlt: "A Milan public transport interchange with metro signs and travellers moving through the station"
+locale: "en"
+keywords:
+  - "Milan public transport"
+  - "how to use Milan metro"
+  - "getting around Milan"
+  - "Milan trams and buses"
+  - "Milan transport without a car"
+  - "contactless Milan metro"
+destinations:
+  - "Milan"
+  - "Duomo"
+  - "Milano Centrale"
+  - "Rho Fiera Milano"
+  - "Linate Airport"
+  - "Bicocca"
+  - "San Siro"
+  - "Sesto San Giovanni"
+searchAliases:
+  - "how to get around Milan"
+  - "Milan transport guide"
+  - "public transportation in Milan"
+  - "using the metro in Milan"
+  - "Milan without a car"
+  - "Milan metro for tourists"
+  - "how does Milan public transport work"
+---
+
+{/* rx:introduction */}
+
+Getting around Milan is easier than many first-time visitors expect.
+
+For most trips, you won't need a car. The metro covers the city's main attractions, while trams and buses complete the network where the underground doesn't reach. Regional trains also make it easy to explore destinations beyond Milan.
+
+You don't need to learn the entire system before arriving. Understanding a few basic principles is enough to travel confidently from your first day.
+
+{/* rx:audience */}
+
+## Who is this guide for?
+
+This guide is useful if you are:
+
+- visiting Milan for the first time;
+- travelling without a car;
+- planning to use public transport every day;
+- attending meetings, exhibitions or events;
+- staying outside the historic centre;
+- looking for the easiest way to get around.
+
+If you're still deciding where to stay, our guide to [Where to Stay in Milan Without a Car](/guides/where-to-stay-in-milan-without-a-car) explains why transport connections often matter more than a central address.
+
+<GuideHighlightCard
+  icon="users"
+  title="Best for"
+>
+Visitors who want to understand Milan's transport system before arriving and move around confidently without renting a car.
+</GuideHighlightCard>
+
+{/* rx:key-points */}
+
+## Milan public transport at a glance
+
+Most visitors use only a small part of Milan's transport network.
+
+<GuideComparisonTable
+  firstColumnLabel="Transport"
+  secondColumnLabel="Best for"
+>
+  <GuideComparisonRow title="Metro" icon="metro">
+    Fast travel across the city.
+  </GuideComparisonRow>
+
+  <GuideComparisonRow title="Trams" icon="tram">
+    Urban journeys beyond the metro.
+  </GuideComparisonRow>
+
+  <GuideComparisonRow title="Buses" icon="bus">
+    Completing the last part of a journey.
+  </GuideComparisonRow>
+
+  <GuideComparisonRow title="Regional trains" icon="train">
+    Monza, Lake Como and nearby destinations.
+  </GuideComparisonRow>
+</GuideComparisonTable>
+
+You don't need to master every option. For most trips, the metro will do most of the work.
+
+<GuideHighlightCard
+  icon="train"
+  title="Keep it simple"
+>
+If you're unsure which option to use, start with the metro. Trams and buses usually complete the final part of the journey.
+</GuideHighlightCard>
+
+{/* rx:area-selection */}
+
+## Understanding Milan's transport network
+
+Milan's transport system is fully integrated. Metro, trams, buses and regional trains work together, so you don't need to choose only one type of transport.
+
+### Metro
+
+The metro is the fastest option for most visitors. It connects the city centre, major attractions, railway stations and business districts.
+
+### Trams
+
+Trams are ideal for shorter urban journeys and neighbourhoods that are not directly served by the metro.
+
+### Buses
+
+Buses complete the network and are often useful for the final stretch after leaving the metro.
+
+### Regional trains
+
+Regional trains connect Milan with destinations such as **Monza**, **Lecco** and **Lake Como**, making them useful for day trips as well as local travel.
+
+<GuideHighlightCard
+  icon="map"
+  title="One transport system"
+>
+Journey planners automatically combine metro, trams, buses and trains to suggest the simplest route.
+</GuideHighlightCard>
+
+{/* rx:transport */}
+
+## How to use the Milan Metro
+
+The metro is the easiest way to explore Milan.
+
+There are five lines, each serving different parts of the city.
+
+### M1 Red Line
+
+The **M1 Red Line** is the most useful line for many visitors. It connects **Duomo**, **Cadorna**, **Rho Fiera Milano** and **Sesto San Giovanni**.
+
+If you're planning your accommodation, our guide to [Where to Stay Near the M1 Red Line](/guides/where-to-stay-near-the-m1-red-line) explains why this route is one of the most practical in Milan.
+
+### M2 Green Line
+
+Useful for **Milano Centrale**, **Cadorna** and several eastern and southern districts.
+
+### M3 Yellow Line
+
+Provides a direct north-south connection through Milan and serves both **Duomo** and **Milano Centrale**.
+
+### M4 Blue Line
+
+Connects **Linate Airport** with central Milan, making airport transfers much easier than in the past.
+
+### M5 Purple Line
+
+Serves northern Milan, including **Bicocca** and **San Siro**, making it useful for university visitors, concerts and football matches.
+
+### Planning your journey
+
+Before leaving, enter your destination into **Google Maps** or another reliable journey planner.
+
+Always check:
+
+- the nearest station;
+- the direction of travel;
+- whether you need to change lines;
+- the final walking distance;
+- any service updates before travelling.
+
+### Contactless payments
+
+Many visitors travel using a contactless bank card or digital wallet instead of buying paper tickets.
+
+The system is straightforward, but you should always use the same payment method throughout your journey.
+
+Detailed guidance about tickets, fares and contactless travel will be covered in a dedicated guide about **ATM tickets and contactless payments**.
+
+{/* rx:local-area */}
+
+## Why staying near the metro makes a difference
+
+For most visitors, choosing accommodation near a metro station is one of the easiest ways to simplify the entire trip.
+
+A direct metro connection often saves more time than staying closer to the city centre but needing several changes every day.
+
+The **M1 Red Line** is particularly useful because it connects destinations such as **Duomo**, **Cadorna** and **Rho Fiera Milano**, while also serving **Sesto San Giovanni**.
+
+If you're comparing neighbourhoods, our guides to [Where to Stay Near the M1 Red Line](/guides/where-to-stay-near-the-m1-red-line), [Where to Stay in Milan Without a Car](/guides/where-to-stay-in-milan-without-a-car) and [Best Area to Stay in Milan for First-Time Visitors](/guides/best-area-to-stay-in-milan-for-first-time-visitors) can help you choose the most practical location.
+
+<GuideHighlightCard
+  icon="building"
+  title="Transport first"
+>
+A direct metro line usually makes everyday travel easier than a more central postcode.
+</GuideHighlightCard>
+
+{/* rx:day-trips */}
+
+## Using public transport beyond the city centre
+
+Milan's transport network is useful for much more than sightseeing.
+
+It also allows you to:
+
+- reach **Rho Fiera Milano** without driving;
+- travel easily between Milan's main railway stations;
+- continue towards **Monza** using regional trains;
+- organise day trips without renting a car.
+
+If you're planning your arrival, our guide to [Arriving in Milan: How to Get Around and Where to Stay](/guides/arriving-in-milan-how-to-get-around) explains the best transport options from airports and railway stations.
+
+<GuideHighlightCard
+  icon="train"
+  title="Explore beyond Milan"
+>
+Once you understand Milan's transport network, visiting nearby destinations becomes much easier.
+</GuideHighlightCard>
+
+{/* rx:local-tip */}
+
+## Local tip
+
+> Plan the complete journey, not just the metro line.
+
+Before leaving, check:
+
+- the nearest station;
+- the direction of travel;
+- any line changes;
+- the final walking distance;
+- your return journey if travelling late.
+
+A few minutes of planning usually make the day much smoother.
+
+{/* rx:faq */}
+
+## Frequently asked questions
+
+### Is Milan public transport easy for visitors?
+
+Yes. The network is straightforward, and journey planners such as Google Maps make travelling around the city simple.
+
+### Do I need a car in Milan?
+
+Usually not. Most visitors rely entirely on public transport throughout their stay.
+
+### Which metro line is most useful for tourists?
+
+The **M1 Red Line** is one of the most useful because it connects several popular destinations, including **Duomo**, **Cadorna** and **Rho Fiera Milano**.
+
+### Can I use contactless payment on Milan public transport?
+
+Yes. Contactless payment is available across Milan's public transport network. Detailed guidance about tickets and fares will be available in our dedicated guide about ATM tickets and contactless payments.
+
+### Is it better to stay near a metro station?
+
+For most visitors, yes. Staying within walking distance of a metro station makes sightseeing, business travel and airport transfers much easier.
+
+{/* rx:planning */}
+
+## Planning your stay?
+
+Choosing accommodation with good transport connections can make every day of your trip easier.
+
+**Sesto San Giovanni** combines direct access to the **M1 Red Line** with regional railway connections, making it a practical base for exploring Milan, reaching **Rho Fiera Milano** and travelling beyond the city.
+
+Milan Red Line offers two apartments within easy reach of the M1 Red Line and local railway services.
+
+Explore [Apartment Arco](/apartments/arco) and [Apartment Gramsci](/apartments/gramsci), or contact us if you'd like help choosing the option that best suits your travel plans.
+
+{/* rx:good-to-know */}
+
+---
+
+### Good to know
+
+Routes, service frequency, ticketing rules and airport connections may occasionally change because of maintenance work, temporary timetable updates or major events.
+
+Before travelling, check the latest information from **ATM Milano** and the relevant transport operator, especially if you're travelling on a fixed schedule or arriving late in the evening.
+
+==================================================
+FILE: content/guides/how-to-use-the-milan-metro.mdx
+==================================================
+
+==================================================
+FILE: content/guides/malpensa-airport-to-milan.mdx
+==================================================
+
+==================================================
+FILE: content/guides/linate-airport-to-milan.mdx
+==================================================
+
+==================================================
+FILE: content/guides/orio-al-serio-airport-to-milan.mdx
+==================================================
+

@@ -324,39 +324,63 @@ Il renderer individua il primo vero paragrafo ignorando:
 
 ---
 
-# 11. Componenti inseriti automaticamente dal layout
+# 11. ApartmentContextCard e componenti del layout
 
-## `ApartmentContextCard`
+## ApartmentContextCard
 
-Inserito dopo `local-area`:
+`ApartmentContextCard` può essere utilizzato in due modalità:
 
-```tsx
+### 1. Selezione esplicita
+
+Quando si desidera indicare direttamente gli appartamenti da mostrare.
+
+Esempio:
+
+```mdx
 <ApartmentContextCard
   slugs={["arco", "gramsci"]}
-  title="A practical base in Sesto San Giovanni"
 >
-  Both Milan Red Line apartments...
+...
 </ApartmentContextCard>
 ```
 
-Non duplicarlo nell’MDX.
+### 2. Selezione contestuale (consigliata)
 
-## `RelatedGuidesBox`
+Quando la guida appartiene a uno specifico contesto editoriale.
 
-Inserito alla fine della guida:
+Esempio:
 
-```tsx
-<RelatedGuidesBox
-  slugs={[
-    "where-to-stay-in-milan-without-a-car",
-    "where-to-stay-near-the-m1-red-line",
-    "is-sesto-san-giovanni-a-good-place-to-stay",
-  ]}
-/>
+```mdx
+<ApartmentContextCard context="public-transport" />
 ```
 
-Attenzione: oggi la lista è condivisa e può includere la guida corrente. Va resa configurabile in uno sviluppo successivo.
+In questo caso è il componente a determinare automaticamente gli appartamenti più pertinenti.
 
+Questa modalità è generalmente da preferire perché mantiene il contenuto editoriale indipendente dalla logica di selezione.
+
+I valori di `context` devono rappresentare macro-contesti di soggiorno (ad esempio `public-transport`, `m1-red-line`, `malpensa-airport`) e non il singolo argomento della guida.
+
+Prima di utilizzare nuove props o nuovi valori di `context`, verificare sempre l'implementazione corrente del componente.
+
+## Componenti inseriti automaticamente dal layout
+
+Il `PilotGuideLayout` può inserire automaticamente alcuni componenti condivisi come parte del Reading Experience Framework.
+
+Questo comportamento dipende dall'implementazione corrente del layout e può evolvere nel tempo.
+
+Per questo motivo, prima di aggiungere manualmente componenti già gestiti dal framework, verificare sempre:
+
+- `PilotGuideLayout.tsx`;
+- `GuideContentRenderer.tsx`;
+- la documentazione tecnica aggiornata.
+
+Il codice del progetto rimane sempre la fonte di verità.
+
+## RelatedGuidesBox
+
+Il `RelatedGuidesBox` viene normalmente gestito dal Reading Experience Framework attraverso la configurazione centralizzata dei Related Guides.
+
+La configurazione deve essere aggiornata ogni volta che una nuova guida viene pubblicata o una guida Legacy viene migrata allo stato Current.
 ---
 
 # 12. Componenti disponibili nell’MDX
@@ -811,3 +835,126 @@ La guida `where-to-stay-near-the-m1-red-line.mdx` è stata:
 - portata a `readingTime: "6 min read"`.
 
 Il nuovo componente `GuideDestinationTable` è ora parte del sistema editoriale e può essere riutilizzato in altre guide.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+---
+
+# Addendum — Preflight obbligatorio prima di modificare una guida MDX
+
+L'esperienza maturata durante lo sviluppo del cluster Transport ha evidenziato che la maggior parte degli errori non deriva dal contenuto editoriale, ma da differenze tra il file MDX e il contratto tecnico definito dai componenti React.
+
+Prima di creare o riscrivere una guida, verificare sempre direttamente il codice corrente del progetto. In particolare:
+
+- `components/guides/PilotGuideLayout.tsx`
+- `components/guides/GuideContentRenderer.tsx`
+- tutti i componenti utilizzati dalla guida (GuideHighlightCard, GuideComparisonTable, ApartmentContextCard, GuideFaq, ecc.).
+
+Non assumere che una guida esistente rappresenti lo standard corrente: alcune guide possono essere state create con versioni precedenti dei componenti.
+
+Verificare sempre:
+
+- marker Reading Experience richiesti dal layout;
+- props effettivamente supportate dai componenti;
+- export disponibili;
+- alias delle icone consentiti;
+- componenti già inseriti automaticamente dal layout.
+
+Il codice del progetto è sempre la fonte di verità. Se esiste una differenza tra documentazione, guide precedenti ed implementazione corrente, seguire sempre il comportamento definito dal codice.
+
+Regola operativa permanente:
+
+> Verificare prima il contratto tecnico; produrre il file MDX solo dopo aver confermato che il layout e i componenti corrispondono allo stato attuale del progetto.
+
+---
+
+# Addendum — Validazione preventiva delle guide Reading Experience
+
+Per tutte le guide con `layout: "reading-experience-pilot"`, la presenza e l'unicità dei marker Reading Experience devono essere verificate prima del build.
+
+Ogni marker obbligatorio deve:
+
+- essere presente;
+- comparire una sola volta;
+- utilizzare il nome esatto richiesto dal layout;
+- identificare una reale sezione editoriale della guida.
+
+Prima di eseguire `npm run build`, verificare rapidamente i marker con:
+
+```powershell
+Select-String `
+  -Path ".\content\guides\[slug].mdx" `
+  -Pattern "rx:"
+```
+
+Gli errori più comuni sono:
+
+- **Duplicate Reading Experience section marker** → lo stesso marker compare più di una volta.
+- **Required Reading Experience section marker not found** → manca uno dei marker richiesti dal layout.
+
+Questi errori devono essere risolti modificando il file MDX, non il layout.
+
+Dopo ogni modifica importante ad una guida, la sequenza minima di verifica diventa:
+
+1. controllo dei marker;
+2. `npm run lint`;
+3. `npm run build`.
+
+Il build di produzione è obbligatorio, perché alcune validazioni vengono eseguite solo durante il prerendering e non emergono durante il normale sviluppo.
+
+---
+
+# Addendum — Componenti dichiarativi e ApartmentContextCard
+
+Nei file MDX è corretto utilizzare componenti React dichiarativi. Questo non introduce logica applicativa nel contenuto, purché il file descriva solamente **cosa** visualizzare e non **come** elaborarlo.
+
+Preferire componenti semplici con contenuto passato tramite `children`, evitando strutture JavaScript complesse, array o logica nel file MDX. La logica di rendering deve rimanere nei componenti React.
+
+Prima di utilizzare un componente, verificare sempre nel codice:
+
+- props disponibili;
+- valori ammessi;
+- eventuali alias supportati;
+- comportamento corrente del componente.
+
+Non dedurre le API osservando una guida esistente.
+
+## ApartmentContextCard
+
+`ApartmentContextCard` supporta due modalità:
+
+- selezione esplicita tramite `slugs`;
+- selezione contestuale tramite `context`.
+
+La modalità contestuale è quella da preferire nella maggior parte delle guide, perché rappresenta l'intento del visitatore e lascia al componente la scelta dell'appartamento più pertinente.
+
+I contesti devono rappresentare macro-intenti di soggiorno (ad esempio `public-transport`, `m1-red-line`, `malpensa-airport`) e non il singolo argomento della guida. Evitare quindi contesti troppo specifici come `atm-tickets` o `ticket-validation`, che renderebbero il sistema difficile da mantenere.
+
+## Separazione tra contenuto e logica
+
+Il file MDX deve limitarsi a definire il contenuto editoriale e, quando necessario, indicare il contesto della raccomandazione.
+
+Filtri, ordinamenti, ranking, fallback e criteri di selezione devono rimanere interamente all'interno dei componenti React.
+
+Questo principio mantiene le guide semplici da scrivere, riduce la duplicazione della logica e rende più facile evolvere il progetto senza modificare centinaia di file MDX.

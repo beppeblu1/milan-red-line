@@ -1,4 +1,4 @@
-import { Apartment } from "@/types/apartment";
+﻿import { Apartment } from "@/types/apartment";
 
 export const apartments: Apartment[] = [
   {
@@ -17,7 +17,7 @@ export const apartments: Apartment[] = [
 
     // Detailed description
     description:
-      "Both apartments are located in Sesto San Giovanni, only a short walk from the M1 Red Line. Reach the heart of Milan in minutes while enjoying the comfort of a quiet neighbourhood, with cafés, restaurants and everyday services nearby.",
+      "Both apartments are located in Sesto San Giovanni, only a short walk from the M1 Red Line. Reach the heart of Milan in minutes while enjoying the comfort of a quiet neighbourhood, with cafÃ©s, restaurants and everyday services nearby.",
 
     space:
       "The apartment features a spacious bedroom with a comfortable double bed and a large wardrobe. The living area includes a sofa bed, creating additional sleeping space for guests. The private residential setting, green areas and quiet surroundings make Arco Apartment ideal for both short stays and longer visits.",
@@ -38,7 +38,7 @@ export const apartments: Apartment[] = [
     // Location
     city: "Sesto San Giovanni",
     district: "Via Giovanna d'Arco area",
-    metroStation: "Sesto Rondò",
+    metroStation: "Sesto RondÃ²",
     metroMinutes: 7,
 
     // Amenities
@@ -74,6 +74,17 @@ export const apartments: Apartment[] = [
       "/images/arco/Esterno.jpg",
     ],
 
+    // Recommendations
+    priority: 1,
+    relevance: {
+      "malpensa-airport": 100,
+      "linate-airport": 100,
+      "orio-al-serio-airport": 100,
+      "milano-centrale": 100,
+      "m1-red-line": 100,
+      "public-transport": 100,
+    },
+
     // Visibility
     published: true,
   },
@@ -94,7 +105,7 @@ export const apartments: Apartment[] = [
 
     // Detailed description
     description:
-      "Located just a few minutes from the metro and railway station, Gramsci Apartment offers excellent connections to Milan city centre, Monza and Lake Como. Supermarkets, cafés and restaurants are all nearby.",
+      "Located just a few minutes from the metro and railway station, Gramsci Apartment offers excellent connections to Milan city centre, Monza and Lake Como. Supermarkets, cafÃ©s and restaurants are all nearby.",
 
     space:
       "The apartment includes a large bedroom with a comfortable double bed, a private bathroom and a bright living area with sofa, TV, kitchen and dining table. A spacious balcony can be accessed both from the bedroom and the living area, offering an additional outdoor space during your stay.",
@@ -115,7 +126,7 @@ export const apartments: Apartment[] = [
     // Location
     city: "Sesto San Giovanni",
     district: "Viale Gramsci area",
-    metroStation: "Sesto Rondò",
+    metroStation: "Sesto RondÃ²",
     metroMinutes: 5,
 
     // Amenities
@@ -130,7 +141,7 @@ export const apartments: Apartment[] = [
     selfCheckIn: true,
 
     // Booking
-    airbnbUrl: "www.airbnb.it/rooms/1004153206964898199",
+    airbnbUrl: "https://www.airbnb.it/rooms/1004153206964898199",
     bookingUrl: "",
 
     // Media
@@ -150,6 +161,17 @@ export const apartments: Apartment[] = [
       "/images/gramsci/P1010019.JPG",
       "/images/gramsci/P1010022.JPG",
     ],
+
+    // Recommendations
+    priority: 2,
+    relevance: {
+      "malpensa-airport": 100,
+      "linate-airport": 100,
+      "orio-al-serio-airport": 100,
+      "milano-centrale": 100,
+      "m1-red-line": 100,
+      "public-transport": 100,
+    },
 
     // Visibility
     published: true,

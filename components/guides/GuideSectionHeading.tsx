@@ -3,11 +3,15 @@ import {
   Briefcase,
   Building2,
   CalendarDays,
-  Clock3,
+  CircleCheck,
   CircleHelp,
+  Clock3,
+  CreditCard,
   Info,
   Lightbulb,
+  List,
   MapPinned,
+  Ticket,
   Train,
   Users,
 } from "lucide-react";
@@ -16,11 +20,15 @@ type GuideSectionHeadingIcon =
   | "briefcase"
   | "building"
   | "calendar"
+  | "check-circle"
   | "clock"
+  | "credit-card"
   | "help"
   | "info"
   | "lightbulb"
+  | "list"
   | "map"
+  | "ticket"
   | "train"
   | "users";
 
@@ -34,11 +42,15 @@ const icons = {
   briefcase: Briefcase,
   building: Building2,
   calendar: CalendarDays,
+  "check-circle": CircleCheck,
   clock: Clock3,
+  "credit-card": CreditCard,
   help: CircleHelp,
   info: Info,
   lightbulb: Lightbulb,
+  list: List,
   map: MapPinned,
+  ticket: Ticket,
   train: Train,
   users: Users,
 } satisfies Record<GuideSectionHeadingIcon, typeof Train>;
