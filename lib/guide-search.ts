@@ -1,3 +1,5 @@
+import Fuse from "fuse.js";
+
 import type { GuideMetadata } from "@/lib/guides";
 
 export type GuideSearchEntry = {
@@ -64,12 +66,18 @@ function getFieldScore(
   guide: GuideSearchEntry,
 ): number {
   const normalizedTitle = normalizeSearchText(guide.title);
-  const normalizedDescription = normalizeSearchText(guide.description);
-  const normalizedKeywords = normalizeSearchText(guide.keywords.join(" "));
+  const normalizedDescription = normalizeSearchText(
+    guide.description,
+  );
+  const normalizedKeywords = normalizeSearchText(
+    guide.keywords.join(" "),
+  );
   const normalizedDestinations = normalizeSearchText(
     guide.destinations.join(" "),
   );
-  const normalizedAliases = normalizeSearchText(guide.searchAliases.join(" "));
+  const normalizedAliases = normalizeSearchText(
+    guide.searchAliases.join(" "),
+  );
 
   let score = 0;
 
@@ -122,6 +130,92 @@ function getFieldScore(
   return score;
 }
 
+function searchExactMatches(
+  guides: GuideSearchEntry[],
+  normalizedQuery: string,
+): GuideSearchEntry[] {
+  const normalizedTerms = normalizedQuery
+    .split(" ")
+    .filter((term) => term.length > 0);
+
+  return guides
+    .filter((guide) =>
+      normalizedTerms.every((term) =>
+        guide.searchText.includes(term),
+      ),
+    )
+    .map<GuideSearchResult>((guide) => ({
+      guide,
+      score: getFieldScore(
+        normalizedQuery,
+        normalizedTerms,
+        guide,
+      ),
+    }))
+    .sort((firstResult, secondResult) => {
+      if (secondResult.score !== firstResult.score) {
+        return secondResult.score - firstResult.score;
+      }
+
+      return (
+        new Date(secondResult.guide.publishedAt).getTime() -
+        new Date(firstResult.guide.publishedAt).getTime()
+      );
+    })
+    .map((result) => result.guide);
+}
+
+function searchFuzzyMatches(
+  guides: GuideSearchEntry[],
+  query: string,
+): GuideSearchEntry[] {
+  const fuzzySearch = new Fuse(guides, {
+    includeScore: true,
+    ignoreLocation: true,
+    threshold: 0.35,
+    minMatchCharLength: 2,
+    keys: [
+      {
+        name: "title",
+        weight: 0.35,
+      },
+      {
+        name: "destinations",
+        weight: 0.25,
+      },
+      {
+        name: "searchAliases",
+        weight: 0.2,
+      },
+      {
+        name: "keywords",
+        weight: 0.15,
+      },
+      {
+        name: "description",
+        weight: 0.05,
+      },
+    ],
+  });
+
+  return fuzzySearch
+    .search(query)
+    .sort((firstResult, secondResult) => {
+      const firstScore = firstResult.score ?? 1;
+      const secondScore = secondResult.score ?? 1;
+
+      if (firstScore !== secondScore) {
+        return firstScore - secondScore;
+      }
+
+      return (
+        new Date(secondResult.item.publishedAt).getTime() -
+        new Date(firstResult.item.publishedAt).getTime()
+      );
+    })
+    .map((result) => result.item);
+}
+
 export function searchGuides(
   guides: GuideSearchEntry[],
   query: string,
@@ -137,27 +231,14 @@ export function searchGuides(
     return localeGuides;
   }
 
-  const normalizedTerms = normalizedQuery
-    .split(" ")
-    .filter((term) => term.length > 0);
+  const exactMatches = searchExactMatches(
+    localeGuides,
+    normalizedQuery,
+  );
 
-  return localeGuides
-    .filter((guide) =>
-      normalizedTerms.every((term) => guide.searchText.includes(term)),
-    )
-    .map<GuideSearchResult>((guide) => ({
-      guide,
-      score: getFieldScore(normalizedQuery, normalizedTerms, guide),
-    }))
-    .sort((firstResult, secondResult) => {
-      if (secondResult.score !== firstResult.score) {
-        return secondResult.score - firstResult.score;
-      }
+  if (exactMatches.length > 0) {
+    return exactMatches;
+  }
 
-      return (
-        new Date(secondResult.guide.publishedAt).getTime() -
-        new Date(firstResult.guide.publishedAt).getTime()
-      );
-    })
-    .map((result) => result.guide);
+  return searchFuzzyMatches(localeGuides, normalizedQuery);
 }

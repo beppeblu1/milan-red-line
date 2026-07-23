@@ -73,6 +73,17 @@ export default function GuideSearch({
     window.history.replaceState(null, "", nextUrl);
   }
 
+  function handleKeyDown(
+    event: React.KeyboardEvent<HTMLInputElement>,
+  ) {
+    if (event.key !== "Escape") {
+      return;
+    }
+
+    event.preventDefault();
+    updateSearch("");
+  }
+
   return (
     <section aria-label="Guide search">
       <div className="mx-auto mt-7 max-w-[720px]">
@@ -91,6 +102,7 @@ export default function GuideSearch({
             type="search"
             value={query}
             onChange={(event) => updateSearch(event.target.value)}
+            onKeyDown={handleKeyDown}
             placeholder="Search by destination, topic or travel need..."
             autoComplete="off"
             className="h-14 w-full rounded-2xl border border-zinc-300 bg-white pl-12 pr-12 text-base text-zinc-900 outline-none transition placeholder:text-zinc-400 hover:border-zinc-400 focus:border-red-600 focus:ring-4 focus:ring-red-100 [&::-webkit-search-cancel-button]:appearance-none"

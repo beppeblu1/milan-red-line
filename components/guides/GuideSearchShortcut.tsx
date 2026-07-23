@@ -1,8 +1,9 @@
 ﻿"use client";
 
 import { Search, X } from "lucide-react";
-import { useId, useState } from "react";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { useId, useState } from "react";
 
 import { useGuideSearch } from "@/hooks/use-guide-search";
 import type { GuideSearchEntry } from "@/lib/guide-search";
@@ -74,9 +75,13 @@ export default function GuideSearchShortcut({
   function handleKeyDown(
     event: React.KeyboardEvent<HTMLInputElement>,
   ) {
-    if (event.key === "Escape") {
-      setIsPanelOpen(false);
+    if (event.key !== "Escape") {
+      return;
     }
+
+    event.preventDefault();
+    setQuery("");
+    setIsPanelOpen(false);
   }
 
   function clearSearch() {
@@ -130,25 +135,42 @@ export default function GuideSearchShortcut({
 
       {isPanelVisible && (
         <div className="absolute right-0 top-full z-20 mt-2 w-full rounded-xl border border-zinc-200 bg-white p-4 shadow-lg">
-          <p
-            aria-live="polite"
-            className="text-sm font-medium text-zinc-700"
-          >
-            {hasResults
-              ? resultLabel
-              : "No matching guides"}
-          </p>
+          {hasResults ? (
+            <>
+              <p
+                aria-live="polite"
+                className="text-sm font-medium text-zinc-700"
+              >
+                {resultLabel}
+              </p>
 
-          {hasResults && (
-            <button
-              type="submit"
-              className="mt-3 inline-flex items-center gap-2 text-sm font-semibold text-red-600 transition hover:gap-3 hover:text-red-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-600 focus-visible:ring-offset-2"
-            >
-              {count === 1
-                ? "Go to result"
-                : "Go to results"}
-              <span aria-hidden="true">→</span>
-            </button>
+              <button
+                type="submit"
+                className="mt-3 inline-flex items-center gap-2 text-sm font-semibold text-red-600 transition hover:gap-3 hover:text-red-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-600 focus-visible:ring-offset-2"
+              >
+                {count === 1
+                  ? "Go to result"
+                  : "Go to results"}
+                <span aria-hidden="true">→</span>
+              </button>
+            </>
+          ) : (
+            <>
+              <p
+                aria-live="polite"
+                className="text-sm font-medium text-zinc-700"
+              >
+                No matching guides found.
+              </p>
+
+              <Link
+                href="/guides"
+                className="mt-3 inline-flex items-center gap-2 text-sm font-semibold text-red-600 transition hover:gap-3 hover:text-red-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-600 focus-visible:ring-offset-2"
+              >
+                Browse all guides
+                <span aria-hidden="true">→</span>
+              </Link>
+            </>
           )}
         </div>
       )}
