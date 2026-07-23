@@ -1,8 +1,27 @@
 ﻿const relatedGuidesBySlug: Record<string, string[]> = {
   "practical-guide-to-sesto-san-giovanni": [
+    "places-to-visit-near-sesto-san-giovanni",
     "is-sesto-san-giovanni-a-good-place-to-stay",
     "where-to-stay-near-the-m1-red-line",
     "where-to-stay-in-milan-without-a-car",
+  ],
+
+  "places-to-visit-near-sesto-san-giovanni": [
+    "practical-guide-to-sesto-san-giovanni",
+    "where-to-stay-near-carroponte",
+    "where-to-stay-near-bicocca-university",
+  ],
+
+  "where-to-stay-near-carroponte": [
+    "places-to-visit-near-sesto-san-giovanni",
+    "practical-guide-to-sesto-san-giovanni",
+    "where-to-stay-near-the-m1-red-line",
+  ],
+
+  "where-to-stay-near-bicocca-university": [
+    "places-to-visit-near-sesto-san-giovanni",
+    "practical-guide-to-sesto-san-giovanni",
+    "where-to-stay-near-the-m1-red-line",
   ],
 
   "where-to-stay-near-rho-fiera-milano": [
