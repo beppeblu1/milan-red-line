@@ -142,6 +142,23 @@ The objective is to reduce cognitive load while maintaining editorial quality.
 
 ---
 
+# Tables in MDX
+
+When a guide requires tabular information, always use the dedicated guide table components.
+
+Current standard components are:
+
+- `GuideComparisonTable`
+- `GuideDestinationTable`
+
+Do not introduce Markdown tables or raw HTML `<table>` elements inside guide content.
+
+Although `GuideContentRenderer` exposes generic HTML table mappings (`table`, `thead`, `tbody`, `tr`, `th`, `td`), these are considered rendering infrastructure rather than part of the editorial authoring API.
+
+Future table layouts should follow the same pattern: introduce a dedicated reusable component rather than embedding table markup directly in MDX.
+
+---
+
 # Calls to Action
 
 CTAs should appear only after useful information.
