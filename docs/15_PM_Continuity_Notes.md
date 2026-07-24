@@ -483,6 +483,19 @@ Stronger.
 Status: Living document
 
 ---
+## Trust the Layout
+
+Before manually adding reusable Reading Experience components, always inspect the current `PilotGuideLayout.tsx` implementation.
+
+Several sections are injected automatically by the layout (for example ApartmentContextCard and GoodToKnow).
+
+Do not assume that a guide must render every component explicitly.
+
+Understanding the layout is preferable to reproducing its behaviour manually, reducing duplicated components and unnecessary debugging.
+
+
+
+---
 
 # 21. The Best Ideas Usually Emerge During Execution
 
@@ -1092,6 +1105,35 @@ Trust comes from many small decisions:
 Whenever a decision risks increasing clicks at the expense of trust, trust should prevail.
 
 The long-term strategy depends on it.
+
+---
+
+## Verify Existing Components First
+
+Before creating or modifying a reusable component, verify whether an equivalent component or helper already exists.
+
+Prefer extending existing project components over introducing new ones.
+
+This keeps the codebase consistent and reduces long-term maintenance.
+
+---
+
+
+## Reading Experience Final Check
+
+Before considering a Reading Experience guide complete, verify:
+
+- all mandatory `rx:*` markers are present;
+- no components already injected by `PilotGuideLayout` are rendered manually;
+- `GoodToKnow` follows the parser format (`---` + `### Good to know`);
+- FAQ follows the expected parser structure;
+- hero image and alt text are present;
+- Related Guides are configured correctly;
+- contextual links are updated where appropriate;
+- `npm run lint` passes;
+- `npm run build` passes.
+
+The objective is to open each guide once and leave it in its final state.
 
 ---
 

@@ -803,6 +803,7 @@ Il framework non è più realmente un pilot, ma il cambio va fatto in uno sprint
 [ ] Reading time secondo regola 2/3
 [ ] Hero presente
 [ ] Hero alt corretto
+[ ] Nessun componente già gestito dal layout inserito manualmente
 [ ] Layout Reading Experience
 [ ] Tutti gli 11 marker
 [ ] Nessun marker rinominato

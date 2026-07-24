@@ -227,6 +227,39 @@ The preferred range is generally three to five contextual links per guide, but e
 
 ---
 
+## Maintaining Editorial Clusters
+
+### Principle: Redistribute, Don't Accumulate
+
+Publishing a new specialist guide should improve the entire editorial cluster, not simply increase its size.
+
+When a specialist guide is added, the surrounding Hub and Connector guides should be reviewed to ensure that information is distributed across the cluster rather than duplicated.
+
+### Editorial Maintenance Rules
+
+For every new specialist guide:
+
+- review all closely related Hub and Connector guides;
+- replace detailed explanations with concise summaries where appropriate;
+- add natural contextual links to the new guide;
+- remove duplicated concepts within the same guide;
+- eliminate unnecessary repetition across the cluster;
+- keep each guide focused on a single search intent.
+
+The objective is not to make existing guides longer, but clearer and more specialised.
+
+### Rule of Thumb
+
+> Every new specialist guide should make the surrounding guides simpler, not longer.
+
+A mature Knowledge Network grows by distributing knowledge across focused pages instead of accumulating the same information everywhere.
+
+
+
+---
+
+
+
 # 8. Related Guides
 
 Related Guides complement contextual links but do not replace them.
