@@ -854,6 +854,24 @@ New marker types should only be introduced when they represent stable concepts u
 
 ---
 
+### Shared Guide Icons
+
+The Reading Experience now uses a centralized icon registry located at:
+
+components/guides/guide-icons.ts
+
+This file is the single source of truth for all editorial icons used by guide components.
+
+Rules:
+
+- Add new editorial icons only in `guide-icons.ts`.
+- Components such as `GuideHighlightCard` and `GuideSectionHeading` must import the shared registry instead of maintaining duplicate icon maps.
+- Component-specific icons that are not part of the editorial vocabulary (for example `check-circle`, `credit-card`, `list`) should remain local to the component.
+- MDX files must use the semantic alias (for example `music`, `plane`, `hotel`, `ticket`) rather than Lucide icon names.
+- The shared registry represents editorial concepts, not implementation details. The underlying Lucide icon may change without requiring MDX updates.
+
+---
+
 ### Colour strategy
 
 The visual identity intentionally relies on a very small palette:

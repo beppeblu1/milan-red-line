@@ -90,6 +90,18 @@ The goal is a shorter guide with the same informational value.
 
 ---
 
+### Eliminate Concept Duplication
+
+During the Compression Pass, review not only repeated sentences but also repeated ideas.
+
+A key concept should normally be introduced once, then expanded or supported with new information rather than restated in different sections.
+
+When publishing a new Specialist Guide, prefer replacing detailed explanations in related guides with concise summaries and contextual links instead of repeating the same content.
+
+The objective is to distribute knowledge across the Knowledge Network rather than concentrating it in every guide.
+
+---
+
 # Tone of Voice
 
 Preferred tone:

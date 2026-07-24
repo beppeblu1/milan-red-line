@@ -1571,3 +1571,17 @@ Update this appendix only when the lifecycle methodology or evaluation criteria 
 Do not modify it to reflect the state of individual conversations.
 
 Individual chat evaluations belong only inside their respective chats.
+
+---
+
+## GuideFinalCTA Standard
+
+Reading Experience guides now use the shared `GuideFinalCTA` component instead of rendering the `rx:planning` section as a normal guide section.
+
+The `rx:planning` marker is intentionally preserved to maintain the Reading Experience document structure, but its content is no longer displayed.
+
+Future visual or textual changes to the guide CTA should always be implemented inside the shared component rather than editing individual guides.
+
+This keeps all Reading Experience guides visually consistent and reduces maintenance.
+
+---

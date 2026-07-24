@@ -205,7 +205,7 @@ No Reading Experience section markers found.
 
 # 6. Ordine effettivo delle sezioni
 
-L’ordine visualizzato è definito da `PilotGuideLayout.tsx`:
+L'ordine visualizzato è definito da `PilotGuideLayout.tsx`:
 
 1. Introduction
 2. Table of Contents
@@ -219,11 +219,15 @@ L’ordine visualizzato è definito da `PilotGuideLayout.tsx`:
 10. Day Trips
 11. Local Tip
 12. FAQ
-13. Planning
-14. Good to Know
-15. Related Guides
+13. Good to Know
+14. Related Guides
+15. GuideFinalCTA
 
-Spostare i marker nel file non cambia necessariamente l’ordine di rendering.
+L'ordine dei marker `rx:*` nel file MDX non determina necessariamente l'ordine di rendering.
+
+Il marker `rx:planning` rimane obbligatorio per rispettare il contratto del Reading Experience Framework, ma il suo contenuto non viene più renderizzato direttamente.
+
+La sezione finale della guida è gestita centralmente dal componente condiviso `GuideFinalCTA`, che garantisce una CTA uniforme in tutte le guide Reading Experience.
 
 ---
 

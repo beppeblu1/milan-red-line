@@ -1,0 +1,48 @@
+import type { LucideIcon } from "lucide-react";
+import {
+  BedDouble,
+  Briefcase,
+  Building2,
+  Bus,
+  CalendarDays,
+  Camera,
+  Car,
+  CircleHelp,
+  Clock3,
+  Cross,
+  Hotel,
+  Info,
+  Lightbulb,
+  MapPinned,
+  Music,
+  Plane,
+  Ticket,
+  Train,
+  UtensilsCrossed,
+  Users,
+} from "lucide-react";
+
+export const guideIcons = {
+  bed: BedDouble,
+  briefcase: Briefcase,
+  building: Building2,
+  bus: Bus,
+  calendar: CalendarDays,
+  camera: Camera,
+  car: Car,
+  clock: Clock3,
+  help: CircleHelp,
+  hospital: Cross,
+  hotel: Hotel,
+  info: Info,
+  lightbulb: Lightbulb,
+  map: MapPinned,
+  music: Music,
+  plane: Plane,
+  ticket: Ticket,
+  train: Train,
+  utensils: UtensilsCrossed,
+  users: Users,
+} satisfies Record<string, LucideIcon>;
+
+export type GuideIconName = keyof typeof guideIcons;

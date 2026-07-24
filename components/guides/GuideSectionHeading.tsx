@@ -1,36 +1,20 @@
 ﻿import type { ReactNode } from "react";
 import {
-  Briefcase,
-  Building2,
-  CalendarDays,
   CircleCheck,
-  CircleHelp,
-  Clock3,
   CreditCard,
-  Info,
-  Lightbulb,
   List,
-  MapPinned,
-  Ticket,
-  Train,
-  Users,
 } from "lucide-react";
 
+import {
+  guideIcons,
+  type GuideIconName,
+} from "@/components/guides/guide-icons";
+
 type GuideSectionHeadingIcon =
-  | "briefcase"
-  | "building"
-  | "calendar"
+  | GuideIconName
   | "check-circle"
-  | "clock"
   | "credit-card"
-  | "help"
-  | "info"
-  | "lightbulb"
-  | "list"
-  | "map"
-  | "ticket"
-  | "train"
-  | "users";
+  | "list";
 
 type GuideSectionHeadingProps = {
   id: string;
@@ -39,21 +23,11 @@ type GuideSectionHeadingProps = {
 };
 
 const icons = {
-  briefcase: Briefcase,
-  building: Building2,
-  calendar: CalendarDays,
+  ...guideIcons,
   "check-circle": CircleCheck,
-  clock: Clock3,
   "credit-card": CreditCard,
-  help: CircleHelp,
-  info: Info,
-  lightbulb: Lightbulb,
   list: List,
-  map: MapPinned,
-  ticket: Ticket,
-  train: Train,
-  users: Users,
-} satisfies Record<GuideSectionHeadingIcon, typeof Train>;
+};
 
 export default function GuideSectionHeading({
   id,

@@ -1,10 +1,11 @@
 import ApartmentContextCard from "@/components/guides/ApartmentContextCard";
 import GoodToKnow from "@/components/guides/GoodToKnow";
+import GuideContentRenderer from "@/components/guides/GuideContentRenderer";
 import {
   GuideFaq,
   GuideFaqItem,
 } from "@/components/guides/GuideFaq";
-import GuideContentRenderer from "@/components/guides/GuideContentRenderer";
+import GuideFinalCTA from "@/components/guides/GuideFinalCTA";
 import GuidePanoramicImage from "@/components/guides/GuidePanoramicImage";
 import GuideSectionHeading from "@/components/guides/GuideSectionHeading";
 import GuideTableOfContents from "@/components/guides/GuideTableOfContents";
@@ -57,7 +58,6 @@ type ReadingExperienceSections = {
     items: FaqItem[];
     icon?: GuideSectionIcon;
   };
-  planning: ContentSection;
   goodToKnow: string;
 };
 
@@ -158,8 +158,6 @@ export default function PilotGuideLayout({
         ))}
       </GuideFaq>
 
-      <GuideSection section={sections.planning} />
-
       <GoodToKnow>
         <GuideContentRenderer source={sections.goodToKnow} />
       </GoodToKnow>
@@ -168,6 +166,8 @@ export default function PilotGuideLayout({
         slugs={relatedGuideSlugs}
         currentSlug={currentSlug}
       />
+
+      <GuideFinalCTA />
     </>
   );
 }
@@ -261,14 +261,6 @@ function parseReadingExperienceSections(
       title: faqSection.title,
       items: parseFaqItems(faqSection.source),
       icon: "help",
-    },
-
-    planning: {
-      ...parseContentSection(
-        getRequiredSection(markedSections, "planning"),
-        "Planning your stay?",
-      ),
-      icon: "calendar",
     },
 
     goodToKnow: cleanGoodToKnowSection(

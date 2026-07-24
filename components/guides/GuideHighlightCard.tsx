@@ -1,57 +1,22 @@
 ﻿import type { ReactNode } from "react";
-import {
-  Briefcase,
-  Building2,
-  CalendarDays,
-  CircleHelp,
-  Clock3,
-  Info,
-  Lightbulb,
-  MapPinned,
-  Ticket,
-  Train,
-  Users,
-} from "lucide-react";
 
-type GuideHighlightIcon =
-  | "briefcase"
-  | "building"
-  | "calendar"
-  | "clock"
-  | "help"
-  | "info"
-  | "lightbulb"
-  | "map"
-  | "ticket"
-  | "train"
-  | "users";
+import {
+  guideIcons,
+  type GuideIconName,
+} from "@/components/guides/guide-icons";
 
 type GuideHighlightCardProps = {
-  icon: GuideHighlightIcon;
+  icon: GuideIconName;
   title: string;
   children: ReactNode;
 };
-
-const icons = {
-  briefcase: Briefcase,
-  building: Building2,
-  calendar: CalendarDays,
-  clock: Clock3,
-  help: CircleHelp,
-  info: Info,
-  lightbulb: Lightbulb,
-  map: MapPinned,
-  ticket: Ticket,
-  train: Train,
-  users: Users,
-} satisfies Record<GuideHighlightIcon, typeof Train>;
 
 export default function GuideHighlightCard({
   icon,
   title,
   children,
 }: GuideHighlightCardProps) {
-  const Icon = icons[icon];
+  const Icon = guideIcons[icon];
 
   return (
     <aside className="my-10 rounded-2xl border border-zinc-200 bg-zinc-50 p-6">

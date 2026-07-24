@@ -158,6 +158,47 @@ Rules:
 -   high quality;
 -   supports understanding.
 
+
+------------------------------------------------------------------------
+
+## GuideFinalCTA
+
+### Purpose
+
+Provide a consistent conclusion for every Reading Experience guide.
+
+The CTA represents the final step of the reading experience and should remain visually identical throughout the project.
+
+### Structure
+
+- Title
+- Short supporting description
+- Primary button
+- Secondary button
+
+### Principles
+
+- Calm and helpful.
+- Never aggressive.
+- Invitation rather than promotion.
+- Clear visual hierarchy.
+
+### Current Actions
+
+Primary
+
+View Apartments
+
+Secondary
+
+Contact Us
+
+### Usage
+
+Use the shared `GuideFinalCTA` component.
+
+Do not recreate CTA sections directly inside MDX guides.
+
 ------------------------------------------------------------------------
 
 # 4. Component Evolution
