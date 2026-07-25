@@ -86,7 +86,11 @@ export default async function GuidePage({ params }: PageProps) {
       </div>
 
       <header className="mb-14 border-b border-zinc-200 pb-10">
-        <p className="text-sm font-medium text-zinc-500">
+        <h1 className="max-w-2xl text-3xl font-semibold tracking-tight text-zinc-900 md:text-4xl">
+          {guide.metadata.title}
+        </h1>
+
+        <p className="mt-5 text-sm font-medium text-zinc-500">
           {guide.metadata.readingTime}
         </p>
 
@@ -176,3 +180,4 @@ function BookingCallToAction() {
     </section>
   );
 }
+
