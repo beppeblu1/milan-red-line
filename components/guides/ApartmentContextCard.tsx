@@ -76,6 +76,13 @@ export default function ApartmentContextCard({
     return null;
   }
 
+  const gridColumnsClass =
+    selectedApartments.length >= 3
+      ? "md:grid-cols-2 xl:grid-cols-3"
+      : selectedApartments.length === 2
+        ? "md:grid-cols-2"
+        : "";
+
   return (
     <aside
       aria-labelledby="apartment-context-title"
@@ -92,7 +99,7 @@ export default function ApartmentContextCard({
         <div className="mt-3 leading-7 text-zinc-600">{children}</div>
       )}
 
-      <div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+      <div className={`mt-6 grid gap-4 ${gridColumnsClass}`}>
         {selectedApartments.map((apartment) => (
           <Link
             key={apartment.slug}
@@ -116,3 +123,4 @@ export default function ApartmentContextCard({
     </aside>
   );
 }
+
