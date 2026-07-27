@@ -123,8 +123,22 @@ Documentation updates are part of the release.
 A sprint is not considered complete until the relevant technical
 documentation has been updated.
 
+
+------------------------------------------------------------------------
+
+## Release Source
+
+Before every production release, verify that the approved changes have been merged into the `master` branch.
+
+Only `master` is considered deployable and connected to the production deployment pipeline.
+
+Experimental branches must never be deployed directly.
+
 ------------------------------------------------------------------------
 
 # Maintenance
 
 Update this module whenever the release workflow or QA standards change.
+
+
+

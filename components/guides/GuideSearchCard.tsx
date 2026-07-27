@@ -36,37 +36,65 @@ export default function GuideSearchCard({
     guide.publishedAt,
   );
 
+  const metadata = (
+    <>
+      <span>{guide.readingTime}</span>
+
+      {publicationDate && (
+        <>
+          <span aria-hidden="true">•</span>
+          <span>{publicationDate}</span>
+        </>
+      )}
+    </>
+  );
+
   return (
     <Link
       href={`/guides/${guide.slug}`}
       className="group block overflow-hidden rounded-2xl border border-zinc-200 bg-white transition-colors duration-200 hover:border-red-300 hover:shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-600 focus-visible:ring-offset-2"
     >
       {guide.heroImage && (
-        <div style={{ aspectRatio: "16 / 3" }} className="relative w-full overflow-hidden border-b border-zinc-100 bg-zinc-100">
+        <div
+          style={{ aspectRatio: "16 / 3" }}
+          className="relative w-full overflow-hidden border-b border-zinc-100 bg-zinc-100"
+        >
           <Image
             src={guide.heroImage}
             alt={guide.heroImageAlt ?? ""}
             fill
             priority={imagePriority}
             sizes="(min-width: 1024px) 920px, 100vw"
-            className="object-cover"
+            className="z-0 object-cover"
           />
+
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-12"
+            style={{
+              background:
+                "linear-gradient(to top, rgba(0,0,0,.72) 0%, rgba(0,0,0,.38) 30%, rgba(0,0,0,.14) 60%, rgba(0,0,0,.03) 82%, rgba(0,0,0,0) 100%)",
+            }}
+          />
+
+          <div className="absolute inset-x-0 bottom-0 z-20 flex flex-wrap items-center gap-x-2 gap-y-1 px-5 pb-2 text-sm font-semibold tracking-wide text-white drop-shadow-md sm:px-6 sm:pb-3">
+            {metadata}
+          </div>
         </div>
       )}
 
       <div className="p-5 sm:p-6">
-        <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-zinc-500">
-          <span>{guide.readingTime}</span>
+        {!guide.heroImage && (
+          <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-zinc-500">
+            {metadata}
+          </div>
+        )}
 
-          {publicationDate && (
-            <>
-              <span aria-hidden="true">•</span>
-              <span>{publicationDate}</span>
-            </>
-          )}
-        </div>
-
-        <h3 className="mt-3 max-w-3xl text-2xl font-semibold leading-tight tracking-tight text-zinc-900 sm:text-3xl">
+        <h3
+          className={`max-w-3xl text-2xl font-semibold leading-tight tracking-tight text-zinc-900 sm:text-3xl ${
+            guide.heroImage ? "" : "mt-3"
+          }`}
+        >
           {guide.title}
         </h3>
 
@@ -85,6 +113,11 @@ export default function GuideSearchCard({
     </Link>
   );
 }
+
+
+
+
+
 
 
 

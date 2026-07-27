@@ -14,7 +14,7 @@ import { getAllGuides } from "@/lib/guides";
 export const metadata: Metadata = {
   title: "Local Guides",
   description:
-    "Practical guides for planning your stay, moving around Milan and exploring beyond the city.",
+    "Practical guides to explore Milan and beyond.",
 };
 
 function removeMissingHero(
@@ -57,8 +57,7 @@ export default function GuidesPage() {
         </h1>
 
         <p className="mt-4 text-lg leading-8 text-zinc-600">
-          Practical guides for planning your stay, moving around
-          Milan and exploring beyond the city.
+          Practical guides to explore Milan and beyond.
         </p>
       </header>
 
@@ -90,6 +89,9 @@ function GuideSearchFallback() {
     </div>
   );
 }
+
+
+
 
 
 
