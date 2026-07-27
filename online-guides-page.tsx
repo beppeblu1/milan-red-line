@@ -1,53 +1,20 @@
-﻿import { existsSync } from "node:fs";
-import path from "node:path";
-import { Suspense } from "react";
+﻿import { Suspense } from "react";
 
 import type { Metadata } from "next";
 
 import GuideSearch from "@/components/guides/GuideSearch";
-import {
-  createGuideSearchIndex,
-  type GuideSearchEntry,
-} from "@/lib/guide-search";
+import { createGuideSearchIndex } from "@/lib/guide-search";
 import { getAllGuides } from "@/lib/guides";
 
 export const metadata: Metadata = {
   title: "Local Guides",
   description:
-    "Practical guides for planning your stay, moving around Milan and exploring beyond the city.",
+    "Practical guides to help you choose where to stay, move around Milan and explore beyond the city.",
 };
-
-function removeMissingHero(
-  guide: GuideSearchEntry,
-): GuideSearchEntry {
-  if (!guide.heroImage) {
-    return guide;
-  }
-
-  const relativeHeroPath = guide.heroImage.replace(/^\/+/, "");
-  const absoluteHeroPath = path.join(
-    process.cwd(),
-    "public",
-    relativeHeroPath,
-  );
-
-  if (existsSync(absoluteHeroPath)) {
-    return guide;
-  }
-
-  return {
-    ...guide,
-    heroImage: undefined,
-    heroImageAlt: undefined,
-  };
-}
 
 export default function GuidesPage() {
   const guides = getAllGuides();
-
-  const searchIndex = createGuideSearchIndex(guides).map(
-    removeMissingHero,
-  );
+  const searchIndex = createGuideSearchIndex(guides);
 
   return (
     <div className="mx-auto max-w-5xl px-6 py-12 sm:py-16">
@@ -57,8 +24,8 @@ export default function GuidesPage() {
         </h1>
 
         <p className="mt-4 text-lg leading-8 text-zinc-600">
-          Practical guides for planning your stay, moving around
-          Milan and exploring beyond the city.
+          Practical guides to help you choose where to stay, move around Milan
+          and explore beyond the city.
         </p>
       </header>
 
@@ -71,9 +38,7 @@ export default function GuidesPage() {
         </Suspense>
       ) : (
         <div className="mx-auto mt-10 max-w-4xl rounded-2xl border border-zinc-200 bg-zinc-50 p-8 text-center">
-          <p className="text-zinc-600">
-            No guides are available yet.
-          </p>
+          <p className="text-zinc-600">No guides are available yet.</p>
         </div>
       )}
     </div>
@@ -90,7 +55,3 @@ function GuideSearchFallback() {
     </div>
   );
 }
-
-
-
-

@@ -1,4 +1,4 @@
-import Fuse from "fuse.js";
+﻿import Fuse from "fuse.js";
 
 import type { GuideMetadata } from "@/lib/guides";
 
@@ -9,6 +9,8 @@ export type GuideSearchEntry = {
   description: string;
   readingTime: string;
   publishedAt: string;
+  heroImage?: string;
+  heroImageAlt?: string;
   keywords: string[];
   destinations: string[];
   searchAliases: string[];
@@ -53,6 +55,8 @@ export function createGuideSearchIndex(
     description: guide.description,
     readingTime: guide.readingTime,
     publishedAt: guide.publishedAt,
+    heroImage: guide.heroImage,
+    heroImageAlt: guide.heroImageAlt,
     keywords: guide.keywords,
     destinations: guide.destinations,
     searchAliases: guide.searchAliases,
@@ -242,3 +246,5 @@ export function searchGuides(
 
   return searchFuzzyMatches(localeGuides, normalizedQuery);
 }
+
+
