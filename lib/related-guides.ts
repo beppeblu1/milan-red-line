@@ -57,13 +57,13 @@ const relatedGuidesBySlug: Record<string, string[]> = {
   "how-to-use-the-milan-metro": [
     "how-to-use-milan-public-transport",
     "milan-public-transport-tickets",
-    "arriving-in-milan-how-to-get-around",
+    "milano-centrale-station-guide",
   ],
 
   "how-to-use-milan-public-transport": [
     "how-to-use-the-milan-metro",
     "milan-public-transport-tickets",
-    "arriving-in-milan-how-to-get-around",
+    "milano-centrale-station-guide",
   ],
 
   "milan-public-transport-tickets": [
@@ -74,8 +74,14 @@ const relatedGuidesBySlug: Record<string, string[]> = {
 
   "arriving-in-milan-how-to-get-around": [
     "how-to-use-milan-public-transport",
+    "milano-centrale-station-guide",
     "how-to-use-the-milan-metro",
-    "milan-public-transport-tickets",
+  ],
+
+  "milano-centrale-station-guide": [
+    "arriving-in-milan-how-to-get-around",
+    "how-to-use-milan-public-transport",
+    "how-to-use-the-milan-metro",
   ],
 };
 const fallbackRelatedGuideSlugs = [
