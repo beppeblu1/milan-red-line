@@ -32,13 +32,47 @@ A feature is **not complete** until it has passed QA.
 
 Before release verify:
 
+-   `npm run qa:encoding` completes successfully;
+-   `npm run lint` completes successfully;
+-   `npx tsc --noEmit` completes successfully;
 -   `npm run build` completes successfully;
--   no TypeScript errors;
 -   no broken imports;
 -   no missing MDX components;
 -   no console errors.
 
-A failed build blocks publication.
+A failed mandatory validation blocks publication.
+
+## Encoding Validation
+
+Run:
+
+```bash
+npm run qa:encoding
+```
+
+The command executes `scripts/check-encoding.mjs` and scans the supported
+project source and content files for suspicious sequences commonly caused
+by incorrect UTF-8, Windows-1252 or ISO-8859-1 conversion.
+
+The validation must be run:
+
+-   after batch replacements or scripted editorial changes;
+-   after importing, copying or rewriting Markdown or MDX content;
+-   during final technical QA before every production release.
+
+A successful check reports the number of scanned files and confirms that
+no suspicious sequences were found.
+
+If the command reports an occurrence:
+
+1.  open the indicated file and line;
+2.  restore the intended character in UTF-8;
+3.  rerun `npm run qa:encoding`;
+4.  do not continue to the production build until the check passes.
+
+Do not treat LF/CRLF Git warnings as encoding failures. They concern line
+endings and are separate from mojibake or corrupted text.
+
 
 ------------------------------------------------------------------------
 
