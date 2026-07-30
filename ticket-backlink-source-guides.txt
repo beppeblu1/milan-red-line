@@ -1,4 +1,4 @@
-﻿==================================================
+==================================================
 FILE: content/guides/arriving-in-milan-how-to-get-around.mdx
 ==================================================
 ---
@@ -905,7 +905,7 @@ Staying along the M1 provides direct access to Rho Fiera Milano while keeping ce
 
 Sesto San Giovanni sits at the northern end of the M1 and offers a practical balance between transport, comfort and local services.
 
-Visitors can reach central Milan directly while returning to a quieter residential area in the evening. Supermarkets, pharmacies, cafÃ©s, restaurants and local shops are available nearby.
+Visitors can reach central Milan directly while returning to a quieter residential area in the evening. Supermarkets, pharmacies, cafés, restaurants and local shops are available nearby.
 
 If you are comparing locations, our guide on [whether Sesto San Giovanni is a good place to stay](/guides/is-sesto-san-giovanni-a-good-place-to-stay) provides an honest overview of the area and the travellers it suits best.
 
@@ -1014,7 +1014,7 @@ keywords:
   - "Sesto San Giovanni safety"
 destinations:
   - "Sesto San Giovanni"
-  - "Sesto RondÃ²"
+  - "Sesto Rondò"
   - "Sesto 1 Maggio FS"
   - "Milan"
   - "M1 Red Line"
@@ -1101,7 +1101,7 @@ Choosing a neighbourhood where people actually live often makes a stay feel more
 
 One of Sesto San Giovanni's biggest advantages is its transport network.
 
-The **M1 Red Line** provides direct access to many of Milan's best-known destinations, while **Sesto 1Â° Maggio FS** also offers regional railway connections.
+The **M1 Red Line** provides direct access to many of Milan's best-known destinations, while **Sesto 1° Maggio FS** also offers regional railway connections.
 
 <GuideDestinationTable>
   <GuideDestinationRow destination="Duomo" direct />
@@ -1151,11 +1151,11 @@ You won't need to travel into central Milan for every meal. Sesto San Giovanni o
 
 ### Breakfast
 
-The neighbourhood has several cafÃ©s and pastry shops where locals stop for breakfast. Whether you prefer a quick espresso at the counter or a relaxed cappuccino with a fresh pastry, you'll find plenty of choice nearby.
+The neighbourhood has several cafés and pastry shops where locals stop for breakfast. Whether you prefer a quick espresso at the counter or a relaxed cappuccino with a fresh pastry, you'll find plenty of choice nearby.
 
 ### Quick lunch
 
-If you're looking for something simple before catching the metro or after a day exploring Milan, you'll find bakeries, sandwich shops, kebab restaurants and casual cafÃ©s throughout the area.
+If you're looking for something simple before catching the metro or after a day exploring Milan, you'll find bakeries, sandwich shops, kebab restaurants and casual cafés throughout the area.
 
 ### Pizza & Italian restaurants
 
@@ -1171,7 +1171,7 @@ During the warmer months, a couple of artisan gelaterias are just a short walk a
 
 ### Aperitivo
 
-Several bars around Sesto RondÃ² offer a relaxed aperitivo atmosphere with drinks and light snacks. They are popular with local residents and provide a quieter alternative to the busier nightlife districts in central Milan.
+Several bars around Sesto Rondò offer a relaxed aperitivo atmosphere with drinks and light snacks. They are popular with local residents and provide a quieter alternative to the busier nightlife districts in central Milan.
 
 ## Safety
 
@@ -1198,7 +1198,7 @@ For most travellers, Sesto San Giovanni is simply a practical residential base w
 
 > Don't treat Sesto San Giovanni simply as a place to sleep.
 
-Take a walk around the neighbourhood, stop for breakfast in a local cafÃ©, browse the Saturday market or enjoy an evening aperitivo. Spending even a little time outside the main tourist routes offers a more authentic picture of everyday life around Milan.
+Take a walk around the neighbourhood, stop for breakfast in a local café, browse the Saturday market or enjoy an evening aperitivo. Spending even a little time outside the main tourist routes offers a more authentic picture of everyday life around Milan.
 
 {/* rx:faq */}
 
@@ -1220,7 +1220,7 @@ Yes. Several supermarkets, including Esselunga, Coop, Lidl and Carrefour, are av
 
 ### Where can I have breakfast?
 
-There are numerous cafÃ©s and pastry shops throughout Sesto San Giovanni, making it easy to enjoy a traditional Italian breakfast close to your accommodation.
+There are numerous cafés and pastry shops throughout Sesto San Giovanni, making it easy to enjoy a traditional Italian breakfast close to your accommodation.
 
 ### Is there a local market?
 
@@ -1228,7 +1228,7 @@ Yes. Every Saturday, Via Puricelli Guerra hosts a popular neighbourhood market s
 
 ### Can I find restaurants without going into Milan?
 
-Yes. The area offers a wide choice of pizzerias, Italian restaurants, cafÃ©s, gelaterias and international cuisine, so there's no need to travel into the city centre for every meal.
+Yes. The area offers a wide choice of pizzerias, Italian restaurants, cafés, gelaterias and international cuisine, so there's no need to travel into the city centre for every meal.
 
 {/* rx:planning */}
 
@@ -1247,7 +1247,7 @@ Explore [Apartment Arco](/apartments/arco) and [Apartment Gramsci](/apartments/g
 
 ### Good to know
 
-Most shops, supermarkets and cafÃ©s follow regular opening hours, although some independent businesses may close for part of the afternoon or on certain days of the week.
+Most shops, supermarkets and cafés follow regular opening hours, although some independent businesses may close for part of the afternoon or on certain days of the week.
 
 Sesto San Giovanni has its own tourist tax, which is separate from the City of Milan's tourist tax. Rates and exemptions may change over time, so it's always worth checking the latest information before your stay.
 
@@ -1344,7 +1344,7 @@ Highlights include:
 
 - direct metro access to central Milan;
 - larger apartments for the same budget;
-- supermarkets, cafÃ©s and restaurants nearby;
+- supermarkets, cafés and restaurants nearby;
 - everyday services within walking distance;
 - railway connections towards Monza, Lecco and Lake Como.
 
@@ -1393,7 +1393,7 @@ Visitors will usually find:
 
 - supermarkets;
 - pharmacies;
-- cafÃ©s and restaurants;
+- cafés and restaurants;
 - bakeries;
 - local shops;
 - metro stations;
