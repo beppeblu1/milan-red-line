@@ -125,22 +125,16 @@ function getRequiredEnvironmentVariable(
 }
 
 async function checkRateLimit(): Promise<boolean> {
-  // Skip rate limiting during local development.
-  // Production always requires Upstash.
-  if (process.env.NODE_ENV !== "production") {
+  const redisUrl =
+    process.env.UPSTASH_REDIS_REST_URL?.trim();
+  const redisToken =
+    process.env.UPSTASH_REDIS_REST_TOKEN?.trim();
+  const rateLimitSecret =
+    process.env.CONTACT_RATE_LIMIT_SECRET?.trim();
+
+  if (!redisUrl || !redisToken || !rateLimitSecret) {
     return true;
   }
-
-  const redisUrl = getRequiredEnvironmentVariable(
-    "UPSTASH_REDIS_REST_URL",
-  );
-  const redisToken = getRequiredEnvironmentVariable(
-    "UPSTASH_REDIS_REST_TOKEN",
-  );
-  const rateLimitSecret =
-    getRequiredEnvironmentVariable(
-      "CONTACT_RATE_LIMIT_SECRET",
-    );
 
   const redis = new Redis({
     url: redisUrl,
