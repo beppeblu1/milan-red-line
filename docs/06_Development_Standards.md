@@ -1,157 +1,615 @@
-# 06_Development_Standards
+# Development Standards
 
-> **Module Owner:** Development\
-> **Status:** Stable (Living document)
+Module Owner: Development
 
-------------------------------------------------------------------------
+Status: Stable (Living Document)
 
-# 1. Purpose
+---
 
-This document defines the permanent development standards for Milan Red
-Line.
+# Purpose
 
-The objective is to keep the codebase consistent, maintainable and easy
-to evolve over time.
+This document defines the permanent development standards for the Milan Red Line project.
 
-------------------------------------------------------------------------
+Its purpose is to establish consistent engineering practices that keep the platform maintainable, predictable and easy to evolve over time.
 
-# 2. General Principles
+Development standards define **how the project should be implemented**.
 
-Development should always favour:
+System-specific implementation details belong to the corresponding System Documents.
 
--   simplicity over cleverness;
--   reusable solutions over page-specific code;
--   readability over brevity;
--   maintainability over speed.
+---
 
-A solution that can be reused in future guides is preferred over a quick
-one-off implementation.
+# Scope
 
-------------------------------------------------------------------------
+These standards apply to every technical contribution made to the project.
 
-# 3. Repository Structure
+They provide permanent guidance for:
 
-The project follows a clear separation of concerns.
+- application development;
 
-Typical areas include:
+- guide implementation;
 
--   `app/`
--   `components/`
--   `content/guides/`
--   `lib/`
--   `public/images/`
--   `docs/`
+- reusable components;
 
-Documentation should evolve together with the codebase.
+- repository organisation;
 
-------------------------------------------------------------------------
+- development workflows;
 
-# 4. MDX Workflow
+- quality assurance;
 
-Guide content belongs in `content/guides`.
+- documentation updates.
 
-Rules:
+Technology-specific implementation details remain documented within the appropriate System Documents and Technical References.
 
--   keep front matter complete;
--   use reusable MDX components;
--   avoid inline HTML layouts;
--   prefer semantic Markdown whenever possible.
+---
 
-------------------------------------------------------------------------
+# Development Philosophy
 
-# 5. Reusable Components
+Development exists to strengthen the platform rather than simply deliver new functionality.
 
-Before creating a new component ask:
+Every implementation should improve the long-term quality of the project.
 
-1.  Can an existing component solve this?
-2.  Will future guides reuse it?
-3.  Can the API be made generic?
+Short-term convenience should never compromise architectural consistency or future maintainability.
 
-If the answer is yes, create a reusable component and document it.
+Whenever multiple valid solutions exist, prefer the one that:
 
-------------------------------------------------------------------------
+- improves reuse;
 
-# 6. PowerShell Policy
+- reduces maintenance effort;
 
-## Preferred
+- simplifies future evolution;
 
-Use PowerShell for repetitive editorial maintenance:
+- preserves architectural consistency.
 
--   inserting backlinks;
--   updating metadata;
--   batch replacements;
--   repetitive MDX edits.
+Development quality is measured not only by delivered functionality, but also by how well the solution integrates with the existing platform.
 
-## Avoid
+---
 
-Do not use PowerShell for:
+# Core Development Principles
 
--   React component development;
--   TypeScript refactoring;
--   architecture changes;
--   complex JSX updates.
+The Milan Red Line project follows a small number of permanent engineering principles.
 
-Those changes should be delivered as complete files.
+---
+
+## Simplicity Before Complexity
+
+Prefer the simplest solution capable of solving the problem correctly.
+
+Complexity should only be introduced when it provides clear long-term value.
+
+---
+
+## Reuse Before Duplication
+
+Before introducing new code, verify whether the existing framework can be extended.
+
+Reusable solutions should always be preferred over page-specific implementations.
+
+---
+
+## Readability Before Brevity
+
+Code should prioritise clarity over minimalism.
+
+Future maintainers should understand implementation decisions without unnecessary effort.
+
+---
+
+## Maintainability Before Speed
+
+Implementation speed should never justify reducing long-term maintainability.
+
+Temporary shortcuts should remain exceptional and be documented appropriately.
+
+---
+
+## Verify Before Modify
+
+Before changing any permanent behaviour, always verify:
+
+- the current implementation;
+
+- the relevant documentation;
+
+- affected System Documents;
+
+- related project standards.
+
+Implementation decisions should always be based on the current project state rather than historical assumptions.
+
+---
+
+## Documentation is Part of Development
+
+Permanent implementation knowledge should be documented during the same sprint in which it is introduced.
+
+Development is not considered complete until both implementation and permanent documentation remain aligned.
 
 
-------------------------------------------------------------------------
 
-# 7. Build Policy
+# Development Workflow
 
-Every significant change should be validated with:
+The Milan Red Line project follows a structured development workflow.
 
-``` bash
-npm run build
+The objective is to produce implementations that remain technically correct, reusable and easy to maintain throughout the lifetime of the project.
+
+Every development task should follow the same sequence regardless of its size.
+
+---
+
+# Development Lifecycle
+
+Development follows six consecutive stages.
+
+```text
+
+Understand
+
+↓
+
+Verify
+
+↓
+
+Implement
+
+↓
+
+Validate
+
+↓
+
+Document
+
+↓
+
+Release
+
 ```
 
-No guide should be published with build errors.
+Each stage assumes that the previous stage has been completed successfully.
 
-------------------------------------------------------------------------
+Skipping stages increases the probability of introducing inconsistencies.
 
-# 8. Git Workflow
+---
 
-Typical workflow:
+## Stage 1 — Understand
 
-1.  implement;
-2.  review;
-3.  build;
-4.  commit;
-5.  push;
-6.  deploy;
-7.  update documentation.
+Before modifying any part of the project, understand the current implementation.
 
-Documentation is considered part of the implementation.
+Review:
 
-------------------------------------------------------------------------
+- the affected system;
 
-# 9. Quality Standards
+- related documentation;
 
-Before publication verify:
+- existing reusable solutions;
 
--   successful build;
--   working search;
--   related guides;
--   responsive layout;
--   hero image;
--   metadata;
--   accessibility basics;
--   internal links.
+- architectural boundaries.
 
-------------------------------------------------------------------------
+The objective is to understand the current platform before introducing changes.
 
-# 10. Technical Debt
+---
 
-Avoid introducing technical debt to accelerate a sprint.
+## Stage 2 — Verify
 
-When debt is unavoidable:
+Confirm that the intended modification is compatible with the current architecture.
 
--   document it;
--   justify it;
--   schedule its resolution.
+Typical verification includes:
 
-------------------------------------------------------------------------
+- relevant System Documents;
 
-# Maintenance
+- Technical References;
 
-Update this module whenever development workflows or permanent coding
-standards change.
+- Permanent Decisions;
+
+- Project Governance;
+
+- existing implementation.
+
+Never rely on assumptions based on previous project states.
+
+---
+
+## Stage 3 — Implement
+
+Implementation should respect the project's architectural principles.
+
+Whenever possible:
+
+- extend existing systems;
+
+- reuse existing components;
+
+- preserve backwards compatibility;
+
+- minimise duplicated code.
+
+Every implementation should strengthen the platform rather than introduce isolated solutions.
+
+---
+
+## Stage 4 — Validate
+
+Every significant modification should be technically validated.
+
+Validation should include:
+
+- successful linting;
+
+- successful production build;
+
+- responsive behaviour;
+
+- accessibility basics;
+
+- compatibility with related systems.
+
+Validation is part of development, not a separate activity.
+
+---
+
+## Stage 5 — Document
+
+Whenever permanent implementation knowledge changes, update the corresponding documentation during the same sprint.
+
+Documentation should evolve together with the implementation.
+
+Implementation and documentation should never diverge.
+
+---
+
+## Stage 6 — Release
+
+Deployment should occur only after successful validation.
+
+The preferred release sequence is:
+
+```text
+
+Implementation
+
+↓
+
+Review
+
+↓
+
+Lint
+
+↓
+
+Build
+
+↓
+
+Documentation
+
+↓
+
+Commit
+
+↓
+
+Push
+
+↓
+
+Deploy
+
+```
+
+Every release should leave both the implementation and the documentation in a consistent state.
+
+---
+
+# Repository Standards
+
+The repository architecture is defined by the Infrastructure document.
+
+Development should respect that architecture rather than introduce alternative organisational patterns.
+
+Repository responsibilities should remain clearly separated.
+
+Examples include:
+
+- application code;
+
+- reusable components;
+
+- editorial content;
+
+- shared libraries;
+
+- documentation;
+
+- static assets.
+
+Structural changes should always preserve the overall repository architecture.
+
+---
+
+# MDX Development
+
+Editorial content belongs inside the guide content directory.
+
+Development should:
+
+- keep front matter complete;
+
+- use reusable editorial components;
+
+- prefer semantic Markdown;
+
+- avoid presentation-specific HTML;
+
+- keep MDX declarative.
+
+Business logic should always remain inside the application rather than the guide content.
+
+---
+
+# Reusable Components
+
+Before introducing a new component, always verify:
+
+- whether an existing component can be extended;
+
+- whether future guides will reuse the functionality;
+
+- whether the public API can remain generic.
+
+Reusable components should strengthen the framework rather than solve isolated cases.
+
+---
+
+# PowerShell Policy
+
+PowerShell should be used for repetitive and well-defined local modifications.
+
+Typical examples include:
+
+- metadata updates;
+
+- internal linking;
+
+- repetitive MDX edits;
+
+- controlled batch replacements.
+
+PowerShell should normally not be used for:
+
+- React component development;
+
+- TypeScript refactoring;
+
+- architectural modifications;
+
+- complex JSX updates.
+
+Structural modifications should normally be delivered as complete source files.
+
+
+
+# Technical Reference
+
+The following information complements the permanent development standards defined in this document.
+
+Unlike the previous sections, the Technical Reference contains operational guidance that may evolve together with the implementation.
+
+This section supports day-to-day development without requiring changes to the architectural chapters.
+
+---
+
+# Common Operations
+
+## Create a New Feature
+
+Before implementation verify:
+
+- architectural impact;
+
+- existing reusable solutions;
+
+- affected System Documents;
+
+- related Technical References.
+
+New functionality should integrate naturally with the existing platform.
+
+---
+
+## Modify an Existing System
+
+Before making structural changes:
+
+- understand the current implementation;
+
+- identify affected architectural layers;
+
+- review related documentation;
+
+- evaluate backwards compatibility.
+
+Large architectural changes should remain exceptional.
+
+---
+
+## Create a New Reusable Component
+
+Before introducing a new component verify:
+
+- whether the functionality already exists;
+
+- whether the API can remain generic;
+
+- whether the component belongs to the framework;
+
+- whether documentation should be updated.
+
+Reusable components should strengthen the platform rather than solve isolated cases.
+
+---
+
+## Perform Editorial Maintenance
+
+For repetitive editorial maintenance, PowerShell should normally be preferred.
+
+Typical examples include:
+
+- metadata updates;
+
+- internal linking;
+
+- repetitive MDX modifications;
+
+- controlled search-and-replace operations.
+
+PowerShell should only be used for predictable, well-defined changes.
+
+---
+
+# Change Impact
+
+| If you modify... | Review... |
+
+|------------------|-----------|
+
+| Shared components | All dependent guides |
+
+| Guide renderer | MDX compatibility and framework behaviour |
+
+| Repository structure | Infrastructure documentation |
+
+| Metadata handling | Search and Metadata, Guide Search System |
+
+| Knowledge Network | Internal linking and Related Guides |
+
+| Documentation | Permanent Decisions and Project Governance where applicable |
+
+---
+
+# Quality Checklist
+
+Before completing a development task verify:
+
+□ Relevant documentation reviewed
+
+□ Existing implementation understood
+
+□ Reusable solutions preferred
+
+□ Architectural consistency preserved
+
+□ Successful lint
+
+□ Successful production build
+
+□ Responsive behaviour verified
+
+□ Accessibility basics verified
+
+□ Documentation updated where required
+
+□ No unnecessary technical debt introduced
+
+---
+
+# Common Pitfalls
+
+## Solving Local Problems with Global Changes
+
+Framework modifications should benefit the entire platform.
+
+Avoid introducing architectural complexity for isolated cases.
+
+---
+
+## Duplicating Existing Functionality
+
+Before creating new code, always verify whether the framework already provides an appropriate solution.
+
+---
+
+## Skipping Documentation
+
+Permanent implementation knowledge should never remain exclusively inside the source code.
+
+Documentation should evolve during the same sprint.
+
+---
+
+## Ignoring System Boundaries
+
+Every System Document owns a specific responsibility.
+
+Avoid moving implementation details between documents without a clear architectural reason.
+
+---
+
+## Introducing Technical Debt
+
+Technical debt should remain exceptional.
+
+Whenever unavoidable:
+
+- document it;
+
+- justify it;
+
+- define a plan for its resolution.
+
+---
+
+# Relationship with Other Documents
+
+Development Standards should always be read together with:
+
+- Infrastructure
+
+- Guide System
+
+- Guide Search System
+
+- Search and Metadata
+
+- QA Process
+
+- Project Governance
+
+- Permanent Decisions
+
+Each document defines one distinct responsibility.
+
+Whenever overlap exists, every topic should have a single authoritative source.
+
+---
+
+# Future Evolution
+
+Development standards should evolve gradually together with the platform.
+
+Future improvements should focus on:
+
+- increasing reuse;
+
+- reducing maintenance effort;
+
+- strengthening architectural consistency;
+
+- simplifying future development workflows.
+
+Architectural stability should always take precedence over frequent process changes.
+
+---
+
+# Permanent Statement
+
+This document defines the permanent engineering standards of the Milan Red Line project.
+
+Its purpose is to ensure that every technical contribution strengthens the long-term quality, maintainability and consistency of the platform.
+
+Architectural principles should evolve only when the development model itself changes.
+
+Operational updates belong in this Technical Reference.
+
+The objective is to maintain a development process that remains predictable, scalable and easy to understand for every future contributor.

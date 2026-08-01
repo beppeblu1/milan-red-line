@@ -1,924 +1,448 @@
-# Milan Red Line — Development Continuity Notes
+# Development Continuity Notes
 
-Version: July 2026
+Module Owner: Development
 
-## Purpose
-
-This document complements the permanent project documentation and preserves practical development knowledge, recurring implementation patterns and high-value onboarding notes that can reduce the time required by future Development chats to understand the codebase.
-
-It intentionally avoids repeating information that should already exist in permanent project sources.
+Status: Living Document
 
 ---
 
-## 1. Knowledge Network maintenance
+# Purpose
 
-Guides should be treated as part of an interconnected knowledge network rather than as independent articles.
+This document complements the permanent Milan Red Line documentation.
 
-Whenever a new guide is added:
+Its purpose is to preserve practical development knowledge, established workflows and recurring implementation patterns that help future Development chats understand how the project is built and how development is expected to proceed.
 
-1. create or update its `related-guides.ts` entry;
-2. verify its outbound contextual links;
-3. add inbound contextual links from the most relevant existing guides;
-4. verify that the guide belongs clearly to an editorial cluster rather than remaining isolated.
+Unlike the project's permanent Standards and System Documents, this document focuses on practical experience accumulated during development.
 
-Whenever practical, internal linking should be completed in the same sprint as publication.
+It intentionally avoids duplicating architectural documentation and should instead provide operational guidance that would otherwise be lost between development sessions.
 
 ---
 
-## 2. Preferred workflow for internal-link maintenance
+# Scope
 
-1. Inspect candidate guides.
-2. Identify stable insertion points.
-3. Automate well-defined repetitive changes through PowerShell.
-4. Verify with `git diff --stat` and `git diff`.
-5. Run lint.
-6. Run the production build.
-7. Commit and push only after the checks are clean.
+This document applies to everyday development activities.
 
-Avoid editing several guides manually when a defensive PowerShell script can perform the task safely and repeatably.
+Its responsibilities include:
 
----
+- recommended development workflows;
 
-## 3. PowerShell best practices
+- PowerShell best practices;
 
-### Resolve paths before using .NET file methods
+- Git workflow recommendations;
 
-```powershell
-$resolvedPath = (Resolve-Path -LiteralPath $path).Path
-$content = [System.IO.File]::ReadAllText($resolvedPath)
-```
+- recurring debugging lessons;
 
-Do not assume that `.NET` methods resolve relative paths exactly like PowerShell.
+- practical implementation advice;
 
-### Preserve UTF-8 without BOM
+- onboarding guidance for future Development chats.
 
-```powershell
-$utf8WithoutBom = New-Object System.Text.UTF8Encoding($false)
-[System.IO.File]::WriteAllText($resolvedPath, $updatedContent, $utf8WithoutBom)
-```
+It intentionally does not define:
 
-### Make scripts defensive and repeatable
+- system architecture;
 
-Scripts should:
+- permanent coding standards;
 
-- verify that each file exists;
-- skip files that already contain the intended change;
-- verify that an insertion anchor is unique;
-- avoid writing when assumptions fail;
-- report modified, skipped and failed files separately;
-- stop with an explicit error when an expected update is not completed.
+- Reading Experience rules;
+
+- Knowledge Network architecture;
+
+- implementation details of individual systems.
+
+Those responsibilities belong to the appropriate permanent documentation.
 
 ---
 
-## 4. Anchor strategy for automated edits
+# Development Philosophy
+
+Development follows a small number of long-term principles.
+
+---
+
+## Touch Once
+
+Whenever a guide, component or feature is opened for substantial work, the objective is to leave it in its best known state.
+
+Whenever reasonably practical:
+
+- complete the implementation;
+
+- update related documentation;
+
+- complete internal linking;
+
+- perform QA;
+
+- avoid creating unnecessary follow-up work.
+
+Incremental improvement is preferred over repeated partial revisions.
+
+---
+
+## Reuse Before Creating
+
+Before introducing a new implementation, always verify whether an existing solution already exists.
 
 Prefer:
 
-- MDX section comments such as `rx:introduction`, `rx:local-area` and `rx:planning`;
+- reusable components;
+
+- shared utilities;
+
+- generic APIs;
+
+- centralised configuration.
+
+Avoid page-specific implementations whenever a reusable solution is possible.
+
+---
+
+## Simplicity First
+
+Prefer solutions that remain easy to understand six months later.
+
+Simple, explicit implementations are generally preferred over highly abstract solutions.
+
+Optimisation should be driven by measurable need rather than anticipation.
+
+---
+
+## Documentation Is Part of Development
+
+Implementation is not considered complete until the relevant permanent documentation has been updated.
+
+Sprint handovers are temporary.
+
+Permanent knowledge should always be transferred into the appropriate Standards or System Documents.
+
+---
+
+# Development Workflow
+
+The preferred workflow for significant implementation work is:
+
+```text
+
+Understand
+
+↓
+
+Plan
+
+↓
+
+Implement
+
+↓
+
+Validate
+
+↓
+
+Document
+
+↓
+
+Commit
+
+↓
+
+Push
+
+```
+
+Skipping steps usually creates technical debt.
+
+Development should progress through small, well-understood changes rather than large unverified modifications.
+
+
+
+# Preferred Development Practices
+
+The following practices have consistently proven reliable throughout the development of Milan Red Line.
+
+They should be considered the preferred way of working unless a specific situation requires a different approach.
+
+---
+
+## Internal Linking
+
+Knowledge Network maintenance should normally be completed within the same sprint as the guide itself.
+
+Whenever a new guide is published:
+
+- update `related-guides.ts`;
+
+- verify outbound contextual links;
+
+- add appropriate inbound contextual links;
+
+- ensure the guide clearly belongs to an editorial cluster.
+
+A guide should never remain isolated inside the Knowledge Network.
+
+---
+
+## PowerShell Workflow
+
+PowerShell is the preferred tool for repetitive, well-defined editorial maintenance.
+
+Typical examples include:
+
+- metadata updates;
+
+- internal linking;
+
+- repetitive MDX modifications;
+
+- controlled batch replacements.
+
+Large scripted changes should always remain defensive, repeatable and easy to verify.
+
+---
+
+## Defensive Scripting
+
+Scripts should always:
+
+- verify that target files exist;
+
+- resolve file paths explicitly;
+
+- avoid duplicate insertions;
+
+- validate insertion anchors;
+
+- report modified, skipped and failed files separately;
+
+- stop when assumptions are violated.
+
+A script should never silently modify unexpected content.
+
+---
+
+## Anchor Strategy
+
+When automating editorial changes, prefer stable insertion points such as:
+
+- Reading Experience markers `rx:*`);
+
+- component boundaries;
+
 - stable headings;
-- known component boundaries;
-- short unique phrases;
+
+- unique identifiers;
+
 - narrowly scoped regular expressions.
 
-Avoid entire editorial paragraphs as long-term anchors. Minor copy changes, punctuation or line wrapping can make them fail.
+Avoid using long editorial paragraphs as anchors.
 
-Inspect candidate files with `Select-String` and context before writing an update script.
+Editorial copy evolves more frequently than structural markers.
 
 ---
 
-## 5. Git verification workflow
+## Git Verification
 
-Run:
+Before running QA, inspect the pending changes.
 
-```powershell
+Recommended sequence:
+
+```text
+
 git diff --stat
+
+↓
+
+git diff
+
+↓
+
+QA
+
+↓
+
+Build
+
 ```
 
-before lint and build.
+Review should confirm:
 
-The result should show only the intended files, a small and understandable number of changes and no unexpected whole-file rewrites.
+- only intended files changed;
 
-Windows warnings such as `LF will be replaced by CRLF` are expected in the current workflow and are not build failures by themselves.
+- no unexpected whole-file rewrites;
 
----
+- understandable modifications.
 
-## 6. Related guides and inbound links
-
-Updating `related-guides.ts` alone does not complete the Knowledge Network work.
-
-For every new guide, verify both directions:
-
-- the new guide points to relevant existing guides;
-- relevant existing guides point back to the new guide.
+Small, predictable diffs are considered part of code quality.
 
 ---
 
-## 7. Local Knowledge implementation principle
+# Debugging Principles
 
-The Local Knowledge pillar includes Sesto San Giovanni and nearby cultural venues, green areas, industrial heritage and useful North Milan destinations.
-
-Development should support the positioning that Sesto is a practical base for Milan and worthwhile nearby places, without turning guides into generic tourist directories.
+Several recurring lessons have emerged during development.
 
 ---
 
-## 8. Guide-related development checklist
+## Inspect Before Changing
 
-Whenever a guide is created or substantially revised, verify:
+When an imported symbol appears to be missing, inspect the source module before modifying dependent code.
 
-- frontmatter and metadata;
-- hero image and alternative text;
-- Reading Experience layout;
-- contextual outbound links;
-- `related-guides.ts`;
-- inbound links;
-- final apartment/contact CTA;
-- FAQ and planning sections where applicable;
-- `git diff --stat`;
-- lint;
+Many issues originate from incomplete edits rather than incorrect imports.
+
+---
+
+## Resolve Paths Explicitly
+
+PowerShell and .NET path resolution behave differently.
+
+When using .NET file operations:
+
+- resolve paths explicitly;
+
+- avoid assuming relative paths behave identically.
+
+This prevents unnecessary filesystem errors.
+
+---
+
+## Validate the Result
+
+A successful script execution does not necessarily indicate a successful change.
+
+Always verify:
+
+- the resulting diff;
+
 - production build;
-- commit and push.
 
-Preferred rule: open a guide once and leave it in a final, current state.
+- runtime behaviour.
 
----
-
-## 9. Recurring debugging lessons
-
-### Missing exports
-
-When Next.js reports that an imported export does not exist, inspect the target module directly. Partial replacements can remove functions while leaving surrounding data intact.
-
-### Path-resolution failures
-
-When `Test-Path` succeeds but `.NET` file methods report a missing file, resolve the path explicitly before reading or writing.
-
-### Minimal diffs are part of acceptance
-
-A script completing without errors is not enough. The diff must also be small and expected.
+Verification is considered part of implementation rather than a separate activity.
 
 ---
 
-# Key Files Reference
+# Practical Development Rules
 
-## `lib/guides.ts`
+Experience has shown that the following habits consistently reduce future maintenance effort.
 
-### Role
+Prefer:
 
-This is the central filesystem-backed data layer for MDX guides.
+- reusable implementations;
 
-It:
+- incremental improvements;
 
-- discovers guide files in `content/guides`;
-- parses frontmatter through `gray-matter`;
-- returns typed metadata and raw MDX content;
-- provides guide slugs for static generation;
-- provides the full guide index for listing, search and latest-guide features;
-- retrieves a single guide by slug.
+- centralised configuration;
 
-It is server-side code and depends directly on Node's `fs` and `path`.
+- minimal diffs;
 
-### Shared contracts
-
-`GuideLayout` currently accepts only:
-
-```ts
-"standard" | "reading-experience-pilot"
-```
-
-`GuideMetadata` contains:
-
-```ts
-slug
-locale
-title
-description
-readingTime
-publishedAt
-author
-layout
-keywords
-destinations
-searchAliases
-heroImage?
-heroImageAlt?
-```
-
-`Guide` combines metadata with the raw MDX body.
-
-### Frontmatter normalization
-
-The parser deliberately supplies safe defaults:
-
-- `locale` defaults to `"en"`;
-- `author` defaults to `"Milan Red Line"`;
-- missing or unknown layout values fall back to `"standard"`;
-- missing array fields become empty arrays;
-- array entries are trimmed and empty values removed;
-- empty optional hero strings become `undefined`.
-
-These helpers protect guide listings and search from incomplete optional metadata.
-
-### Enforced validation
-
-Parsing fails when:
-
-1. `title` or `description` is missing;
-2. `heroImage` exists without `heroImageAlt`.
-
-Because `getAllGuides()` parses every guide, one invalid MDX frontmatter can fail pages or the production build.
-
-New required fields should be introduced only after deciding whether old guides need defaults or a migration.
-
-### Slug behavior
-
-The slug comes from the MDX filename, not frontmatter.
-
-Renaming a file changes its canonical slug and may require updates to:
-
-- routes;
-- contextual internal links;
-- `related-guides.ts`;
-- sitemap behavior;
-- indexed URLs and redirects.
-
-### Exported functions
-
-`getGuideSlugs()`  
-Returns all top-level `.mdx` filenames without extensions. Returns `[]` when the directory does not exist.
-
-`getAllGuides()`  
-Parses metadata for every guide and sorts by `publishedAt` descending. This assumes valid date strings; invalid dates are not explicitly rejected and can make ordering unreliable.
-
-`getGuideBySlug(slug)`  
-Returns the parsed guide or `null` when the matching file does not exist.
-
-`getLatestGuide()`  
-Returns the first guide from the date-sorted list or `null`.
-
-### Architectural assumptions
-
-- Guides are top-level files in `content/guides`.
-- Nested guide directories are not supported.
-- Reads are synchronous.
-- There is no generated manifest, CMS or database.
-- `getAllGuides()` reparses guide files in a fresh server execution context.
-
-This remains appropriate for the current project size. Do not add caching or a content database without evidence that the simple filesystem model is a real bottleneck.
-
-### Changes that require wider checks
-
-When changing `GuideMetadata`, inspect:
-
-- dynamic guide rendering;
-- search index creation;
-- guide cards and carousels;
-- metadata generation;
-- sitemap logic;
-- locale filtering;
-- all MDX frontmatter.
-
-When adding a new layout, update both `GuideLayout` and `parseGuideLayout()`. Changing only the union type will still cause the parser to fall back to `"standard"`.
-
-### Common failure modes
-
-- `heroImage` without `heroImageAlt`;
-- an array field written as a scalar string, resulting in `[]`;
-- renamed guide files without updated links and mappings;
-- a new layout value not recognized by `parseGuideLayout()`;
-- invalid `publishedAt` values producing unreliable ordering;
-- importing this filesystem module into a client component.
-
-### Modification checklist
-
-Before changing this file:
-
-- preserve server-only usage;
-- preserve filename-derived slugs unless routing is intentionally changing;
-- retain backward-compatible defaults where appropriate;
-- decide explicitly whether validation should fail the build;
-- update every consumer of `GuideMetadata`;
-- run lint and production build;
-- verify one guide listing and one dynamic guide page.
-
----
-
-## `lib/related-guides.ts`
-
-### Role
-
-This module is the manual editorial layer of the Knowledge Network.
-
-Unlike contextual links inside MDX guides, this file defines explicit editorial relationships between guides that are used whenever related content needs to be suggested.
-
-It should be considered part of the site's information architecture rather than a simple lookup table.
-
----
-
-### Editorial philosophy
-
-Relationships are intentionally curated.
-
-This is **not** an automatically generated graph.
-
-Only strong editorial relationships should be added.
-
-Prefer quality over quantity.
-
-Three highly relevant guides are usually more valuable than six weakly related ones.
-
----
-
-### Current strategy
-
-The project currently uses two complementary systems:
-
-1. contextual links inside guide content;
-2. manual related-guide mappings in this file.
-
-Both should be maintained together.
-
-Adding only one of them produces an incomplete Knowledge Network.
-
----
-
-### Fallback behaviour
-
-When a guide does not have its own configuration, the project falls back to a default recommendation list.
-
-The fallback guarantees that every guide always has related content.
-
-However, fallback recommendations should be considered temporary.
-
-As new editorial clusters are completed, guides should progressively receive their own dedicated configuration.
-
----
-
-### Duplicate protection
-
-`getRelatedGuideSlugs()` automatically:
-
-- removes duplicates;
-- prevents a guide from recommending itself.
-
-This behaviour should be preserved.
-
----
-
-### Editorial clusters
-
-This file is one of the easiest ways to understand the current editorial structure.
-
-Current clusters include:
-
-North Milan
-
-- Practical Guide to Sesto San Giovanni
-- Places to Visit Near Sesto San Giovanni
-- Carroponte
-- Bicocca
-- M1 Red Line
-- Without a Car
-
-Business Travel
-
-- Rho Fiera
-- Business Travellers
-- M1 Red Line
-- Without a Car
-
-Future clusters should continue following the same philosophy rather than creating isolated guide relationships.
-
----
-
-### Maintenance workflow
-
-Whenever a guide is published:
-
-1. add its own configuration;
-2. review neighbouring guides;
-3. add reciprocal relationships where appropriate;
-4. verify contextual inbound links;
-5. verify outbound links.
-
-The goal is for every published guide to become part of the editorial graph during the same sprint.
-
----
-
-### Common mistakes
+- documented architectural decisions.
 
 Avoid:
 
-- relying permanently on fallback recommendations;
-- creating one-way relationships only;
-- linking guides only because they share keywords;
-- creating very large related-guide lists.
+- duplicated logic;
 
-Relationships should reflect genuine editorial intent.
+- page-specific implementations;
 
----
+- unnecessary abstractions;
 
-### Future evolution
+- undocumented behaviour;
 
-The current implementation is intentionally simple.
+- temporary fixes without follow-up.
 
-It is perfectly adequate for the current number of guides.
 
-If the project grows significantly, possible future improvements include:
 
-- relationship weights;
-- multilingual mappings;
-- topic-based automatic suggestions;
-- category-aware fallbacks.
+# Relationship with Other Documents
 
-These improvements should only be considered when they provide measurable value.
+Development Continuity Notes should always be read together with the project's permanent documentation.
 
-The current manual mapping remains the preferred solution because it gives complete editorial control while keeping the implementation extremely maintainable.
+In particular:
 
----
+- Development Standards define permanent coding standards.
 
-# Development Continuity Addendum — Guide Search UX v2 (July 2026)
+- QA and Release Process defines the Quality Assurance workflow.
 
-## Guide Search architectural refinement
+- Guide System documents guide architecture and implementation.
 
-Guide Search UX v2 intentionally improves the search behaviour without changing the Knowledge Hub v1 architecture.
+- Guide Search System documents the search architecture.
 
-The implementation now follows a two-stage search strategy:
+- Infrastructure documents the technical platform.
 
-1. **Exact metadata search**
-2. **Fuzzy search fallback**
+- Knowledge Network documents editorial relationships.
 
-The existing metadata-based search is always executed first.
+- Reading Experience Framework defines guide structure.
 
-If one or more exact matches are found, they are returned using the existing ranking algorithm.
+- Editorial Design System documents reusable editorial components.
 
-Only when the exact search produces zero results does the system invoke Fuse.js for fuzzy matching.
+This document complements those sources with practical development experience.
 
-This preserves the editorial relevance and predictability established in Knowledge Hub v1 while making the search significantly more tolerant of common typing mistakes.
-
-Examples:
-
-- `monsa` → Monza
-- `bicoca` → Bicocca
-- `san rafaele` → San Raffaele
-- `rhofiera` → Rho Fiera
-- `metroo` → Metro
-
-Fuse.js searches only the existing metadata fields:
-
-- title
-- description
-- keywords
-- destinations
-- searchAliases
-
-No guide body indexing has been introduced.
-
-The implementation remains entirely client-side.
-
-## Search UX separation
-
-The project now intentionally maintains two distinct search experiences.
-
-### Guide Search (`/guides`)
-
-The Guides page remains the complete guide index.
-
-Its behaviour has intentionally not changed:
-
-- empty query displays all guides;
-- existing "No guides found" state is preserved.
-
-### Guide Search Shortcut (inside Reading Experience guides)
-
-The contextual search component embedded in guides has been enhanced with:
-
-- fuzzy matching;
-- typo tolerance;
-- Escape key support (clears the current query while keeping focus in the input);
-- dedicated "No matching guides" state including a **Browse all guides** action linking to `/guides`.
-
-This contextual search is intentionally more assistive without affecting the behaviour of the main guide index.
-
-## Architectural principle
-
-Future search improvements should continue to extend the current architecture rather than replace it.
-
-Preferred search flow:
-
-Exact search
-↓
-Results found?
-↓
-Yes → Return exact results
-No
-↓
-Fuse.js fallback
-
-This layered approach minimises behavioural regressions, preserves editorial control over relevance and keeps the search system simple, maintainable and multilingual-ready.
-
+Whenever overlap exists, the permanent document should always be considered the authoritative source.
 
 ---
 
-## `lib/guide-search.ts`
+# Onboarding for Future Development Chats
 
-### Role
+A new Development chat should become productive as quickly as possible.
 
-This module contains the complete search engine used by the Milan Red Line Knowledge Hub.
+Recommended reading order:
 
-It is intentionally independent from React and from the UI.
+1. Project Blueprint
 
-Its responsibilities are limited to:
+2. Documentation Index
 
-- building the search index;
-- normalising searchable content;
-- executing searches;
-- ranking results;
-- filtering by locale.
+3. Development Standards
 
-UI components should only display results.
+4. QA and Release Process
 
-They should never implement search logic.
+5. Guide System
 
----
+6. Guide Search System
 
-### Architectural philosophy
+7. Infrastructure
 
-The search engine follows a layered approach.
+8. Development Continuity Notes
 
-Guide metadata
-
-↓
-
-Search index
-
-↓
-
-Exact search
-
-↓
-
-Results found?
-
-↓
-
-Yes → Return ranked results
-
-↓
-
-No
-
-↓
-
-Fuse.js fuzzy search
-
-This strategy intentionally preserves editorial control over relevance while remaining tolerant of typing mistakes.
-
-Exact matches always have priority.
-
-Fuzzy matching is a fallback rather than the default search mode.
+This sequence provides sufficient architectural understanding before implementation begins.
 
 ---
 
-### Search model
+# Continuous Improvement
 
-The search engine is entirely metadata-driven.
+Development practices should evolve together with the project.
 
-Only the following fields are indexed:
+When a recurring implementation pattern repeatedly proves successful:
 
-- title;
-- description;
-- keywords;
-- destinations;
-- searchAliases.
+- first determine whether it represents a permanent architectural decision;
 
-Guide body content is intentionally excluded.
+- if so, move it into the appropriate Standard or System Document;
 
-This keeps the index:
+- otherwise, preserve it here as practical operational guidance.
 
-- lightweight;
-- predictable;
-- multilingual-friendly;
-- editor-controlled.
-
-Improving metadata is preferred over expanding the search algorithm.
+This document should remain concise and focused on development experience rather than becoming a second technical reference.
 
 ---
 
-### Text normalisation
+# Maintenance
 
-Every searchable field is normalised before indexing.
+Review this document whenever:
 
-The process removes:
+- recurring development practices evolve;
 
-- diacritics;
-- punctuation;
-- duplicated spaces;
-- case differences.
+- new debugging lessons emerge;
 
-Examples:
+- preferred workflows change;
 
-```
-San Raffaèle
-```
+- onboarding guidance needs improvement.
 
-becomes
-
-```
-san raffaele
-```
-
-This guarantees consistent behaviour regardless of user input.
-
-Any future searchable field should pass through the same normalisation pipeline.
+Routine implementation changes should normally not require updates unless they introduce new long-term development knowledge.
 
 ---
 
-### Ranking strategy
+# Permanent Statement
 
-Exact search uses a manually weighted scoring system.
+This document preserves practical development knowledge accumulated throughout the Milan Red Line project.
 
-Current priority is intentionally:
+Its purpose is to help future Development chats adopt established workflows, avoid previously solved problems and remain consistent with the project's long-term development philosophy.
 
-1. exact title match;
-2. title prefix;
-3. title contains query;
-4. destinations;
-5. search aliases;
-6. keywords;
-7. description.
+Permanent architectural knowledge belongs in the project's Standards and System Documents.
 
-Individual query terms are then scored again with lower weights.
+This document exists to preserve the practical experience that makes day-to-day development faster, safer and more consistent.
 
-This allows broad searches such as:
-
-```
-milan metro airport
-```
-
-to remain useful without replacing explicit title matches.
-
-The weights represent editorial priorities rather than mathematical optimisation.
-
-Do not modify them casually.
-
----
-
-### Tie-breaking
-
-When two guides receive the same relevance score, the newest guide is returned first.
-
-Publication date is therefore only a secondary ordering criterion.
-
-Editorial relevance always comes before recency.
-
----
-
-### Locale isolation
-
-Search is performed only inside the current locale.
-
-The search engine never mixes guides belonging to different languages.
-
-This behaviour is fundamental for the future multilingual architecture and should be preserved.
-
----
-
-### Fuse.js configuration
-
-Fuse.js is intentionally conservative.
-
-Current configuration favours:
-
-- typo correction;
-- small spelling mistakes;
-- nearby words.
-
-It intentionally avoids aggressive fuzzy matching that could generate unrelated results.
-
-Thresholds should be changed only after observing real search behaviour.
-
----
-
-### Performance assumptions
-
-The current architecture assumes:
-
-- client-side execution;
-- relatively small metadata;
-- tens or a few hundred guides.
-
-The search index is rebuilt from metadata rather than persisted.
-
-This keeps the implementation extremely simple and perfectly adequate for the current project scale.
-
-Future optimisation should be driven by measurable performance needs rather than anticipated growth.
-
----
-
-### Future evolution
-
-The current architecture leaves room for:
-
-- synonym dictionaries;
-- weighted editorial boosts;
-- destination categories;
-- search analytics;
-- autocomplete;
-- highlighted matches.
-
-These improvements should extend the current pipeline rather than replace it.
-
-The preferred philosophy remains:
-
-metadata first, algorithm second.
-
----
-
-### Common mistakes
-
-Avoid:
-
-- indexing full MDX content;
-- moving search logic into React components;
-- changing field weights without editorial review;
-- bypassing text normalisation;
-- making Fuse.js the primary search mechanism.
-
-The current layered architecture deliberately balances relevance, predictability and maintainability.
-
-
----
-
-## `components/ui/MarkerIcon.tsx`
-
-### Role
-
-This component provides the standard map marker used throughout Milan Red Line.
-
-It centralises every visual and geometric aspect of apartment, metro and station markers so that all maps remain visually consistent.
-
-No page should implement its own marker.
-
----
-
-### Design philosophy
-
-The marker is intentionally designed as a reusable design-system component rather than a map-specific asset.
-
-Its objectives are:
-
-- immediate recognition;
-- strong contrast on map backgrounds;
-- visual consistency across all map implementations;
-- scalability to different marker sizes.
-
-The component should remain independent from any specific map library.
-
----
-
-### Geometric proportions
-
-The marker is built from a single scalable geometry.
-
-`size` always represents the marker width.
-
-All other dimensions are derived proportionally.
-
-Current visual proportions are intentionally balanced and should be treated as the project's baseline:
-
-- markerHeight = size × 1.34
-- circleSize = size × 0.57
-- circleTop = size × 0.22
-
-Inner symbols:
-
-- metro = size × 0.37
-- apartment = size × 0.41
-- station = size × 0.41
-
-Future visual refinements should preserve proportional scaling rather than introducing fixed pixel values.
-
----
-
-### Visual construction
-
-The marker consists of several independent visual layers.
-
-From back to front:
-
-1. external drop shadow;
-2. soft white-to-light-grey body gradient;
-3. subtle upper highlight;
-4. white external outline;
-5. red outline;
-6. red circular badge;
-7. transport or apartment symbol.
-
-Keeping these layers independent makes future visual refinements straightforward.
-
----
-
-### White outline strategy
-
-The white outline is intentionally rendered **only outside** the red border.
-
-This is achieved through an SVG mask rather than multiple overlapping paths.
-
-The objective is to improve marker visibility on satellite imagery and complex map backgrounds without changing the apparent thickness of the red outline.
-
-Future modifications should preserve this behaviour.
-
----
-
-### SVG identifier safety
-
-The component generates unique SVG IDs through `useId()`.
-
-This prevents collisions between gradients and masks when multiple markers appear on the same page.
-
-Any future SVG definitions should continue using generated IDs rather than hard-coded identifiers.
-
----
-
-### Icon strategy
-
-Three marker types are currently supported:
-
-- apartment;
-- metro;
-- station.
-
-Icons are intentionally lightweight and immediately recognisable.
-
-New marker types should only be introduced when they represent stable concepts used throughout the project rather than one-off locations.
-
----
-
-### Shared Guide Icons
-
-The Reading Experience now uses a centralized icon registry located at:
-
-components/guides/guide-icons.ts
-
-This file is the single source of truth for all editorial icons used by guide components.
-
-Rules:
-
-- Add new editorial icons only in `guide-icons.ts`.
-- Components such as `GuideHighlightCard` and `GuideSectionHeading` must import the shared registry instead of maintaining duplicate icon maps.
-- Component-specific icons that are not part of the editorial vocabulary (for example `check-circle`, `credit-card`, `list`) should remain local to the component.
-- MDX files must use the semantic alias (for example `music`, `plane`, `hotel`, `ticket`) rather than Lucide icon names.
-- The shared registry represents editorial concepts, not implementation details. The underlying Lucide icon may change without requiring MDX updates.
-
----
-
-### Colour strategy
-
-The visual identity intentionally relies on a very small palette:
-
-- brand red;
-- white;
-- neutral light greys.
-
-The component should continue following the Brand Guidelines rather than introducing additional colours.
-
----
-
-### Accessibility
-
-The marker is purely decorative.
-
-It is intentionally hidden from assistive technologies through:
-
-```
-aria-hidden="true"
-```
-
-Accessibility information should instead be provided by the surrounding interactive map component.
-
----
-
-### Common mistakes
-
-Avoid:
-
-- manually changing individual proportions;
-- introducing fixed pixel values;
-- duplicating marker implementations elsewhere;
-- replacing generated SVG IDs with static ones;
-- adding decorative effects that reduce legibility.
-
-The component should remain simple, highly reusable and visually stable.
-
----
-
-### Future evolution
-
-Possible future improvements include:
-
-- animated active markers;
-- hover states;
-- clustering support;
-- dark-map adaptations.
-
-These enhancements should extend the current component rather than replacing it, ensuring that every map continues to use a single shared marker implementation.

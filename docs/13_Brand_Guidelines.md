@@ -20,6 +20,34 @@ This document focuses on implementation and design consistency rather than marke
 
 ---
 
+# Scope
+
+This document defines the permanent visual identity of the Milan Red Line project.
+
+Its responsibilities include:
+
+- brand identity;
+- logo usage;
+- visual assets;
+- colour principles;
+- photography style;
+- illustration style;
+- accessibility guidelines.
+
+This document intentionally does not define:
+
+- editorial layout;
+- Reading Experience;
+- UI implementation;
+- frontend components;
+- technical implementation.
+
+Those responsibilities belong to their respective project documents.
+
+---
+
+
+
 # Brand Principles
 
 The Milan Red Line visual identity should always communicate the project's core values.
@@ -27,15 +55,10 @@ The Milan Red Line visual identity should always communicate the project's core 
 The brand should feel:
 
 - calm
-
 - practical
-
 - trustworthy
-
 - local
-
 - modern
-
 - simple
 
 Every visual decision should reinforce these qualities.
@@ -44,12 +67,13 @@ The design language intentionally avoids visual noise, excessive decoration and 
 
 ---
 
+
+
 # Official Logo
 
 The official logo consists of two elements:
 
 - the Milan Red Line symbol;
-
 - the official wordmark.
 
 These elements form the primary visual identity of the project.
@@ -62,6 +86,8 @@ The horizontal logo is the primary logo used throughout the website.
 
 ---
 
+
+
 # Logo Variants
 
 The following versions are officially approved.
@@ -73,14 +99,13 @@ Horizontal logo for light backgrounds.
 Used in:
 
 - website header
-
 - Open Graph images (when appropriate)
-
 - presentations
-
 - documentation
 
 ---
+
+
 
 ## Dark Version
 
@@ -90,6 +115,8 @@ Use only when the standard version would not provide sufficient contrast.
 
 ---
 
+
+
 ## Symbol
 
 Standalone symbol.
@@ -97,16 +124,15 @@ Standalone symbol.
 Used for:
 
 - favicon
-
 - application icons
-
 - social avatars
-
 - compact UI locations
 
 The symbol should never be modified or redrawn.
 
 ---
+
+
 
 ## Monochrome Versions
 
@@ -117,6 +143,8 @@ White version.
 Used only when colour reproduction is impossible or inappropriate.
 
 ---
+
+
 
 # Clear Space
 
@@ -129,6 +157,8 @@ As a simple rule:
 No text, icons or other visual elements should enter this area.
 
 ---
+
+
 
 # Minimum Size
 
@@ -146,23 +176,27 @@ Mobile:
 
 ---
 
+
+
 ## Symbol
 
 Do not display the standalone symbol smaller than 24 px unless used as a favicon.
 
 ---
 
+
+
 ## Favicon
 
 Official sizes:
 
 - 16×16
-
 - 32×32
-
 - 48×48
 
 ---
+
+
 
 ## Apple Touch Icon
 
@@ -170,31 +204,35 @@ Official sizes:
 
 ---
 
+
+
 ## Android / PWA
 
 - 192×192 px
-
 - 512×512 px
 
 ---
 
+
+
 # Colours
+
+
 
 ## Primary Brand Red
 
 Used for:
 
 - symbol
-
 - highlights
-
 - interactive accents
-
 - selected UI elements
 
 The official implementation should use the approved brand asset rather than recreating colours manually whenever possible.
 
 ---
+
+
 
 ## Neutral Colours
 
@@ -208,12 +246,13 @@ Medium neutral grey.
 
 ---
 
+
+
 ## Backgrounds
 
 Preferred:
 
 - white
-
 - very light grey
 
 Dark backgrounds are supported only through the dedicated dark logo variant.
@@ -222,16 +261,15 @@ Avoid placing the logo directly on busy photography.
 
 ---
 
+
+
 # Typography
 
 The current typography reflects the overall design philosophy:
 
 - clean
-
 - highly readable
-
 - modern
-
 - neutral
 
 Typography should support content rather than becoming a visual feature.
@@ -242,6 +280,8 @@ Typography is documented in greater detail within the Editorial Design System.
 
 ---
 
+
+
 # Header Usage
 
 The logo occupies the left side of the header.
@@ -251,11 +291,8 @@ The navigation remains on the right.
 The logo should:
 
 - link to the homepage;
-
 - preserve its aspect ratio;
-
 - remain visually balanced with the navigation;
-
 - never be stretched.
 
 Responsive behaviour should reduce logo width while maintaining readability.
@@ -264,16 +301,15 @@ The symbol should not replace the horizontal logo without an explicit design dec
 
 ---
 
+
+
 # Favicon & Icons
 
 Official assets include:
 
 - favicon (.ico)
-
 - PNG favicons
-
 - Apple Touch Icon
-
 - Android icons
 
 These assets should always originate from the approved Brand Assets package.
@@ -282,6 +318,8 @@ Do not regenerate icons independently.
 
 ---
 
+
+
 # Photography Style
 
 Photography should support understanding rather than decoration.
@@ -289,36 +327,27 @@ Photography should support understanding rather than decoration.
 Preferred characteristics:
 
 - real locations;
-
 - natural lighting;
-
 - realistic colours;
-
 - clean compositions;
-
 - limited post-processing;
-
 - few people, never dominating the scene;
-
 - authentic urban atmosphere.
 
 Avoid:
 
 - text overlays;
-
 - watermarks;
-
 - exaggerated HDR;
-
 - heavy filters;
-
 - promotional imagery;
-
 - generic stock photography whenever possible.
 
 Photography guidelines are further defined in the Reading Experience Hero Standard.
 
 ---
+
+
 
 # Illustration Style
 
@@ -327,11 +356,8 @@ Illustrations should remain secondary to photography.
 When used, they should be:
 
 - simple;
-
 - minimal;
-
 - informative;
-
 - functional.
 
 Illustrations should explain or support information.
@@ -340,6 +366,8 @@ They should never exist purely for decoration.
 
 ---
 
+
+
 # Accessibility
 
 The visual identity should remain accessible.
@@ -347,18 +375,16 @@ The visual identity should remain accessible.
 Guidelines include:
 
 - prefer SVG logos;
-
 - maintain sufficient colour contrast;
-
 - keep decorative graphics hidden from assistive technologies where appropriate;
-
 - preserve responsive sizing;
-
 - avoid raster logos when scalable vector assets are available.
 
 The logo should always remain crisp at every supported resolution.
 
 ---
+
+
 
 # File Structure
 
@@ -406,6 +432,8 @@ Do not duplicate assets elsewhere in the project.
 
 ---
 
+
+
 # Future Evolution
 
 Brand Identity v1.0 is considered the project's baseline.
@@ -415,11 +443,8 @@ Future updates should be evolutionary rather than revolutionary.
 Small improvements are encouraged when they improve:
 
 - clarity;
-
 - consistency;
-
 - accessibility;
-
 - scalability.
 
 Fundamental changes to the symbol, wordmark or colour system should require explicit Project Manager approval.
@@ -428,26 +453,32 @@ The objective is to preserve long-term recognition while allowing the identity t
 
 ---
 
+
+
 # Relationship with Other Documents
 
 This document complements:
 
 - Reading Experience Framework
-
 - Editorial Design System
-
 - Content Standards
-
 - Development Standards
-
 - Knowledge Network
-
 - Search & Metadata
-
 - QA Process
-
 - Project Workflows
-
 - Permanent Decisions
 
-Where overlaps exist, this document defines **visual identity**, while the other documents define implementation, editorial or technical behaviour.
+Where overlaps exist, this document defines **visual identity**, while the other documents define implementation, editorial or technical behaviour.  
+  
+---  
+  
+# Permanent Statement
+
+This document defines the permanent visual identity of the Milan Red Line project.
+
+Brand evolution should remain gradual and preserve long-term recognition.
+
+Operational implementation details belong to the Editorial Design System and Development Standards.
+
+The objective is to ensure that the visual identity remains consistent across every future evolution of the project.

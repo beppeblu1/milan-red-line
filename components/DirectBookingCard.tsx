@@ -1,18 +1,20 @@
-import {
+﻿import {
   CalendarDays,
   ExternalLink,
-  Mail,
   MessageCircle,
   Star,
 } from "lucide-react";
+import Link from "next/link";
 
 import { site } from "@/data/site";
 
 type Props = {
+  apartmentSlug: string;
   airbnbUrl?: string;
 };
 
 export default function DirectBookingCard({
+  apartmentSlug,
   airbnbUrl,
 }: Props) {
   return (
@@ -79,27 +81,30 @@ export default function DirectBookingCard({
           </div>
 
           <p className="mt-8 text-base leading-8 text-zinc-600">
-          We&apos;ll confirm availability and answer any questions you may have.
+            We&apos;ll confirm availability and answer any
+            questions you may have.
           </p>
 
           <div className="mt-10 space-y-4">
-            <a
-              href={`mailto:${site.email}`}
+            <Link
+              href={`/contact?apartment=${encodeURIComponent(apartmentSlug)}`}
               className="flex h-16 w-full items-center justify-center gap-2 rounded-xl bg-red-600 px-6 font-semibold text-white transition hover:bg-red-700"
             >
-              <Mail className="h-5 w-5" />
+              <CalendarDays className="h-5 w-5" />
               Check Availability
-            </a>
+            </Link>
 
-            <a
-              href={`https://wa.me/${site.whatsapp.replace(/\D/g, "")}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex w-full items-center justify-center gap-2 rounded-xl border border-zinc-300 bg-white px-6 py-4 font-semibold text-zinc-800 transition hover:bg-zinc-100"
-            >
-              <MessageCircle className="h-5 w-5" />
-              Chat on WhatsApp
-            </a>
+            {site.whatsapp && (
+              <a
+                href={`https://wa.me/${site.whatsapp.replace(/\D/g, "")}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex w-full items-center justify-center gap-2 rounded-xl border border-zinc-300 bg-white px-6 py-4 font-semibold text-zinc-800 transition hover:bg-zinc-100"
+              >
+                <MessageCircle className="h-5 w-5" />
+                Chat on WhatsApp
+              </a>
+            )}
           </div>
 
           <p className="mt-6 text-center text-base text-zinc-600">
@@ -126,7 +131,7 @@ export default function DirectBookingCard({
             </>
           )}
         </div>
-        </div>
+      </div>
     </section>
   );
 }

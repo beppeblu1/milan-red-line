@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 import BackButton from "@/components/BackButton";
@@ -142,9 +142,11 @@ export default async function ApartmentPage({ params }: PageProps) {
 
       <div className="mx-auto max-w-6xl px-6 pb-20">
         <DirectBookingCard
+          apartmentSlug={apartment.slug}
           airbnbUrl={apartment.airbnbUrl}
         />
       </div>
     </main>
   );
 }
+

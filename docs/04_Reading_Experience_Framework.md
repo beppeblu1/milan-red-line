@@ -1,9 +1,9 @@
 # 04_Reading_Experience_Framework
 
-> **Module Owner:** UX / Content & SEO\
+> **Module Owner:** UX / Content & SEO  
 > **Status:** Stable (Living document)
 
-------------------------------------------------------------------------
+---
 
 # 1. Purpose
 
@@ -14,44 +14,76 @@ Its objective is to reduce cognitive load, make long guides feel
 approachable and create a consistent reading experience across the
 website.
 
-------------------------------------------------------------------------
+---
+
+# Scope
+
+This document defines the editorial structure of Reading Experience guides.
+
+Its responsibilities include:
+
+- guide structure;
+- section ordering;
+- editorial flow;
+- information hierarchy;
+- Reading Experience principles.
+
+This document intentionally does not define:
+
+- guide rendering;
+- reusable component implementation;
+- metadata architecture;
+- Knowledge Network relationships;
+- technical implementation.
+
+Those responsibilities belong to their respective project documents.
+
+---
+
+
 
 # 2. Core Principles
 
 Every guide should be:
 
--   practical before exhaustive;
--   easy to scan;
--   progressively structured;
--   visually consistent;
--   focused on helping the reader make decisions.
+- practical before exhaustive;
+- easy to scan;
+- progressively structured;
+- visually consistent;
+- focused on helping the reader make decisions.
 
 Readers should never feel overwhelmed by large blocks of text.
 
-------------------------------------------------------------------------
+---
+
+
 
 # 3. Mandatory Structure
 
 Every new guide follows the same sequence.
 
-1.  `rx:introduction`
-2.  `rx:audience`
-3.  `rx:key-points`
-4.  `rx:area-selection`
-5.  `rx:transport`
-6.  `rx:local-area`
-7.  `rx:day-trips`
-8.  `rx:local-tip`
-9.  `rx:faq`
+1. `rx:introduction`
+2. `rx:audience`
+3. `rx:key-points`
+4. `rx:area-selection`
+5. `rx:transport`
+6. `rx:local-area`
+7. `rx:day-trips`
+8. `rx:local-tip`
+9. `rx:faq`
 10. `rx:planning`
 11. `rx:good-to-know`
 
 The order may only change when a guide has a strong editorial reason to
 do so.
 
-------------------------------------------------------------------------
+---
+
+
 
 # 4. Section Guidelines
+
+
 
 ## Introduction
 
@@ -59,12 +91,14 @@ Maximum two short paragraphs.
 
 The introduction answers:
 
--   What is this guide about?
--   Why should the reader continue?
+- What is this guide about?
+- Why should the reader continue?
 
 Avoid historical background.
 
-------------------------------------------------------------------------
+---
+
+
 
 ## Who is this guide for?
 
@@ -73,7 +107,9 @@ Identify the target audience with concise bullet points.
 Readers should immediately understand whether the guide matches their
 situation.
 
-------------------------------------------------------------------------
+---
+
+
 
 ## Key Points
 
@@ -82,7 +118,9 @@ Provide a quick decision summary.
 The reader should understand the main conclusions without reading the
 entire article.
 
-------------------------------------------------------------------------
+---
+
+
 
 ## Main Content
 
@@ -90,7 +128,9 @@ Develop the topic progressively.
 
 Prefer several short sections instead of one long section.
 
-------------------------------------------------------------------------
+---
+
+
 
 ## Local Tip
 
@@ -98,7 +138,9 @@ Offer practical advice based on local experience.
 
 Local Tips should add value, not repeat existing content.
 
-------------------------------------------------------------------------
+---
+
+
 
 ## FAQ
 
@@ -106,7 +148,9 @@ Answer real user questions.
 
 Avoid using the FAQ to introduce completely new topics.
 
-------------------------------------------------------------------------
+---
+
+
 
 ### GuideFinalCTA
 
@@ -138,7 +182,9 @@ Secondary button
 
 - Contact Us
 
-------------------------------------------------------------------------
+---
+
+
 
 ## Good to Know
 
@@ -147,17 +193,21 @@ misunderstandings.
 
 Do not use this section for generic travel advice.
 
-------------------------------------------------------------------------
+---
+
+
 
 # 5. Writing Standards
 
--   Prefer short paragraphs.
--   Prefer lists where appropriate.
--   Avoid unnecessary repetition.
--   One idea per paragraph.
--   Explain before recommending.
+- Prefer short paragraphs.
+- Prefer lists where appropriate.
+- Avoid unnecessary repetition.
+- One idea per paragraph.
+- Explain before recommending.
 
-------------------------------------------------------------------------
+---
+
+
 
 # 6. Compression Pass
 
@@ -165,15 +215,17 @@ Before publication perform a Compression Pass.
 
 Check that:
 
--   duplicated concepts are removed;
--   sentences are concise;
--   specialist topics are not expanded unnecessarily;
--   each paragraph has a clear purpose.
+- duplicated concepts are removed;
+- sentences are concise;
+- specialist topics are not expanded unnecessarily;
+- each paragraph has a clear purpose.
 
 The goal is not to shorten the guide, but to improve information
 density.
 
-------------------------------------------------------------------------
+---
+
+
 
 # 7. Components
 
@@ -182,16 +234,18 @@ Markdown.
 
 Examples include:
 
--   GuideHighlightCard
--   GuideComparisonTable
--   GuideDestinationTable
--   GuideFaq
--   GoodToKnow
--   RelatedGuidesBox
+- GuideHighlightCard
+- GuideComparisonTable
+- GuideDestinationTable
+- GuideFaq
+- GoodToKnow
+- RelatedGuidesBox
 
 Component usage is documented in the Editorial Design System.
 
-------------------------------------------------------------------------
+---
+
+
 
 # 8. Accessibility
 
@@ -201,7 +255,8 @@ Tables should remain readable on mobile devices.
 
 Visual components must support, not replace, textual information.
 
-------------------------------------------------------------------------
+---
+
 
 
 ### Final Section Order
@@ -227,9 +282,43 @@ This structure ensures that:
 
 Authors should continue placing the `rx:planning` marker in every guide. The rendering order is managed by the layout, so the physical position of the marker inside the MDX file is not significant.
 
-------------------------------------------------------------------------
+---
+
+
 
 # Maintenance
 
 Update this document whenever the Reading Experience Framework evolves
-or a new mandatory structural pattern is introduced.
+or a new mandatory structural pattern is introduced.  
+
+---
+
+
+
+# Relationship with Other Documents
+
+Reading Experience Framework should be read together with:
+
+- Editorial Design System
+- Guide System
+- Content Standards
+- Knowledge Network
+- Search and Metadata
+
+Each document defines one distinct responsibility.
+
+Whenever overlap exists, every topic should have a single authoritative source.
+
+---
+
+# Permanent Statement
+
+This document defines the permanent Reading Experience structure of Milan Red Line guides.
+
+Its purpose is to ensure that every guide provides a consistent, readable and decision-oriented experience.
+
+Structural principles should evolve only when the Reading Experience itself changes.
+
+Technical implementation belongs to the Guide System.
+
+The objective is to preserve a consistent editorial experience across the entire guide ecosystem.
