@@ -739,6 +739,23 @@ The workflow is intentionally synchronous.
 
 
 
+## Optional Rate Limiting
+
+Rate limiting is intentionally treated as an optional enhancement rather than a mandatory infrastructure dependency.
+
+Current behaviour:
+
+- when Upstash is configured, rate limiting is automatically enabled;
+- when Upstash is not configured, the Availability Request System continues to operate normally without requiring any code changes.
+
+This approach keeps the system fully operational in lightweight deployments while allowing rate limiting to be enabled later without architectural modifications.
+
+The email delivery workflow remains independent from the presence of rate limiting.
+
+---
+
+
+
 # Environment Variables
 
 Sensitive configuration should be managed exclusively through environment variables.

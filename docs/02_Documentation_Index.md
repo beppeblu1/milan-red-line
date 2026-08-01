@@ -1,4 +1,4 @@
-# Documentation Index
+# # 02_Documentation_Index
 
 Module Owner: Project Management
 
@@ -21,6 +21,8 @@ Its purpose is to explain:
 Rather than duplicating information, this document serves as the navigation guide for the entire documentation system.
 
 Every permanent topic should have exactly one authoritative document.
+
+Throughout this document, the real repository filenames are used to simplify navigation and maintenance.
 
 ---
 
@@ -104,49 +106,51 @@ Each layer has a clearly defined responsibility.
 
 ## Project Documents
 
-Project-level documents define the identity and direction of Milan Red Line.
+Project-level documents define the identity, governance and strategic direction of Milan Red Line.
 
-Current documents include:
+Current Project Documents are:
 
-- MRL Project Blueprint
+- `00_MRL_Project_Blueprint.md`
 
-- Content Governance
+- `01_Content_Governance.md`
 
-- Documentation Index
+- `02_Documentation_Index.md`
 
-- Project Governance
+- `11_Project_Workflows.md`
 
-- Project Workflows
+- `15_Project_Governance.md`
 
-- Roadmap
+- `MRL_Roadmap.md`
 
-These documents explain why the project exists and how it is managed.
+These documents explain why the project exists, how it is organised and how it evolves.
 
 ---
 
 ## Standards
 
-Standards define permanent rules.
+Standards define permanent technical, editorial and operational rules.
 
-Current Standards include:
+Current Standards are:
 
-- Reading Experience Framework
+- `04_Reading_Experience_Framework.md`
 
-- Editorial Design System
+- `05_Editorial_Design_System.md`
 
-- Development Standards
+- `06_Development_Standards.md`
 
-- Content Standards
+- `07_Content_Standards_updated.md`
 
-- Knowledge Network
+- `08_Knowledge_Network.md`
 
-- Search and Metadata
+- `09_Search_and_Metadata.md`
 
-- QA and Release Process
+- `10_QA_and_Release_Process.md`
 
-- Brand Guidelines
+- `12_Permanent_Decisions.md`
 
-Standards explain what should be done.
+- `13_Brand_Guidelines.md`
+
+Standards define what should be done and why.
 
 ---
 
@@ -154,15 +158,15 @@ Standards explain what should be done.
 
 System Documents describe permanent platform systems.
 
-Current System Documents include:
+Current System Documents are:
 
-- Availability Request System
+- `16_Availability_Request_System_Architecture.md`
 
-- Infrastructure
+- `17_Infrastructure.md`
 
-- Guide Search System
+- `18_Guide_Search_System.md`
 
-- Guide System
+- `19_Guide_System.md`
 
 Each System Document explains:
 
@@ -178,15 +182,19 @@ System Documents intentionally avoid sprint-specific implementation history.
 
 ---
 
-## Permanent Decisions
+## Continuity Documents
 
-Permanent Decisions record long-term architectural, editorial and governance decisions.
+Continuity documents preserve operational experience that complements the permanent architecture.
 
-They explain why important project decisions were made and should remain stable over time.
+Current Continuity Documents are:
+
+- `14_mrl-development-continuity-notes.md`
+
+These documents capture practical knowledge and established workflows without duplicating the permanent Standards or System Documents.
 
 ---
 
-## Technical References
+# Technical References
 
 Most Standards and System Documents conclude with a Technical Reference.
 
@@ -200,9 +208,9 @@ Typical contents include:
 
 - common operations;
 
-- future evolution;
+- maintenance guidance;
 
-- maintenance guidance.
+- future evolution.
 
 ---
 
@@ -222,7 +230,7 @@ Structural changes should be exceptional.
 
 Operational details evolve together with the project while preserving architectural principles.
 
-Most Standards and System Documents belong to this category.
+Most Standards, System Documents and Continuity Documents belong to this category.
 
 ---
 
@@ -236,43 +244,47 @@ Once that transfer has been completed, temporary documents should be archived or
 
 # Authoritative Documents
 
-| Topic | Authoritative Document |
+| Topic | Authoritative File |
 
-|--------|------------------------|
+|--------|--------------------|
 
-| Project vision | MRL Project Blueprint |
+| Project vision | `00_MRL_Project_Blueprint.md` |
 
-| Project governance | Project Governance |
+| Content governance | `01_Content_Governance.md` |
 
-| Project planning | Roadmap |
+| Project governance | `15_Project_Governance.md` |
 
-| Permanent principles | Permanent Decisions |
+| Project planning | `MRL_Roadmap.md` |
 
-| Reading Experience | Reading Experience Framework |
+| Permanent principles | `12_Permanent_Decisions.md` |
 
-| Editorial components | Editorial Design System |
+| Reading Experience | `04_Reading_Experience_Framework.md` |
 
-| Editorial writing | Content Standards |
+| Editorial components | `05_Editorial_Design_System.md` |
 
-| Knowledge Network | Knowledge Network |
+| Editorial writing | `07_Content_Standards_updated.md` |
 
-| Metadata | Search and Metadata |
+| Knowledge Network | `08_Knowledge_Network.md` |
 
-| Development workflow | Development Standards |
+| Metadata | `09_Search_and_Metadata.md` |
 
-| QA process | QA and Release Process |
+| Development workflow | `06_Development_Standards.md` |
 
-| Infrastructure | Infrastructure |
+| QA process | `10_QA_and_Release_Process.md` |
 
-| Guide implementation | Guide System |
+| Infrastructure | `17_Infrastructure.md` |
 
-| Guide Search | Guide Search System |
+| Guide implementation | `19_Guide_System.md` |
 
-| Availability requests | Availability Request System |
+| Guide Search | `18_Guide_Search_System.md` |
 
-| Brand identity | Brand Guidelines |
+| Availability Request System | `16_Availability_Request_System_Architecture.md` |
 
-Whenever documentation overlaps, the document listed above should be considered the authoritative source.
+| Brand identity | `13_Brand_Guidelines.md` |
+
+| Development continuity | `14_mrl-development-continuity-notes.md` |
+
+Whenever documentation overlaps, the file listed above should be considered the authoritative source.
 
 ---
 
@@ -300,23 +312,25 @@ Temporary Sprint Handovers should transfer permanent knowledge into the appropri
 
 For someone joining the project, the recommended reading sequence is:
 
-1. MRL Project Blueprint
+1. `00_MRL_Project_Blueprint.md`
 
-2. Content Governance
+2. `01_Content_Governance.md`
 
-3. Documentation Index
+3. `02_Documentation_Index.md`
 
-4. Project Governance
+4. `15_Project_Governance.md`
 
-5. Permanent Decisions
+5. `12_Permanent_Decisions.md`
 
-6. Roadmap
+6. `MRL_Roadmap.md`
 
 7. Standards
 
 8. System Documents
 
-This order progressively introduces the project's vision, governance, permanent rules and technical implementation.
+9. `14_mrl-development-continuity-notes.md`
+
+This order progressively introduces the project's vision, governance, permanent rules, technical architecture and accumulated development experience.
 
 ---
 
@@ -332,7 +346,11 @@ Documentation numbering follows a logical structure.
 
 | 04–13 | Standards |
 
-| 14–19 | System Documents |
+| 14 | Continuity Documents |
+
+| 15 | Governance |
+
+| 16–19 | System Documents |
 
 Future permanent documents should follow this organisation whenever reasonably practical.
 
@@ -346,7 +364,9 @@ Review this document whenever:
 
 - documentation responsibilities change;
 
-- documentation architecture evolves.
+- documentation architecture evolves;
+
+- repository filenames change.
 
 Routine implementation changes should not normally require modifications to this document.
 

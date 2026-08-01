@@ -55,9 +55,9 @@ const relatedGuidesBySlug: Record<string, string[]> = {
   ],
 
   "how-to-use-the-milan-metro": [
+    "linate-airport-to-milan",
     "how-to-use-milan-public-transport",
     "milan-public-transport-tickets",
-    "milano-centrale-station-guide",
   ],
 
   "how-to-use-milan-public-transport": [
@@ -73,14 +73,32 @@ const relatedGuidesBySlug: Record<string, string[]> = {
   ],
 
   "arriving-in-milan-how-to-get-around": [
-    "how-to-use-milan-public-transport",
+    "malpensa-airport-to-milan",
+    "linate-airport-to-milan",
+    "orio-al-serio-airport-to-milan",
+  ],
+
+  "milano-centrale-station-guide": [
+    "malpensa-airport-to-milan",
+    "orio-al-serio-airport-to-milan",
+    "arriving-in-milan-how-to-get-around",
+  ],
+
+  "malpensa-airport-to-milan": [
+    "arriving-in-milan-how-to-get-around",
     "milano-centrale-station-guide",
     "how-to-use-the-milan-metro",
   ],
 
-  "milano-centrale-station-guide": [
+  "linate-airport-to-milan": [
     "arriving-in-milan-how-to-get-around",
-    "how-to-use-milan-public-transport",
+    "how-to-use-the-milan-metro",
+    "milan-public-transport-tickets",
+  ],
+
+  "orio-al-serio-airport-to-milan": [
+    "arriving-in-milan-how-to-get-around",
+    "milano-centrale-station-guide",
     "how-to-use-the-milan-metro",
   ],
 };
