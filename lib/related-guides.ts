@@ -101,6 +101,12 @@ const relatedGuidesBySlug: Record<string, string[]> = {
     "milano-centrale-station-guide",
     "how-to-use-the-milan-metro",
   ],
+
+  "what-to-know-before-travelling-to-milan": [
+    "arriving-in-milan-how-to-get-around",
+    "practical-guide-to-sesto-san-giovanni",
+    "how-to-use-milan-public-transport",
+  ],
 };
 const fallbackRelatedGuideSlugs = [
   "where-to-stay-near-the-m1-red-line",

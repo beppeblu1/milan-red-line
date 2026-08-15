@@ -22,7 +22,7 @@ Rather than duplicating information, this document serves as the navigation guid
 
 Every permanent topic should have exactly one authoritative document.
 
-Throughout this document, the real repository filenames are used to simplify navigation and maintenance.
+Throughout this document, the real repository filenames are used to simplify navigation, maintenance and implementation.
 
 ---
 
@@ -42,9 +42,9 @@ Other documents may reference that information but should not duplicate it.
 
 Documentation is organised into layers.
 
-Higher-level documents explain strategy and governance.
+Higher-level documents explain strategy, governance and long-term direction.
 
-Lower-level documents explain implementation.
+Lower-level documents explain implementation, architecture and operational systems.
 
 ---
 
@@ -52,7 +52,7 @@ Lower-level documents explain implementation.
 
 Permanent documents describe architecture, principles and responsibilities.
 
-Implementation details belong in Technical References.
+Implementation details belong in Technical References or Continuity Documents.
 
 ---
 
@@ -82,11 +82,11 @@ Documentation Index
 
         │
 
- ┌──────────────┬──────────────┐
+ ┌──────────────┬──────────────┬──────────────┐
 
  │              │              │
 
-Standards   System Documents  Roadmap
+Standards   System Documents  Project Registries
 
  │              │              │
 
@@ -179,6 +179,42 @@ Each System Document explains:
 - long-term evolution.
 
 System Documents intentionally avoid sprint-specific implementation history.
+
+---
+
+# Project Registries
+
+As the project grows, certain information is maintained as permanent registries rather than standalone documentation.
+
+Registries provide a single authoritative reference for structured project assets that are frequently consulted but do not require their own architectural document.
+
+Current registries include:
+
+- Published Guides Registry (maintained within this document)
+
+Future registries may include:
+
+- Brand Glossary
+
+- Apartment Registry
+
+- Destination Registry
+
+- Accommodation Registry
+
+Registries should always remain:
+
+- concise;
+
+- structured;
+
+- authoritative;
+
+- easy to maintain;
+
+- updated whenever the underlying asset changes.
+
+Whenever a registry conflicts with another document, the registry should be considered the authoritative reference for that specific structured information.
 
 ---
 
@@ -286,6 +322,70 @@ Once that transfer has been completed, temporary documents should be archived or
 
 Whenever documentation overlaps, the file listed above should be considered the authoritative source.
 
+
+
+# Published Guides Registry
+
+This registry acts as the authoritative reference for every published guide.
+
+Its purpose is to ensure that all project roles (Project Management, Content, UX and Development) always use the official guide title, repository filename and URL slug when creating documentation, internal links, implementation tasks or future developments.
+
+Whenever a guide is created, renamed, reclassified or removed, this registry must be updated as part of the same sprint.
+
+The registry should always reflect the current published state of the project.
+
+| Guide | MDX File | URL Slug | Cluster | Status |
+
+|--------|----------|----------|---------|--------|
+
+| Arriving in Milan: How to Get Around and Where to Stay | arriving-in-milan-how-to-get-around.mdx | arriving-in-milan-how-to-get-around | Transport | Current |
+
+| How to Use Milan Public Transport | how-to-use-milan-public-transport.mdx | how-to-use-milan-public-transport | Transport | Current |
+
+| Milan Public Transport Tickets | milan-public-transport-tickets.mdx | milan-public-transport-tickets | Transport | Current |
+
+| How to Use the Milan Metro | how-to-use-the-milan-metro.mdx | how-to-use-the-milan-metro | Transport | Current |
+
+| Milano Centrale Station Guide | milano-centrale-station-guide.mdx | milano-centrale-station-guide | Transport | Current |
+
+| How to Get from Malpensa Airport to Milan | malpensa-airport-to-milan.mdx | malpensa-airport-to-milan | Transport | Current |
+
+| How to Get from Linate Airport to Milan | linate-airport-to-milan.mdx | linate-airport-to-milan | Transport | Current |
+
+| How to Get from Orio al Serio Airport to Milan | orio-al-serio-airport-to-milan.mdx | orio-al-serio-airport-to-milan | Transport | Current |
+
+| Practical Things to Know Before Travelling to Milan | what-to-know-before-travelling-to-milan.mdx | what-to-know-before-travelling-to-milan | Practical | Current |
+
+| Best Day Trips from Milan by Train | best-day-trips-from-milan-by-train.mdx | best-day-trips-from-milan-by-train | Day Trips | Current |
+
+| How to Visit Lake Como from Milan | how-to-visit-lake-como-from-milan.mdx | how-to-visit-lake-como-from-milan | Day Trips | Current |
+
+| Practical Guide to Sesto San Giovanni | practical-guide-to-sesto-san-giovanni.mdx | practical-guide-to-sesto-san-giovanni | Local Knowledge | Current |
+
+| Places to Visit Near Sesto San Giovanni | places-to-visit-near-sesto-san-giovanni.mdx | places-to-visit-near-sesto-san-giovanni | Local Knowledge | Current |
+
+| Is Sesto San Giovanni a Good Place to Stay? | is-sesto-san-giovanni-a-good-place-to-stay.mdx | is-sesto-san-giovanni-a-good-place-to-stay | Accommodation | Current |
+
+| Where to Stay in Milan Without a Car | where-to-stay-in-milan-without-a-car.mdx | where-to-stay-in-milan-without-a-car | Accommodation | Current |
+
+| Where to Stay Near the M1 Red Line | where-to-stay-near-the-m1-red-line.mdx | where-to-stay-near-the-m1-red-line | Accommodation | Current |
+
+| Best Area to Stay in Milan for Families | best-area-to-stay-in-milan-for-families.mdx | best-area-to-stay-in-milan-for-families | Accommodation | Current |
+
+| Best Area to Stay in Milan for First-Time Visitors | best-area-to-stay-in-milan-for-first-time-visitors.mdx | best-area-to-stay-in-milan-for-first-time-visitors | Accommodation | Current |
+
+| Best Area to Stay in Milan for Business Travellers | best-area-to-stay-in-milan-for-business-travellers.mdx | best-area-to-stay-in-milan-for-business-travellers | Accommodation | Current |
+
+| Where to Stay Near Bicocca University | where-to-stay-near-bicocca-university.mdx | where-to-stay-near-bicocca-university | Accommodation | Current |
+
+| Where to Stay Near San Raffaele Hospital | where-to-stay-near-san-raffaele-hospital.mdx | where-to-stay-near-san-raffaele-hospital | Accommodation | Current |
+
+| Where to Stay Near Monza Circuit | where-to-stay-near-monza-circuit.mdx | where-to-stay-near-monza-circuit | Accommodation | Current |
+
+| Where to Stay Near Carroponte | where-to-stay-near-carroponte.mdx | where-to-stay-near-carroponte | Accommodation | Current |
+
+| Where to Stay Near Rho Fiera Milano | where-to-stay-near-rho-fiera-milano.mdx | where-to-stay-near-rho-fiera-milano | Accommodation | Current |
+
 ---
 
 # Documentation Lifecycle
@@ -294,15 +394,17 @@ Permanent documentation evolves together with the project.
 
 Whenever a permanent change is introduced:
 
-1. Update the implementation.
+- update the implementation;
 
-2. Update the corresponding permanent document.
+- update the corresponding permanent document;
 
-3. Update Technical References where necessary.
+- update Technical References where necessary;
 
-4. Verify related documentation.
+- verify related documentation;
 
-5. Avoid creating duplicate sources of information.
+- update any affected Project Registry;
+
+- avoid creating duplicate sources of information.
 
 Temporary Sprint Handovers should transfer permanent knowledge into the appropriate documentation before being removed.
 
@@ -354,6 +456,8 @@ Documentation numbering follows a logical structure.
 
 Future permanent documents should follow this organisation whenever reasonably practical.
 
+Project Registries should normally be integrated into existing documentation whenever possible rather than creating additional permanent documents.
+
 ---
 
 # Maintenance
@@ -366,7 +470,13 @@ Review this document whenever:
 
 - documentation architecture evolves;
 
-- repository filenames change.
+- repository filenames change;
+
+- the Published Guides Registry changes;
+
+- a guide filename changes;
+
+- a guide URL slug changes.
 
 Routine implementation changes should not normally require modifications to this document.
 
@@ -376,6 +486,8 @@ Routine implementation changes should not normally require modifications to this
 
 This document defines the architecture of the Milan Red Line documentation.
 
-Its objective is to ensure that every topic has a single authoritative source and that the documentation remains easy to navigate, maintain and evolve.
+Its objective is to ensure that every permanent topic has a single authoritative source and that the documentation remains easy to navigate, maintain and evolve.
+
+It also defines the permanent registries that provide authoritative references for structured project assets such as published guides.
 
 Whenever uncertainty exists about where new documentation belongs, this document should be considered the primary reference.
