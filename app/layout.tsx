@@ -89,6 +89,12 @@ export const metadata: Metadata = {
     description: site.description,
   },
 
+  verification: {
+    other: {
+      "msvalidate.01": "EB73F8C01467F5992FEFB61EBB40F7E3",
+    },
+  },
+
   robots: {
     index: true,
     follow: true,
