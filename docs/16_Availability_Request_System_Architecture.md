@@ -514,6 +514,70 @@ The public interface should always fail gracefully.
 
 
 
+# Conversion Tracking
+
+## Purpose
+
+Conversion tracking observes the commercial funnel without participating in request processing.
+
+Analytics must never determine whether a request is accepted, validated or delivered.
+
+The Availability Request System currently exposes two GA4 events.
+
+### `availability_form_start`
+
+This event is emitted on the first actual visitor interaction with the availability form.
+
+It should be emitted only once during the same form-filling session, even when validation errors or retries occur.
+
+Opening the contact page without interacting with the form is not considered a form start.
+
+### `availability_request`
+
+This event represents the primary availability-request conversion.
+
+It must be emitted only after the server has confirmed successful delivery of the availability request to the transactional email provider.
+
+The following conditions must never be treated as conversions:
+
+- clicking the submit button;
+- client-side validation failure;
+- server-side validation failure;
+- rate-limit rejection;
+- backend or email-provider failure;
+- honeypot handling.
+
+A successful visitor-facing state alone is therefore not sufficient evidence of a real conversion.
+
+## Event Context and Privacy
+
+Analytics events must not contain personal information submitted through the form.
+
+The current custom event context is limited to:
+
+- `apartment_slug` for apartment-specific requests;
+- `general` when no apartment is associated with the request.
+
+Email addresses, names, telephone numbers, dates, messages and other visitor-entered form values must never be sent to analytics.
+
+## Attribution Boundary
+
+Traffic provenance should be reconstructed through the existing GA4 session and navigation data whenever practical.
+
+Relevant signals include:
+
+- source and medium;
+- landing page;
+- page path;
+- native `page_view` sequence;
+- availability tracking events.
+
+The application intentionally does not persist custom attribution state or introduce a separate analytics database.
+
+Custom apartment-view or contact-view events should not be introduced when native page-view data is sufficient.
+
+---
+
 # Future Evolution
 
 The Availability Request System has intentionally been designed to support future improvements without requiring architectural redesign.
@@ -664,6 +728,18 @@ Responsibilities:
 
 
 
+## Analytics Helper
+
+lib/analytics.ts
+
+Responsibilities:
+
+- emits Availability Request analytics events;
+- attaches non-sensitive apartment context;
+- keeps analytics event names and parameters centralised.
+
+---
+
 ## Apartment Data
 
 lib/apartments.ts
@@ -715,6 +791,12 @@ Owner Inbox
 
 Success / Error Response
 
+After successful transactional email delivery, the server response includes the technical `requestSent` success signal.
+
+The client uses this signal to emit `availability_request`.
+
+The signal must not be returned for validation failures, rate-limit rejection, delivery errors or honeypot handling.
+
 The workflow is intentionally synchronous.
 
 ---
@@ -734,6 +816,7 @@ The workflow is intentionally synchronous.
 | TypeScript | Type safety |
 
 | Resend | Email delivery |
+| Google Analytics 4 | Observational funnel and conversion measurement |
 
 ---
 
@@ -852,6 +935,7 @@ The following table summarises the expected verification scope.
 | Email template | Subject, formatting, optional fields |
 
 | Email provider | Delivery, authentication, production configuration |
+| Availability analytics | Event triggers, duplicate prevention, privacy, successful-delivery semantics |
 
 ---
 
@@ -886,6 +970,18 @@ Every Availability Request modification should verify:
 □ Build success
 
 □ Production environment variables
+
+□ `availability_form_start` fires only after actual form interaction
+
+□ `availability_form_start` does not duplicate during the same form-filling session
+
+□ Failed or rejected submissions do not emit `availability_request`
+
+□ Successful email delivery emits exactly one `availability_request`
+
+□ Analytics events contain no visitor PII
+
+□ Native GA4 page-view collection supports the required navigation reconstruction
 
 ---
 

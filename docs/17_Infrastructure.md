@@ -630,6 +630,10 @@ Responsibilities:
 
 Analytics platforms should remain observational only.
 
+Google Analytics 4 may receive observational funnel and conversion events from application systems, but analytics must never participate in validation, delivery or business logic.
+
+Availability Request event semantics and success criteria are defined by `16_Availability_Request_System_Architecture.md` and should not be duplicated here.
+
 ---
 
 # Current Provider Mapping
