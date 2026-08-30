@@ -299,6 +299,7 @@ export async function submitAvailabilityRequest(
       status: "success",
       message:
         "Thank you. Your availability request has been sent.",
+      requestSent: true,
     };
   } catch (error) {
     console.error(

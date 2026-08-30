@@ -2,6 +2,8 @@
 
 import {
   useActionState,
+  useEffect,
+  useRef,
   useState,
   type FormEvent,
 } from "react";
@@ -18,6 +20,10 @@ import {
 import {
   initialAvailabilityRequestFormState,
 } from "@/app/contact/form-state";
+import {
+  trackAvailabilityFormStart,
+  trackAvailabilityRequest,
+} from "@/lib/analytics";
 import InternationalPhoneInput from "@/components/ui/InternationalPhoneInput";
 
 type Props = {
@@ -85,6 +91,18 @@ export default function AvailabilityRequestForm({
     submitAvailabilityRequest,
     initialAvailabilityRequestFormState,
   );
+  const availabilityFormStartedRef = useRef(false);
+  const availabilityRequestTrackedRef = useRef(false);
+
+  useEffect(() => {
+    if (
+      state.requestSent &&
+      !availabilityRequestTrackedRef.current
+    ) {
+      availabilityRequestTrackedRef.current = true;
+      trackAvailabilityRequest({ apartmentSlug });
+    }
+  }, [apartmentSlug, state.requestSent]);
 
   const [phone, setPhone] = useState(
     state.values?.phone ?? "",
@@ -132,6 +150,15 @@ export default function AvailabilityRequestForm({
     ? [invalidPhoneMessage]
     : state.fieldErrors?.phone;
 
+  function handleFormInteraction() {
+    if (availabilityFormStartedRef.current) {
+      return;
+    }
+
+    availabilityFormStartedRef.current = true;
+    trackAvailabilityFormStart({ apartmentSlug });
+  }
+
   function handlePhoneChange(value: string) {
     setPhone(value);
 
@@ -159,6 +186,7 @@ export default function AvailabilityRequestForm({
   return (
     <form
       action={formAction}
+      onInput={handleFormInteraction}
       onSubmit={handleSubmit}
       className="rounded-3xl border border-zinc-200 bg-white p-6 shadow-sm sm:p-8 lg:p-10"
       noValidate

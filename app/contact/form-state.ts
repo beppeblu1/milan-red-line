@@ -19,6 +19,7 @@ import type {
     message?: string;
     fieldErrors?: AvailabilityRequestFieldErrors;
     values?: AvailabilityRequestFormValues;
+    requestSent?: boolean;
   };
   
   export const initialAvailabilityRequestFormState:
