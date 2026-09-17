@@ -1276,6 +1276,44 @@ Always verify the implementation.
 
 ---
 
+## ApartmentContextCard
+
+`ApartmentContextCard` is the shared editorial component used to present apartment recommendations inside guides.
+
+The component is implemented in:
+
+`components/guides/ApartmentContextCard.tsx`
+
+Apartment data is resolved centrally from:
+
+`data/apartments.ts`
+
+The apartment dataset remains the source of truth for apartment content and imagery. In particular, the card uses each apartment's `coverImage` property directly. Guide MDX must not define, duplicate or override apartment cover images.
+
+The component supports two selection modes:
+
+- explicit selection through `slugs`;
+- context-aware selection through `context`.
+
+Only published apartments are eligible for rendering. Explicit selections preserve the requested slug order, while context-aware selections use relevance and apartment priority. The component renders a maximum of three apartments.
+
+Each apartment is rendered as one fully clickable card linking to:
+
+`/apartments/[slug]`
+
+The card uses the apartment cover image above the textual content. Images are rendered through `next/image`, use `object-cover` and a stable `16:7` aspect ratio. The same stacked image-above-text structure is preserved across desktop and mobile layouts.
+
+The textual hierarchy remains:
+
+- apartment name;
+- short description;
+- `View apartment →`.
+
+Image presentation and responsive behaviour belong to the shared component and must not be reproduced or configured inside individual guides.
+
+Changes to apartment cover images should be made only in the central apartment data source so that the Home and Guide System remain aligned.
+
+---
 # Operational Reference
 
 ## Common Operations

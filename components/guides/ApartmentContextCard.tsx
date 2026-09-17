@@ -1,5 +1,6 @@
-﻿import type { ReactNode } from "react";
+﻿import Image from "next/image";
 import Link from "next/link";
+import type { ReactNode } from "react";
 
 import { apartments } from "@/data/apartments";
 import type {
@@ -104,23 +105,34 @@ export default function ApartmentContextCard({
           <Link
             key={apartment.slug}
             href={`/apartments/${apartment.slug}`}
-            className="rounded-xl border border-zinc-200 bg-white p-5 transition hover:border-red-300 hover:shadow-sm focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-red-600"
+            className="overflow-hidden rounded-xl border border-zinc-200 bg-white transition hover:border-red-300 hover:shadow-sm focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-red-600"
           >
-            <span className="block font-semibold text-zinc-900">
-              Apartment {apartment.name}
-            </span>
+            <div className="relative aspect-[16/7] w-full">
+              <Image
+                src={apartment.coverImage}
+                alt={`Apartment ${apartment.name}`}
+                fill
+                sizes="(max-width: 767px) 100vw, 50vw"
+                className="object-cover"
+              />
+            </div>
 
-            <span className="mt-2 block text-sm leading-6 text-zinc-600">
-              {apartment.shortDescription}
-            </span>
+            <div className="flex min-w-0 flex-1 flex-col p-5">
+              <span className="block font-semibold text-zinc-900">
+                Apartment {apartment.name}
+              </span>
 
-            <span className="mt-4 block text-sm font-semibold text-red-600">
-              View apartment →
-            </span>
+              <span className="mt-2 block text-sm leading-6 text-zinc-600">
+                {apartment.shortDescription}
+              </span>
+
+              <span className="mt-4 block text-sm font-semibold text-red-600">
+                View apartment →
+              </span>
+            </div>
           </Link>
         ))}
       </div>
     </aside>
   );
 }
-
