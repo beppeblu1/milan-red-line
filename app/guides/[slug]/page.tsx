@@ -5,6 +5,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
+import GuideApartmentsInlineCTA from "@/components/guides/GuideApartmentsInlineCTA";
 import GuideContentRenderer from "@/components/guides/GuideContentRenderer";
 import GuideSearchShortcut from "@/components/guides/GuideSearchShortcut";
 import PilotGuideLayout from "@/components/guides/PilotGuideLayout";
@@ -85,7 +86,7 @@ export default async function GuidePage({ params }: PageProps) {
         />
       </div>
 
-      <header className="mb-14 border-b border-zinc-200 pb-10">
+      <header className="pb-10">
         <h1 className="max-w-2xl text-3xl font-semibold tracking-tight text-zinc-900 md:text-4xl">
           {guide.metadata.title}
         </h1>
@@ -100,6 +101,8 @@ export default async function GuidePage({ params }: PageProps) {
           </p>
         )}
       </header>
+
+      <GuideApartmentsInlineCTA />
 
       {usesReadingExperiencePilot ? (
         <PilotGuideLayout

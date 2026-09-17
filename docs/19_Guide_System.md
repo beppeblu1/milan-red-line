@@ -540,11 +540,15 @@ Typical examples include:
 
 - Editorial Lead Connector;
 
+- Guide Apartments Inline CTA;
+
 - Related Guides;
 
 - final Call to Action;
 
 - other shared Reading Experience elements.
+
+The Guide Apartments Inline CTA is a permanent shared separator rendered immediately after the guide header. It appears automatically on every guide and links to /#apartments. It is not configured through guide metadata or inserted manually in MDX.
 
 Before manually inserting any reusable component, always verify whether it is already managed automatically by the framework.
 
